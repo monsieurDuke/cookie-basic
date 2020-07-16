@@ -6,7 +6,12 @@ Cookie Basic is a compilation of basic networking tools that are usefull to lear
 <h2>Change Log</h2>
 <p>
 <ul>
-  <li>[12/07/2020]</li>
+  <li>
+    <strong>[12/07/2020]</strong>
+    <p>
+      + Creating first UI and adding importing modules lmao
+    </p>
+  </li>
 <ul>
 </p>
 Meme Enthusiast,<br>
