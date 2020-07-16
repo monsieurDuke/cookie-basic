@@ -82,6 +82,7 @@ def port_scan_proc(host):
 			frmt_query = '{:.3f}'.format(time.time() - go_time)
 			print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
 	except:
+		print('Proccess have been cancled at some point ...')
 		print('Host requires atleast 1 open port for the scanning')
 		print('Also make sure the IP Address is in the correct format')
 
@@ -105,6 +106,7 @@ def network_scan_proc(network):
 		frmt_query = '{:.3f}'.format(time.time() - go_time)
 		print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
 	except:
+		print('Proccess have been cancled at some point ...')
 		print('Network Range requires the prefix to be included')
 		print('Also make sure the Network Range are in the correct format')
 
