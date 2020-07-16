@@ -28,6 +28,7 @@ Cookie Basic is a compilation of basic networking tools that are usefull to lear
         + Changing tools idea from 'SOCKET Scanner' to 'Subnet Finder'<br>
         + Remaking the README.MD file lmao<br>
         + Building : Subnet Finder<br>
+        + Finding on how IP Addressing works lmao
       </p>
   </li>  
 <ul>
