@@ -13,8 +13,12 @@ Cookie Basic is a compilation of basic networking tools that are usefull to lear
         + Building : Port Scanner
       </p>
   </li>
+  <li>
+    <strong>[14/07/2020]</strong>
+      <p>
+        + Improving error message<br>
+        + Improving UI alignment<br>
+        + Finishing Port Scanner
+      </p>
+  </li>  
 <ul>
-<p>
-Meme Enthusiast,<br>
-hpc
-</p>
