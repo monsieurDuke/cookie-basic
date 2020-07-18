@@ -16,6 +16,7 @@ Cookie Basic is a compilation of basic networking tools that are usefull to lear
   <li>
     <strong>[ 15-07-2020 ]</strong>
       <p>
+        + Adding : Port Scanner<br>
         + Improving error message<br>
         + Improving UI alignment<br>
         + Building : Network Scanner<br>
@@ -25,10 +26,19 @@ Cookie Basic is a compilation of basic networking tools that are usefull to lear
   <li>
     <strong>[ 16-07-2020 ]</strong>
       <p>
+        + Adding : Network Scanner<br>
         + Changing tools idea from 'SOCKET Scanner' to 'Subnet Finder'<br>
         + Remaking the README.MD file lmao<br>
         + Building : Subnet Finder<br>
         + Learning on how IP Address works lmao
       </p>
-  </li>  
+  </li>
+  <li>
+    <strong>[ 18-07-2020 ]</strong>
+      <p>
+        + Adding : Subnet Finder (beta)
+        + Trying to implemen try-catch errors lol
+        + Debugging any bugs / logic errors
+      </p>
+  </li>    
 <ul>
