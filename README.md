@@ -36,8 +36,8 @@ Cookie Basic is a compilation of basic networking tools that are usefull to lear
   <li>
     <strong>[ 18-07-2020 ]</strong>
       <p>
-        + Adding : Subnet Finder (beta)
-        + Trying to implemen try-catch errors lol
+        + Adding : Subnet Finder (beta)<br>
+        + Trying to implement try-catch errors lol<br>
         + Debugging any bugs / logic errors
       </p>
   </li>    
