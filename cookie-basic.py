@@ -24,7 +24,7 @@ def menu_display():
 	print('::::.   NAVIGATE FOLLOWING MENU OPTIONS TO IT CORRESSPOND NUMBER   .::::')
 	print('::::::.__________________________________________________________.::::::\n')
 	print('|::    [1] NETWORK SCANNER   [2] PORT SCANNER  [3] SUBNET FINDER     ::|')
-	print('|::    [4] KEY-LOGGER        [5] MAIL BOMBER   [6] LINKDIN HUNTER    ::|')
+	print('|::    [4] DATA-GEN FAKER    [5] MAIL BOMBER   [6] LINKDIN HUNTER    ::|')
 	print('|::    [7] SSH SHELLSHOCK    [8] BRUTE-FORCE   [M] ...               ::|')
 	print('|::    ----------------------------------------------------------    ::|')
 	print('|::                  [C] CLEAR SCREEN  &  [E] EXIT                   ::|')
