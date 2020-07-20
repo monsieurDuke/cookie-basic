@@ -1,7 +1,16 @@
 # cookie-basic
 <h2>Intros</h2>
 <p>
-Cookie Basic is a compilation of basic networking tools that are usefull to learn networking and network security related in a more beginner stance like mee. Cookie Basic still build on Python 3 per these changes.      Hope it can grow to have more tons of tools built-in that are essentials yet beginner-friendly to others.<br>
+  Cookie Basic is a compilation of basic networking tools that are usefull to learn networking and network security related in a more beginner stance like mee. Cookie Basic still build 
+  on Python 3 per these changes. Hope it can  grow to have more tons of tools built-in that are essentials yet beginner-friendly to others.<br>
+</p>
+<h2>Prerequisite</h2>
+<p>
+  Because Cookie Basic is not a stand-alone program, therefore there are some modules that are required in order for the program to run as expected. We also list other requirements that 
+  are related for the program to run properly :<br><br>
+  1) python version: <strong>python3</strong>, in order to avoid stdrr glitch<br>
+  2) privilege needed: <strong>root privilage</strong> ( inclusively for Network Scanner and Port Scanner )<br>
+  3) modules: <a href="https://pypi.org/project/python-nmap/">Nmap</a>, <a href="https://pypi.org/project/clearscreen/">Clear Screen</a>, <a href="https://pypi.org/project/getpass3//">Getpass</a>
 </p>
 <h2>Update Logs</h2>
 <ul>
