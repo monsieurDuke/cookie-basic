@@ -10,7 +10,7 @@
   are related for the program to run properly :<br><br>
   1) python version: <strong>python3</strong>, in order to avoid stdrr glitch<br>
   2) privilege needed: <strong>root privilage</strong> ( inclusively for Network Scanner and Port Scanner )<br>
-  3) modules: <a href="https://pypi.org/project/python-nmap/">Nmap</a>, <a href="https://pypi.org/project/clearscreen/">Clear Screen</a>, <a href="https://pypi.org/project/getpass3//">Getpass</a>
+  3) modules: <a href="https://pypi.org/project/python-nmap/">Nmap</a>, <a href="https://pypi.org/project/clearscreen/">Clear Screen</a>, <a href="https://pypi.org/project/getpass3//">Getpass</a>, <a href="https://pypi.org/project/Faker/">Faker</a>
 </p>
 <h2>Update Logs</h2>
 <ul>
