@@ -28,7 +28,7 @@ def menu_display():
 	print('|::    [4] DATA-GEN FAKER    [5] MAIL BOMBER   [6] LINKDIN HUNTER    ::|')
 	print('|::    [7] SSH SHELLSHOCK    [8] BRUTE-FORCE   [M] ...               ::|')
 	print('|::    ----------------------------------------------------------    ::|')
-	print('|::                  [C] CLEAR SCREEN  &  [E] EXIT                   ::|')
+	print('|::    MENU : [clear] // [exit]                                      ::|')
 	print('________________________________________________________________________\n')
 
 ## User Input
@@ -38,10 +38,10 @@ def menu_display_input():
 
 def sw_case_menu(key):
 	checker = 'false'
-	if key == 'C':
+	if key == 'clear':
 		clear()
 		main_method()
-	elif key == 'E':
+	elif key == 'exit':
 		sys.exit(0)
 	elif key == '1':
 		print('________________________________________________________________________\n')
@@ -54,6 +54,10 @@ def sw_case_menu(key):
 	elif key == '3':
 		print('________________________________________________________________________\n')
 		subnet_finder_proc()
+		print('________________________________________________________________________\n')
+	elif re.search('4', key):
+		print('________________________________________________________________________\n')
+		data_gen_proc(key)
 		print('________________________________________________________________________\n')
 
 ## Port Scanner
@@ -243,6 +247,30 @@ def subnet_finder_proc():
 	except:
 		print('\nIP Address requires the prefix to be included')
 		print('Also make sure the IP Address and the Host are in the correct format')
+
+## Data-Gen Faker
+def data_gen_proc(param):
+	arr_param = re.split('; |, |\ > ', param)
+	if re.search('full-name', arr_param[1]):
+		print('ok letsgo')
+	elif re.search('email-address', arr_param[1]):
+		print('ok letsgo')
+	elif re.search('domain-name', arr_param[1]):
+		print('ok letsgo')
+	elif re.search('full-date', arr_param[1]):
+		print('ok letsgo')
+	elif re.search('phone-number', arr_param[1]):
+		print('ok letsgo')
+	elif re.search('street-address', arr_param[1]):
+		print('ok letsgo')
+	elif re.search('job-position', arr_param[1]):
+		print('ok letsgo')
+	else:
+		print('Invalid argument: %s\n' % arr_param[1])
+		print('| full-name | email-address | domain-name | full-date ')
+		print('| phone_number | street-address | job_position |\n')
+		print('Please input the available argument in the correct format')
+		print('[menu_option] > [argument]')
 
 ## Main Method
 def main_method():
