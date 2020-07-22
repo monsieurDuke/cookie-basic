@@ -1,6 +1,7 @@
 import nmap, datetime, getpass
 import sys, time, decimal, re
 from clear_screen import clear
+from faker import Faker
 
 nmap_sc = nmap.PortScanner()
 curuser = getpass.getuser()
@@ -72,13 +73,14 @@ def port_scan_proc(host):
 		print('Kernel\t: %s' % (nmap_sc[host]['osmatch'][0]['osclass'][0]['cpe']))
 		try:
 			print('Ports\t: %s ports are open, %s not shown\n' % (port_list, str((1000-port_list))))
-			print('   PORTS  STAT\t SERVICE\t VERSION DETAIL')
-			print('   -----  ----\t -------\t --------------')
+			print('   PORTS   STAT\t SERVICE\t   VERSION DETAIL')
+			print('   -----   ----\t -------\t   --------------')
 			for ports in nmap_sc[host]['tcp'].keys():
-				product_detail = '{:<13}'.format((str(nmap_sc[host]['tcp'][ports]['name']).upper() + ' ' + str(nmap_sc[host]['tcp'][ports]['version']))[:13])
+				fm_ports = '{:<6}'.format(ports)
+				product_detail = '{:<15}'.format((str(nmap_sc[host]['tcp'][ports]['name']).upper() + ' ' + str(nmap_sc[host]['tcp'][ports]['version']))[:13])
 				version_detail = '{:<6}'.format((nmap_sc[host]['tcp'][ports]['product'] + ' ' + nmap_sc[host]['tcp'][ports]['extrainfo'])[:38])
 				state_detail   = '{:<3}'.format(str(nmap_sc[host]['tcp'][ports]['state']).upper()[:4])
-				print('|- %s\t  %s\t %s | %s' % (ports, state_detail, product_detail, version_detail))
+				print('|- %s  %s\t %s | %s' % (fm_ports, state_detail, product_detail, version_detail))
 			frmt_query = '{:.3f}'.format(time.time() - go_time)
 			print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
 		except:

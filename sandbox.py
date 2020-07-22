@@ -1,6 +1,6 @@
 from faker import Faker
 from faker.providers import phone_number
-
+import re
 fake_gen = Faker()
 fake_gen.add_provider(phone_number)
 
@@ -36,10 +36,10 @@ for i in range(10):
 print()
 
 for i in range(10):
-	date_gen = '{:<13}'.format(fake_gen.date(pattern='%Y-%m-%d', end_datetime=None))
+	date_gen = '{:<11}'.format(fake_gen.date(pattern='%Y-%m-%d', end_datetime=None))
 	print('|- %s' % (date_gen), end =' ')
 	for i in range(1):
-		date_gen = '{:<13}'.format(fake_gen.date(pattern='%Y-%m-%d', end_datetime=None))
+		date_gen = '{:<11}'.format(fake_gen.date(pattern='%Y-%m-%d', end_datetime=None))
 		print('|- %s' % (date_gen), end =' ')
 		for i in range(1):
 			date_gen = '{:<14}'.format(fake_gen.date(pattern='%Y-%m-%d', end_datetime=None))
@@ -47,21 +47,20 @@ for i in range(10):
 print()
 
 for i in range(10):
-	phone_gen = '{:<25}'.format(fake_gen.phone_number())[:14]
+	phone_gen = '{:<15}'.format(str(fake_gen.phone_number())[:14])
 	print('|- %s' % (phone_gen), end =' ')
 	for i in range(1):
-		phone_gen = '{:<25}'.format(fake_gen.phone_number())[:14]
+		phone_gen = '{:<15}'.format(str(fake_gen.phone_number())[:14])
 		print('|- %s' % (phone_gen), end =' ')
 		for i in range(1):
-			phone_gen = '{:<13}'.format(fake_gen.phone_number())[:14]
+			phone_gen = '{:<15}'.format(fake_gen.phone_number())[:14]
 			print('|- %s' % (phone_gen))
 print()
 
-for i in range(5):
+for i in range(10):
 	add_gen = '{:<20}'.format(fake_gen.address())
-	if i > 0:
-		print()
-	print('Address:\n'+add_gen)
+	arr_add = re.split('; |, |\n', add_gen)
+	print('|- '+arr_add[0]+', '+arr_add[1])
 print()
 
 for i in range(10):
