@@ -1,29 +1,34 @@
 import smtplib
+import sys
+import time
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-mail_content = "Aku Snowy dalam Kandang. Aku mau bobo ^.^"
+mail_content = "Halo Mamah,\nSelamat Malam\n\naku menyampaikan pesan ini karena aku mau bowbow. Dadah\n\nBlack Ice"
 
-#The mail addresses and password
-sender_address = 'hotpotcookie@gmail.com'
-sender_pass = 'qagkppbjvmohmpzs'
-receiver_address = '082125337746'
+sender_address   = 'icatmuhammad3@gmail.com'
+sender_pass      = 'wuooppacgpugsups'
+receiver_address = 'icatmuhammad2@gmail.com'
 
 #Setup the MIME
 message = MIMEMultipart()
 message['From'] = sender_address
 message['To'] = receiver_address
-message['Subject'] = 'Dari Snowy - The Black Ice'
+message['Subject'] = 'Pesan dari Snowy, The Black Ice'
 
 #The body and the attachments for the mail
 message.attach(MIMEText(mail_content, 'plain'))
 
 #Create SMTP session for sending the mail
-session = smtplib.SMTP('smtp.gmail.com', 587) #use gmail with port
-session.starttls() #enable security
-session.login(sender_address, sender_pass) #login with mail_id and password
+session = smtplib.SMTP('smtp.gmail.com', 587)
+session.starttls()
+session.login(sender_address, sender_pass)
 text = message.as_string()
-session.sendmail(sender_address, receiver_address, text)
+
+for email in range(5000):
+	session.sendmail(sender_address, receiver_address, text)
+	print('Mail Sent [%s]' % (email+1))
+	time.sleep(0.5)
+time.sleep(60)
 session.quit()
 
-print('Mail Sent')
