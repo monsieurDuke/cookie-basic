@@ -20,15 +20,15 @@ def header():
 	print('|::.. . |::.. . |::.. . |::.| .  |::.|::.. . |   ' + str(getdate).upper())
 	print("`-------`-------`-------`--- ---'`---`-------'   " + str(gettime).upper())
 	print('________________________________________________________________________\n')
-
-def menu_display():
 	print('::::.   NAVIGATE FOLLOWING MENU OPTIONS TO IT CORRESSPOND NUMBER   .::::')
 	print('::::::.__________________________________________________________.::::::\n')
+
+def menu_display():
 	print('|::    [1] NETWORK SCANNER   [2] PORT SCANNER  [3] SUBNET FINDER     ::|')
 	print('|::    [4] DATA-GEN FAKER    [5] MAIL BOMBER   [6] LINKDIN HUNTER    ::|')
 	print('|::    [7] SSH SHELLSHOCK    [8] BRUTE-FORCE   [M] ...               ::|')
 	print('|::    ----------------------------------------------------------    ::|')
-	print('|::    MENU : [clear] // [exit]                                      ::|')
+	print('|::    OPTION : [clear] // [menu] // [home] // [exit]                ::|')
 	print('________________________________________________________________________\n')
 
 ## User Input
@@ -40,7 +40,12 @@ def sw_case_menu(key):
 	checker = 'false'
 	if key == 'clear':
 		clear()
+	elif key == 'home':
+		clear()
 		main_method()
+	elif key == 'menu':
+		print('________________________________________________________________________\n')
+		menu_display()
 	elif key == 'exit':
 		sys.exit(0)
 	elif key == '1':
