@@ -1,10 +1,14 @@
 from faker import Faker
 from faker.providers import phone_number
 import re
-fake_gen = Faker()
-fake_gen.add_provider(phone_number)
+fake_gen = Faker(['it_IT', 'ja_JP', 'cs_CZ', 'de_DE', 'es_ES', 'hi_IN', 'hr_HR', 'ar_SA', 'el_GR', 'tr_TR'])
 
 #product_detail = '{:<13}'.format((str(
+for i in range(10):
+	text_gen = str(fake_gen.text())[:15]
+	print('|- %s' % (text_gen))
+print()
+
 for i in range(10):
 	name_gen = '{:<21}'.format(fake_gen.name())
 	print('|- %s' % (name_gen), end =' ')
