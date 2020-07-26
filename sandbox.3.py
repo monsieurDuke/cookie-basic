@@ -2,7 +2,11 @@ import time
 import sys
 from clear_screen import clear
 
-clear()
+#clear()
+open_json    = open("setting.json", "r")
+str_json     = open_json.read()
+print(str_json)
+
 total_mail   = int(input('amount of emails : '))
 sub_loop     = int(total_mail/55)
 interval     = total_mail/55

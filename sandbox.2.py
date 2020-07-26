@@ -3,13 +3,22 @@ import sys
 #from tqdm import tqdm
 #from tqdm import trange
 import time
+import re
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
+open_json = open("setting.json", "r")
+str_json  = open_json.read()
+arr_json  = re.split('; |, |\\n', str_json)
+get_gmailaddr = re.split('; |, |\"', str(arr_json[0]))
+get_gmailpass = re.split('; |, |\"', str(arr_json[1]))
+print(arr_json)
+print('%s : %s' % (get_gmailaddr[1], get_gmailpass[1]))
+
 mail_content = "Halo Mamah,\nSelamat Malam\n\naku menyampaikan pesan ini karena aku mau bowbow. Dadah\n\nBlack Ice"
 
-sender_address   = 'icatmuhammad3@gmail.com'
-sender_pass      = 'wuooppacgpugsups'
+sender_address   = get_gmailaddr[1]
+sender_pass      = get_gmailpass[1]
 receiver_address = 'icatmuhammad2@gmail.com'
 
 #Setup the MIME
@@ -42,14 +51,14 @@ for i in range(55):
 		for j in range(1):
 			if counter <= total_mail:
 				session.sendmail(sender_address, receiver_address, text)
-				print('mail sent : %s' % (counter))
+				#print('mail sent : %s' % (counter))
 				counter += 1
 				time.sleep(0.3)
 	else:
 		for j in range(sub_loop*2):
 			if counter <= total_mail:
 				session.sendmail(sender_address, receiver_address, text)
-				print('mail sent : %s' % (counter))
+				#print('mail sent : %s' % (counter))
 				counter += 1
 				time.sleep(0.3)
 	prog = ':'

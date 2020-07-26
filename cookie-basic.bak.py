@@ -1,6 +1,7 @@
 import nmap, datetime, getpass
 import sys, time, decimal, re
 from clear_screen import clear
+from faker import Faker
 
 nmap_sc = nmap.PortScanner()
 curuser = getpass.getuser()
@@ -19,15 +20,15 @@ def header():
 	print('|::.. . |::.. . |::.. . |::.| .  |::.|::.. . |   ' + str(getdate).upper())
 	print("`-------`-------`-------`--- ---'`---`-------'   " + str(gettime).upper())
 	print('________________________________________________________________________\n')
-
-def menu_display():
 	print('::::.   NAVIGATE FOLLOWING MENU OPTIONS TO IT CORRESSPOND NUMBER   .::::')
 	print('::::::.__________________________________________________________.::::::\n')
+
+def menu_display():
 	print('|::    [1] NETWORK SCANNER   [2] PORT SCANNER  [3] SUBNET FINDER     ::|')
-	print('|::    [4] KEY-LOGGER        [5] MAIL BOMBER   [6] LINKDIN HUNTER    ::|')
+	print('|::    [4] DATA-GEN FAKER    [5] MAIL BOMBER   [6] LINKDIN HUNTER    ::|')
 	print('|::    [7] SSH SHELLSHOCK    [8] BRUTE-FORCE   [M] ...               ::|')
 	print('|::    ----------------------------------------------------------    ::|')
-	print('|::                  [C] CLEAR SCREEN  &  [E] EXIT                   ::|')
+	print('|::    OPTION : [clear] // [menu] // [home] // [exit]                ::|')
 	print('________________________________________________________________________\n')
 
 ## User Input
@@ -37,10 +38,15 @@ def menu_display_input():
 
 def sw_case_menu(key):
 	checker = 'false'
-	if key == 'C':
+	if key == 'clear':
+		clear()
+	elif key == 'home':
 		clear()
 		main_method()
-	elif key == 'E':
+	elif key == 'menu':
+		print('________________________________________________________________________\n')
+		menu_display()
+	elif key == 'exit':
 		sys.exit(0)
 	elif key == '1':
 		print('________________________________________________________________________\n')
@@ -53,6 +59,10 @@ def sw_case_menu(key):
 	elif key == '3':
 		print('________________________________________________________________________\n')
 		subnet_finder_proc()
+		print('________________________________________________________________________\n')
+	elif re.search('4', key):
+		print('________________________________________________________________________\n')
+		data_gen_proc(key)
 		print('________________________________________________________________________\n')
 
 ## Port Scanner
@@ -72,13 +82,14 @@ def port_scan_proc(host):
 		print('Kernel\t: %s' % (nmap_sc[host]['osmatch'][0]['osclass'][0]['cpe']))
 		try:
 			print('Ports\t: %s ports are open, %s not shown\n' % (port_list, str((1000-port_list))))
-			print('   PORTS  STAT\t SERVICE\t VERSION DETAIL')
-			print('   -----  ----\t -------\t --------------')
+			print('   PORTS   STAT\t SERVICE\t  VERSION DETAIL')
+			print('   -----   ----\t -------\t  --------------')
 			for ports in nmap_sc[host]['tcp'].keys():
-				product_detail = '{:<13}'.format((str(nmap_sc[host]['tcp'][ports]['name']).upper() + ' ' + str(nmap_sc[host]['tcp'][ports]['version']))[:13])
+				fm_ports = '{:<6}'.format(ports)
+				product_detail = '{:<14}'.format((str(nmap_sc[host]['tcp'][ports]['name']).upper() + ' ' + str(nmap_sc[host]['tcp'][ports]['version']))[:13])
 				version_detail = '{:<6}'.format((nmap_sc[host]['tcp'][ports]['product'] + ' ' + nmap_sc[host]['tcp'][ports]['extrainfo'])[:38])
 				state_detail   = '{:<3}'.format(str(nmap_sc[host]['tcp'][ports]['state']).upper()[:4])
-				print('|- %s\t  %s\t %s | %s' % (ports, state_detail, product_detail, version_detail))
+				print('|- %s  %s\t %s | %s' % (fm_ports, state_detail, product_detail, version_detail))
 			frmt_query = '{:.3f}'.format(time.time() - go_time)
 			print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
 		except:
@@ -117,8 +128,9 @@ def subnet_finder_proc():
 	try:
 		netmask = [255,255,255,255]
 		default = [0,0,0,0]
-		ip   = input("IP Address / Prefix\t: ")
-		host = int(input("Total Required Hosts\t: "))
+		ip      = input("IP Address / Prefix\t: ")
+		host    = int(input("Total Required Hosts\t: "))
+		go_time = time.time()
 		##section 1
 		calculated_prefix = 0
 		power_user_prefix = 0
@@ -238,9 +250,154 @@ def subnet_finder_proc():
 		print('Wildcard Mask\t\t: %s.%s.%s.%s' % (new_wildcard[0],new_wildcard[1],new_wildcard[2],new_wildcard[3]))
 		print('8-bit notation\t\t: %s.%s' % (new_wildcard_bin[0],new_wildcard_bin[1]))
 		print('\t\t\t  %s.%s' % (new_wildcard_bin[2],new_wildcard_bin[3]))
+		frmt_query = '{:.3f}'.format(time.time() - go_time)
+		print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
 	except:
 		print('\nIP Address requires the prefix to be included')
 		print('Also make sure the IP Address and the Host are in the correct format')
+
+## Data-Gen Faker
+def data_gen_proc(param):
+	try:
+		arr_param = re.split('; |, |\ > ', param)
+		if re.search('full-name', arr_param[1]):
+			fake_name()
+		elif re.search('email-address', arr_param[1]):
+			fake_email()
+		elif re.search('domain-name', arr_param[1]):
+			fake_domain()
+		elif re.search('full-date', arr_param[1]):
+			fake_date()
+		elif re.search('phone-number', arr_param[1]):
+			fake_phone()
+		elif re.search('street-address', arr_param[1]):
+			fake_street()
+		elif re.search('job-position', arr_param[1]):
+			fake_job()
+		else:
+			print('Invalid argument: %s\n' % arr_param[1])
+			print('| full-name | email-address | domain-name | full-date ')
+			print('| phone_number | street-address | job_position |\n')
+			print('Please input the available argument in the correct format')
+			print('[menu_option] > [argument]')
+	except:
+			print('Invalid argument: %s\n' % param)
+			print('| full-name | email-address | domain-name | full-date ')
+			print('| phone_number | street-address | job_position |\n')
+			print('Please input the available argument in the correct format')
+			print('[menu_option] > [argument]')
+
+def fake_name():
+	fake_gen = Faker()
+	go_time  = time.time()
+	print('Initializing Faker ...')
+	print('Generating: full-name (30) ...\n')
+	for i in range(10):
+	        name_gen = '{:<21}'.format(fake_gen.name())
+	        print('|- %s' % (name_gen), end =' ')
+	        for i in range(1):
+	                name_gen = '{:<21}'.format(fake_gen.name())
+	                print('|- %s' % (name_gen), end =' ')
+	                for i in range(1):
+	                        name_gen = '{:<23}'.format(fake_gen.name())
+	                        print('|- %s' % (name_gen))
+
+	frmt_query = '{:.3f}'.format(time.time() - go_time)
+	print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
+
+def fake_email():
+	fake_gen = Faker()
+	go_time  = time.time()
+	print('Initializing Faker ...')
+	print('Generating: email-address (20) ...\n')
+	for i in range(10):
+	        email_gen = '{:<34}'.format(fake_gen.email())
+	        print('|- %s' % (email_gen), end =' ')
+	        for i in range(1):
+	                email_gen = '{:<26}'.format(fake_gen.email())
+	                print('|- %s' % (email_gen))
+
+	frmt_query = '{:.3f}'.format(time.time() - go_time)
+	print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
+
+def fake_domain():
+	fake_gen = Faker()
+	go_time  = time.time()
+	print('Initializing Faker ...')
+	print('Generating: domain-address (30) ...\n')
+	for i in range(10):
+	        domain_gen = '{:<21}'.format(fake_gen.domain_name())
+	        print('|- %s' % (domain_gen), end =' ')
+	        for i in range(1):
+	                domain_gen = '{:<21}'.format(fake_gen.domain_name())
+	                print('|- %s' % (domain_gen), end =' ')
+	                for i in range(1):
+	                        domain_gen = '{:<21}'.format(fake_gen.domain_name())
+	                        print('|- %s' % (domain_gen))
+
+	frmt_query = '{:.3f}'.format(time.time() - go_time)
+	print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
+
+def fake_date():
+	fake_gen = Faker()
+	go_time  = time.time()
+	print('Initializing Faker ...')
+	print('Generating: full-date (30) ...\n')
+	for i in range(10):
+	        domain_gen = '{:<21}'.format(fake_gen.domain_name())
+	        print('|- %s' % (domain_gen), end =' ')
+	        for i in range(1):
+	                domain_gen = '{:<21}'.format(fake_gen.domain_name())
+	                print('|- %s' % (domain_gen), end =' ')
+	                for i in range(1):
+	                        domain_gen = '{:<21}'.format(fake_gen.domain_name())
+	                        print('|- %s' % (domain_gen))
+
+	frmt_query = '{:.3f}'.format(time.time() - go_time)
+	print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
+
+def fake_phone():
+	fake_gen = Faker()
+	go_time  = time.time()
+	print('Initializing Faker ...')
+	print('Generating: phone-number (30) ...\n')
+	for i in range(10):
+	        phone_gen = '{:<15}'.format(str(fake_gen.phone_number())[:14])
+	        print('|- %s' % (phone_gen), end =' ')
+	        for i in range(1):
+	                phone_gen = '{:<15}'.format(str(fake_gen.phone_number())[:14])
+	                print('|- %s' % (phone_gen), end =' ')
+	                for i in range(1):
+	                        phone_gen = '{:<15}'.format(fake_gen.phone_number())[:14]
+	                        print('|- %s' % (phone_gen))
+
+	frmt_query = '{:.3f}'.format(time.time() - go_time)
+	print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
+
+def fake_street():
+	fake_gen = Faker()
+	go_time  = time.time()
+	print('Initializing Faker ...')
+	print('Generating: street-address (10) ...\n')
+	for i in range(10):
+	        add_gen = '{:<20}'.format(fake_gen.address())
+	        arr_add = re.split('; |, |\n', add_gen)
+	        print('|- '+arr_add[0]+', '+arr_add[1])
+
+	frmt_query = '{:.3f}'.format(time.time() - go_time)
+	print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
+
+def fake_job():
+	fake_gen = Faker()
+	go_time  = time.time()
+	print('Initializing Faker ...')
+	print('Generating: job-position (10) ...\n')
+	for i in range(10):
+	        job_gen = '{:<30}'.format(fake_gen.job())
+	        print('|- %s' % (job_gen))
+
+	frmt_query = '{:.3f}'.format(time.time() - go_time)
+	print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
 
 ## Main Method
 def main_method():

