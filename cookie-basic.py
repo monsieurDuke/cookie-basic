@@ -10,6 +10,19 @@ from email.mime.text import MIMEText
 nmap_sc = nmap.PortScanner()
 curuser = getpass.getuser()
 
+## Bug Logger
+def bug_logger_proc(menu):
+    curdate = datetime.datetime.now()
+    getdate = curdate.strftime('%d/%m/%Y')
+    gettime = curdate.strftime('%I:%M:%S %p')
+    error_info = str(sys.exc_info()[1])
+    if error_info == '':
+        error_info = 'action have been cancled manually by user (ctrl + c)'
+    error_frm  = '[%s %s] (%s) ERROR: %s\n' % (getdate, gettime, menu, error_info)
+    logs = open('buglogger.log', 'a')
+    logs.write(error_frm)
+    logs.close()    
+    
 ## Main Display
 def header():
 	clear()
@@ -104,9 +117,11 @@ def port_scan_proc(host):
 			print('It seems that host doesn have any relevant services')
 			frmt_query = '{:.3f}'.format(time.time() - go_time)
 			print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
+			bug_logger_proc('PS')
 	except:
 		print('Host requires atleast 1 open port for the scanning')
 		print('Also make sure the IP Address is in the correct format')
+		bug_logger_proc('PS')
 
 ## Network Scanner
 def network_scan_input():
@@ -130,6 +145,7 @@ def network_scan_proc(network):
 	except:
 		print('Network Range requires the prefix to be included')
 		print('Also make sure the Network Range are in the correct format')
+		bug_logger_proc('NS')
 
 ## Subnet Finder
 def subnet_finder_proc():
@@ -263,6 +279,7 @@ def subnet_finder_proc():
 	except:
 		print('\nIP Address requires the prefix to be included')
 		print('Also make sure the IP Address and the Host are in the correct format')
+		bug_logger_proc('SF')
 
 ## Data-Gen Faker
 def data_gen_proc(param):
@@ -294,6 +311,7 @@ def data_gen_proc(param):
 			print('| phone_number | street-address | job_position |\n')
 			print('Please input the available argument in the correct format')
 			print('[menu_option] > [argument]')
+			bug_logger_proc('DF')
 
 def fake_name():
 	fake_gen = Faker()
@@ -409,17 +427,21 @@ def fake_job():
 
 ## Mail Bomber
 def mail_maker(gmail_addr, gmail_pass, target_addr, subject, body):
-	sender_addr   = gmail_pass
-	receiver_addr = target_addr
-	message = MIMEMultipart()
-	message['From'] = sender_addr
-	message['To']   = receiver_addr
-	message['Subject'] = subject
-	mail_content = body
-	message.attach(MIMEText(mail_content, 'plain'))
-	text = message.as_string()
-	return text
-
+    try:
+    	sender_addr   = gmail_pass
+    	receiver_addr = target_addr
+    	message = MIMEMultipart()
+    	message['From'] = sender_addr
+    	message['To']   = receiver_addr
+    	message['Subject'] = subject
+    	mail_content = body
+    	message.attach(MIMEText(mail_content, 'plain'))
+    	text = message.as_string()
+    	return text
+    except:
+        print('Error have been occured due to the process of making the mail')
+        print('Please confirm and verify the settings on setting.json')
+        bug_logger_proc('MB')
 def mail_bomber_proc():
 	try:
 		fake_text = Faker(['it_IT', 'ja_JP', 'cs_CZ', 'de_DE', 'es_ES', 'hi_IN', 'hr_HR', 'ar_SA', 'el_GR', 'tr_TR'])
@@ -526,8 +548,13 @@ def mail_bomber_proc():
 		print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
 	except:
 		err_i = str(sys.exc_info()[1]) + ' ...)'
-		print('\n\nIt seems the connection have been refused')
-		print('Error : %s' % err_i)
+		print('\n\nIt seems the connection got refused from the service or by the user')
+		print('Check out buglogger.log for more detail about this current event')
+		bug_logger_proc('BM')
+
+## Bug Logger
+#def bug_logg_proc():
+
 
 ## Main Method
 def main_method():
