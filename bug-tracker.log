@@ -3,3 +3,5 @@
 [29/07/2020 07:35:25 PM] (BM) ERROR: action have been cancled manually by user (ctrl + c)
 [29/07/2020 07:36:18 PM] (BM) ERROR: action have been cancled manually by user (ctrl + c)
 [30/07/2020 06:23:20 AM] (NS) ERROR: action have been cancled manually by user (ctrl + c)
+[31/07/2020 09:15:43 PM] (BM) ERROR: (421, b'4.7.0 Try again later, closing connection. (MAIL) u26sm10217428pgo.71 - gsmtp', 'icatmuhammad3@gmail.com')
+[31/07/2020 09:20:22 PM] (BM) ERROR: (421, b'4.7.0 Try again later, closing connection. (MAIL) w70sm9894644pfc.98 - gsmtp', 'icatmuhammad3@gmail.com')
