@@ -5,3 +5,5 @@
 [30/07/2020 06:23:20 AM] (NS) ERROR: action have been cancled manually by user (ctrl + c)
 [31/07/2020 09:15:43 PM] (BM) ERROR: (421, b'4.7.0 Try again later, closing connection. (MAIL) u26sm10217428pgo.71 - gsmtp', 'icatmuhammad3@gmail.com')
 [31/07/2020 09:20:22 PM] (BM) ERROR: (421, b'4.7.0 Try again later, closing connection. (MAIL) w70sm9894644pfc.98 - gsmtp', 'icatmuhammad3@gmail.com')
+[01/08/2020 11:30:16 PM] (CR) ERROR: [Errno 2] No such file or directory: '/home/aw'
+[01/08/2020 11:47:51 PM] (CR) ERROR: [Errno 2] No such file or directory: '/home/cookie/Sandbox/Cookie-Basic/cipher/my-dairy.txt'

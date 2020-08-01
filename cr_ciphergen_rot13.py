@@ -1,0 +1,147 @@
+import hashlib
+import binascii
+import re
+import time
+import os
+from Crypto.PublicKey import RSA
+from Crypto.Cipher import PKCS1_OAEP
+
+
+class CipherROT13:
+
+    def str_to_char(self, text):
+        return [char for char in text]
+
+    def cipher_gen_rot13_proc(self):
+        file_path =  input('FUll path of source : ')
+        cipher_act = input('Action of cipher    : ')
+
+        file_ext = re.split('; |, |\/', file_path)
+        name_file = file_ext[len(file_ext)-1]
+        read_plain = open(file_path, 'r')
+        plain_str = read_plain.read()
+        read_plain.close()
+
+        read_rot13key = open('/home/cookie/Sandbox/Cookie-Basic/cipher/cipher-rot13.key', 'r')
+        rot13_str = read_rot13key.read()
+        read_rot13key.close()
+
+        plain_char = self.str_to_char(plain_str)
+        cipher_char = [None]*len(plain_char)
+        uncipher_char = [None]*len(cipher_char)
+        cipher_str = ''
+        uncipher_str = ''
+        get_final = ''
+
+        rot13_enc = (self.str_to_char(rot13_str))*2
+        count_len = len(rot13_enc)
+        rot13_dec = [None]*count_len
+        passer = count_len
+
+        check_opt = False
+
+        for i in range(len(rot13_enc)):
+            rot13_dec[i] = rot13_enc[passer-1]
+            if passer > 0:
+                passer -= 1
+
+        go_time = time.time()
+
+        if cipher_act == 'encrypt':
+            get_final = self.rot13_encypt(plain_char, rot13_enc, cipher_char, cipher_str, file_path)
+            check_opt = True
+        if cipher_act == 'decrypt':
+            get_final = self.rot13_decrypt(plain_char, rot13_enc, rot13_dec, uncipher_char, uncipher_str, file_path)
+            check_opt = True
+
+        if check_opt:
+            frmt_query = '{:.3f}'.format(time.time() - go_time)
+            get_result = re.split('; |, |\#', get_final)
+            print("\nCipher successfully saved as '%s'" % get_result[len(get_result)-1])
+            print("Cipher with the 'reverse' extensions means it's in the reverse order")
+            print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
+        else:
+            print("\nThe only valid arguments for the process are 'encrypt' and 'decrypt'")
+            print('Please verify what the action needed to do with the source file')
+
+    # encrypting the plain text
+    def rot13_encypt(self, plain_char, rot13_enc, cipher_char, cipher_str, file_path):
+        dir_path  = str(os.getcwd())+'/cipher/'
+        print('\nDestination path : %s' % dir_path)
+        for i in range(len(plain_char)):
+            for j in range(len(rot13_enc)):
+                if plain_char[i] == rot13_enc[j]:
+                    cipher_char[i] = rot13_enc[j+13]
+                    cipher_str += cipher_char[i]
+                    break
+
+        file_ext = re.split('; |, |\/', file_path)
+        name_file = file_ext[len(file_ext)-1]
+        pure_file = name_file+'.encrypt.r13'
+        file_path = ''
+
+        if re.search('encrypt', name_file):
+            try:
+                get_pure = re.split('; |, |\.encrypt.', name_file)
+                pure_file = get_pure[0]+'.encrypt.r13'
+            except:
+                pure_file = get_pure[0]+'.encrypt.r13'
+            if re.search('reverse', name_file):
+                pure_file += '.reverse'
+        if re.search('decrypt', name_file):
+            try:
+                get_pure = re.split('; |, |\.decrypt.', name_file)
+                pure_file = get_pure[0]+'.encrypt.r13'
+            except:
+                pure_file = name_file+'.encrypt.r13'
+            if re.search('reverse', name_file):
+                pure_file += '.reverse'
+
+        file_path = dir_path+''+pure_file
+
+        print('Destination file : '+pure_file)
+        print('Origin file      : '+name_file)
+        write_cipher = open(file_path, 'w')
+        write_cipher.write(cipher_str)
+        write_cipher.close()
+        return cipher_str+'#'+pure_file
+
+    # decrypting the plain text
+    def rot13_decrypt(self, cipher_char, rot13_enc, rot13_dec, uncipher_char, uncipher_str, file_path):
+        dir_path  = str(os.getcwd())+'/cipher/'
+        print('\nDestination path : %s' % dir_path)
+        for i in range(len(cipher_char)):
+            for j in range(len(rot13_enc)):
+                if cipher_char[i] == rot13_dec[j]:
+                    uncipher_char[i] = rot13_dec[j+13]
+                    uncipher_str += uncipher_char[i]
+                    break
+
+        file_ext = re.split('; |, |\/', file_path)
+        name_file = file_ext[len(file_ext)-1]
+        pure_file = name_file+'.decrypt.r13.reverse'
+        file_path = ''
+
+        if re.search('encrypt', name_file):
+            try:
+                get_pure = re.split('; |, |\.encrypt.', name_file)
+                pure_file = get_pure[0]+'.decrypt.r13'
+            except:
+                pure_file = name_file+'.decrypt.r13'
+        if re.search('decrypt', name_file):
+            try:
+                get_pure = re.split('; |, |\.decrypt.', name_file)
+                pure_file = get_pure[0]+'.decrypt.r13'
+            except:
+                pure_file = name_file+'.decrypt.r13'
+            if re.search('reverse', name_file):
+                pure_file += '.reverse'
+
+        file_path = dir_path+''+pure_file
+
+        print('Destination file : '+pure_file)
+        print('Origin file      : '+name_file)
+        write_cipher = open(file_path, 'w')
+        write_cipher.write(uncipher_str)
+        write_cipher.close()
+        return uncipher_str+'#'+pure_file

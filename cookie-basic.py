@@ -1,14 +1,20 @@
 import nmap, datetime, getpass
 import sys, time, decimal, re
 import smtplib
+
 from zipfile import ZipFile
 from clear_screen import clear
 from faker import Faker
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-nmap_sc = nmap.PortScanner()
-curuser = getpass.getuser()
+from bug_logger import BugLogger
+from cr_ciphergen_rot13 import CipherROT13
+
+nmap_sc    = nmap.PortScanner()
+curuser    = getpass.getuser()
+bug_logger = BugLogger()
+cipher_r13 = CipherROT13()
 
 ## Bug Logger
 def bug_logger_proc(menu):
@@ -21,8 +27,8 @@ def bug_logger_proc(menu):
     error_frm  = '[%s %s] (%s) ERROR: %s\n' % (getdate, gettime, menu, error_info)
     logs = open('bug-tracker.log', 'a')
     logs.write(error_frm)
-    logs.close()    
-    
+    logs.close()
+
 ## Main Display
 def header():
 	clear()
@@ -42,8 +48,8 @@ def header():
 
 def menu_display():
 	print('|::    [1] NETWORK SCANNER   [2] PORT SCANNER  [3] SUBNET FINDER     ::|')
-	print('|::    [4] DATA-GEN FAKER    [5] MAIL BOMBER   [6] CIPHER-GEN        ::|')
-	print('|::    [7] SSH SHELLSHOCK    [8] BRUTE-FORCE   [M] ...               ::|')
+	print('|::    [4] DATA-GEN FAKER    [5] MAIL BOMBER   [6] CIPHER-GEN ROT13  ::|')
+	print('|::    [7] CIPHER-GEN RSA    [8] BRUTE-FORCE   [M] ...               ::|')
 	print('|::    ----------------------------------------------------------    ::|')
 	print('|::    OPTION : [clear] // [menu] // [home] // [exit]                ::|')
 	print('________________________________________________________________________\n')
@@ -84,6 +90,15 @@ def sw_case_menu(key):
 	elif key == '5':
 		print('________________________________________________________________________\n')
 		mail_bomber_proc()
+		print('________________________________________________________________________\n')
+	elif key == '6':
+		print('________________________________________________________________________\n')
+		try:
+			cipher_r13.cipher_gen_rot13_proc()
+		except:
+			print("\nPlease verify the source file name and it's path in a correct manner")
+			print('Check out bug-tracker.log for more detail about this current event')
+			bug_logger.bug_logger_proc('CR')
 		print('________________________________________________________________________\n')
 
 ## Port Scanner

@@ -42,8 +42,8 @@ def header():
 
 def menu_display():
 	print('|::    [1] NETWORK SCANNER   [2] PORT SCANNER  [3] SUBNET FINDER     ::|')
-	print('|::    [4] DATA-GEN FAKER    [5] MAIL BOMBER   [6] CIPHER-GEN        ::|')
-	print('|::    [7] SSH SHELLSHOCK    [8] BRUTE-FORCE   [M] ...               ::|')
+	print('|::    [4] DATA-GEN FAKER    [5] MAIL BOMBER   [6] CIPHER-GEN ROT13  ::|')
+	print('|::    [7] CIPHER-GEN RSA    [8] BRUTE-FORCE   [M] ...               ::|')
 	print('|::    ----------------------------------------------------------    ::|')
 	print('|::    OPTION : [clear] // [menu] // [home] // [exit]                ::|')
 	print('________________________________________________________________________\n')
