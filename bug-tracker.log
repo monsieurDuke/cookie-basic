@@ -7,3 +7,14 @@
 [31/07/2020 09:20:22 PM] (BM) ERROR: (421, b'4.7.0 Try again later, closing connection. (MAIL) w70sm9894644pfc.98 - gsmtp', 'icatmuhammad3@gmail.com')
 [01/08/2020 11:30:16 PM] (CR) ERROR: [Errno 2] No such file or directory: '/home/aw'
 [01/08/2020 11:47:51 PM] (CR) ERROR: [Errno 2] No such file or directory: '/home/cookie/Sandbox/Cookie-Basic/cipher/my-dairy.txt'
+[02/08/2020 10:39:19 AM] (NS) ERROR: unsupported format character 'S' (0x53) at index 32
+[02/08/2020 10:47:14 AM] (PS) ERROR: 'tcp'
+[02/08/2020 10:48:41 AM] (PS) ERROR: '192.168.1.4'
+[02/08/2020 11:07:26 AM] (NS) ERROR: name 'bug_logger' is not defined
+[02/08/2020 11:10:20 AM] (NS) ERROR: name 'bug_logger' is not defined
+[02/08/2020 11:11:55 AM] (NS) ERROR: list index out of range
+[02/08/2020 11:12:31 AM] (NS) ERROR: action have been manually cancled by user (ctrl + c)
+[02/08/2020 11:12:42 AM] (NS) ERROR: list index out of range
+[02/08/2020 11:13:38 AM] (NS) ERROR: list index out of range
+[02/08/2020 11:24:08 AM] (CR) ERROR: [Errno 2] No such file or directory: '/awdawda/awd'
+[02/08/2020 10:56:43 PM] (NS) ERROR: list index out of range

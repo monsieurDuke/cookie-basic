@@ -1,6 +1,6 @@
 import nmap, datetime, getpass
 import sys, time, decimal, re
-import smtplib
+import smtplib, os
 
 from zipfile import ZipFile
 from clear_screen import clear
@@ -10,11 +10,13 @@ from email.mime.text import MIMEText
 
 from bug_logger import BugLogger
 from cr_ciphergen_rot13 import CipherROT13
+from ns_network_scanner import NetworkScanner
 
 nmap_sc    = nmap.PortScanner()
 curuser    = getpass.getuser()
 bug_logger = BugLogger()
 cipher_r13 = CipherROT13()
+net_scan   = NetworkScanner()
 
 ## Bug Logger
 def bug_logger_proc(menu):
@@ -32,9 +34,17 @@ def bug_logger_proc(menu):
 ## Main Display
 def header():
 	clear()
+	row, columns = os.popen('stty size', 'r').read().split()
+	line_und  = ['_']*(int(columns))
+	line_u    = ''.join(map(str, line_und))
+	line_hint = ['_']*(int(columns)-14)
+	line_h    = ''.join(map(str, line_hint))
+
+	#print(row+' x '+columns)
+
 	curdate = datetime.datetime.now()
 	getdate = curdate.strftime('%A, %d %b %Y')
-	gettime = curdate.strftime('%I:%M:%S %p') + ' | v.1.2.1'
+	gettime = curdate.strftime('%I:%M:%S %p') + ' | v.3.2.1'
 	print('_______ _______ _______ ___ ___  ___ _______ __                __       ')
 	print('|   _   |   _   |   _   |   Y   )|   |   _   |  |--.---.-.-----|__.----.')
 	print('|.  1___|.  |   |.  |   |.  1  / |.  |.  1___|  _  |  _  |__ --|  |  __|')
@@ -42,24 +52,38 @@ def header():
 	print('|:  1   |:  1   |:  1   |:  |   \|:  |:  1   |                          ')
 	print('|::.. . |::.. . |::.. . |::.| .  |::.|::.. . |   ' + str(getdate).upper())
 	print("`-------`-------`-------`--- ---'`---`-------'   " + str(gettime).upper())
-	print('________________________________________________________________________\n')
-	print('::::.   NAVIGATE FOLLOWING MENU OPTIONS TO IT CORRESSPOND NUMBER   .::::')
-	print('::::::.__________________________________________________________.::::::\n')
+	print(line_u)
+	#print(hint)
+	print(line_u+'\n')
 
 def menu_display():
-	print('|::    [1] NETWORK SCANNER   [2] PORT SCANNER  [3] SUBNET FINDER     ::|')
-	print('|::    [4] DATA-GEN FAKER    [5] MAIL BOMBER   [6] CIPHER-GEN ROT13  ::|')
-	print('|::    [7] CIPHER-GEN RSA    [8] BRUTE-FORCE   [M] ...               ::|')
-	print('|::    ----------------------------------------------------------    ::|')
-	print('|::    OPTION : [clear] // [menu] // [home] // [exit]                ::|')
-	print('________________________________________________________________________\n')
+	row, columns = os.popen('stty size', 'r').read().split()
+	line_und = ['_']*(int(columns))
+	line_u = ''.join(map(str, line_und))
+
+	print('|::    [NS] NETWORK SCANNER  |  [PS] PORT SCANNER  |  [SF] SUBNET FINDER       ::|')
+	print('|::    [DF] DATA-GEN FAKER   |  [MB] MAIL BOMBER   |  [RT] CIPHER-GEN ROT13    ::|')
+	print('|::    [RS] CIPHER-GEN RSA   |  [BF] BRUTE-FORCE   |  [XX] ...                 ::|')
+	print('|::    --------------------------------------------------------------------    ::|')
+	print('|::    OPTION : [clear] // [menu] // [home] // [exit] // [help]                ::|')
+	print(line_u+'\n')
 
 ## User Input
 def menu_display_input():
-	menu_input = input('>> ')
-	return menu_input
+	rows, columns = os.popen('stty size', 'r').read().split()
+	if (int(columns) >= 109) and (int(rows) >= 49):
+		menu_input = input('>> ')
+		return menu_input
+	else:
+		print("\nInfo: please consider to resize your terminal screen into atleast [49 x 109] characters")
+		print('      your current resosultion are [%s x %s] characters, which may cause some results' % (rows, columns))
+		print('      not in a proper and desired format ...\n      Program exiting now :( \n')
+		sys.exit(0)
 
 def sw_case_menu(key):
+	row, columns = os.popen('stty size', 'r').read().split()
+	line_und  = ['_']*(int(columns))
+	line_u    = ''.join(map(str, line_und))
 	checker = 'false'
 	if key == 'clear':
 		clear()
@@ -67,39 +91,34 @@ def sw_case_menu(key):
 		clear()
 		main_method()
 	elif key == 'menu':
-		print('________________________________________________________________________\n')
+		print(line_u+'\n')
 		menu_display()
 	elif key == 'exit':
 		sys.exit(0)
 	elif key == '1':
-		print('________________________________________________________________________\n')
-		network_scan_proc(network_scan_input())
-		print('________________________________________________________________________\n')
+		print(line_u+'\n')
+		net_scan.network_scan_proc(network_scan_input())
+		print(line_u+'\n')
 	elif key == '2':
-		print('________________________________________________________________________\n')
+		print(line_u+'\n')
 		port_scan_proc(port_scan_input())
-		print('________________________________________________________________________\n')
+		print(line_u+'\n')
 	elif key == '3':
-		print('________________________________________________________________________\n')
+		print(line_u+'\n')
 		subnet_finder_proc()
-		print('________________________________________________________________________\n')
+		print(line_u+'\n')
 	elif re.search('4', key):
-		print('________________________________________________________________________\n')
+		print(line_u+'\n')
 		data_gen_proc(key)
-		print('________________________________________________________________________\n')
+		print(line_u+'\n')
 	elif key == '5':
-		print('________________________________________________________________________\n')
+		print(line_u+'\n')
 		mail_bomber_proc()
-		print('________________________________________________________________________\n')
+		print(line_u+'\n')
 	elif key == '6':
-		print('________________________________________________________________________\n')
-		try:
-			cipher_r13.cipher_gen_rot13_proc()
-		except:
-			print("\nPlease verify the source file name and it's path in a correct manner")
-			print('Check out bug-tracker.log for more detail about this current event')
-			bug_logger.bug_logger_proc('CR')
-		print('________________________________________________________________________\n')
+		print(line_u+'\n')
+		cipher_r13.cipher_gen_rot13_proc()
+		print(line_u+'\n')
 
 ## Port Scanner
 def port_scan_input():
@@ -123,7 +142,7 @@ def port_scan_proc(host):
 			for ports in nmap_sc[host]['tcp'].keys():
 				fm_ports = '{:<6}'.format(ports)
 				product_detail = '{:<14}'.format((str(nmap_sc[host]['tcp'][ports]['name']).upper() + ' ' + str(nmap_sc[host]['tcp'][ports]['version']))[:13])
-				version_detail = '{:<6}'.format((nmap_sc[host]['tcp'][ports]['product'] + ' ' + nmap_sc[host]['tcp'][ports]['extrainfo'])[:38])
+				version_detail = '{:<6}'.format((nmap_sc[host]['tcp'][ports]['product'] + ' ' + nmap_sc[host]['tcp'][ports]['extrainfo'])) #[:38])
 				state_detail   = '{:<3}'.format(str(nmap_sc[host]['tcp'][ports]['state']).upper()[:4])
 				print('|- %s  %s\t %s | %s' % (fm_ports, state_detail, product_detail, version_detail))
 			frmt_query = '{:.3f}'.format(time.time() - go_time)
@@ -135,7 +154,7 @@ def port_scan_proc(host):
 			bug_logger_proc('PS')
 	except:
 		print('Host requires atleast 1 open port for the scanning')
-		print('Also make sure the IP Address is in the correct format')
+		print('Also make sure the IP Address is in the correct format\n')
 		bug_logger_proc('PS')
 
 ## Network Scanner
@@ -565,7 +584,7 @@ def mail_bomber_proc():
 		err_i = str(sys.exc_info()[1]) + ' ...)'
 		print('\n\nIt seems the connection got refused from the service or by the user')
 		print('Check out buglogger.log for more detail about this current event')
-		bug_logger_proc('BM')
+		bug_logger_proc('MB')
 
 ## Bug Logger
 #def bug_logg_proc():
@@ -581,4 +600,11 @@ def main_method():
 		sw_case_menu(key)
 
 while 1 > 0:
-	main_method()
+	rows, columns = os.popen('stty size', 'r').read().split()
+	if (int(columns) >= 109) and (int(rows) >= 49):
+		main_method()
+	else:
+		print("\nInfo: please consider to resize your terminal screen into atleast [49 x 109] characters")
+		print('      your current resosultion are [%s x %s] characters, which may cause some results' % (rows, columns))
+		print('      not in a proper and desired format ...\n      Program exiting now :( \n')
+		sys.exit(0)
