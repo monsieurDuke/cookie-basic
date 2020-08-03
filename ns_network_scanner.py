@@ -1,13 +1,27 @@
 import nmap
 import time
 import re
+
+from termcolor import colored
 from bug_logger import BugLogger
 
 class NetworkScanner:
 
+    def clr(self, letter, color):
+        if color == 'g':
+            color = 'green'
+        if color == 'c':
+            color = 'cyan'
+        if color == 'y':
+            color = 'yellow'
+        if color == 'm':
+            color = 'magenta'
+        letter = colored(letter, color, attrs=['bold'])
+        return letter
+
     def network_scan_input(self):
-        network = input('Network range and prefix : ')
-        print('Initiate network scanning for (%S) ...\n' % network)
+        network = input(self.clr('Network range and prefix : ','c'))
+        print('Initiate network scanning for (%s) ...\n' % network)
         return network
 
     def network_scan_proc(self, network):
@@ -23,8 +37,8 @@ class NetworkScanner:
             for host in nmap_sc.all_hosts():
                 print('|- %s (%s)' % (host, nmap_sc[host].hostname()))
             frmt_query = '{:.3f}'.format(time.time() - go_time)
-            print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
+            print('\n'+self.clr('Query finished successfully in','y')+' %s seconds ...' % (frmt_query))
         except:
             print('Network range requires the prefix to be included in correct format')
-            print('Check out bug-tracker.log for more detail about this current event')
+            print('Check out '+self.clr('bug-tracker.log','g')+' for more detail about this current event')
             bug_logger.bug_logger_proc('NS')

@@ -510,7 +510,7 @@ def mail_bomber_proc():
 		mail_content = ''
 		texts = ''
 
-		open_json = open(str(os.getcwd())+"/conf/gmail_account.json","r")
+		open_json = open("setting.json","r")
 		str_json  = open_json.read()
 		arr_json  = re.split('; |, |\\n', str_json)
 		get_gmailaddr = re.split('; |, |\"', str(arr_json[0]))
@@ -564,7 +564,7 @@ def mail_bomber_proc():
 						texts = mail_maker(sender_address, sender_pass, receiver_address, mail_subject, mail_content)
 					if re.search('//random', mail_passer_cont):
 						mail_content_2 = ''
-						for i in range(30):
+						for i in range(10):
 							mail_content_2 += fake_text.text()
 						mail_content = mail_content_2
 						texts = mail_maker(sender_address, sender_pass, receiver_address, mail_subject, mail_content)
@@ -582,7 +582,7 @@ def mail_bomber_proc():
 						texts = mail_maker(sender_address, sender_pass, receiver_address, mail_subject, mail_content)
 					if re.search('//random', mail_passer_cont):
 						mail_content_2 = ''
-						for i in range(30):
+						for i in range(10):
 							mail_content_2 += fake_text.text()
 						mail_content = mail_content_2
 						texts = mail_maker(sender_address, sender_pass, receiver_address, mail_subject, mail_content)
@@ -594,7 +594,7 @@ def mail_bomber_proc():
 						time.sleep(0.3)
 			prog = ':'
 			print(prog, end="", flush=True)
-			time.sleep(0.1)
+			time.sleep(0.3)
 
 		print('\n[+] Finalizing  | ', end="", flush=True)
 		for i in range(54):
@@ -606,9 +606,6 @@ def mail_bomber_proc():
 		open_json.close()
 
 		frmt_query = '{:.3f}'.format(time.time() - go_time)
-		print('\n%s have been bombed successfully' % receiver_address)
-		print("Take a break pause if the bomb have reach atleast 100 emails in one single attack")
-		print('to avoid any refused or blocked connection from google smtp server')
 		print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
 	except:
 		err_i = str(sys.exc_info()[1]) + ' ...)'

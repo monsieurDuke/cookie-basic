@@ -1,6 +1,7 @@
 nmap
 datetime
 getpass
+os
 sys
 time
 decimal
@@ -10,3 +11,4 @@ clear_screen
 faker
 email
 zipfile
+termcolor

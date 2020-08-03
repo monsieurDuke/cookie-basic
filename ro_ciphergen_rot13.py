@@ -4,11 +4,24 @@ import re
 import time
 import os
 
+from termcolor import colored
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
 from bug_logger import BugLogger
 
 class CipherROT13:
+
+    def clr(self, letter, color):
+        if color == 'g':
+            color = 'green'
+        if color == 'c':
+            color = 'cyan'
+        if color == 'y':
+            color = 'yellow'
+        if color == 'm':
+            color = 'magenta'
+        letter = colored(letter, color, attrs=['bold'])
+        return letter
 
     def str_to_char(self, text):
         return [char for char in text]
@@ -16,8 +29,8 @@ class CipherROT13:
     def cipher_gen_rot13_proc(self):
         bug_logger = BugLogger()
         try:
-            file_path =  input('FUll path of source : ')
-            cipher_act = input('Action of cipher    : ')
+            file_path =  input(self.clr('FUll path of source : ','c'))
+            cipher_act = input(self.clr('Action of cipher    : ','c'))
 
             file_ext = re.split('; |, |\/', file_path)
             name_file = file_ext[len(file_ext)-1]
@@ -60,16 +73,17 @@ class CipherROT13:
             if check_opt:
                 frmt_query = '{:.3f}'.format(time.time() - go_time)
                 get_result = re.split('; |, |\#', get_final)
-                print("\nCipher successfully saved as '%s'" % get_result[len(get_result)-1])
-                print("Cipher with the 'reverse' extensions means it's in the reverse order")
-                print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
+                fin_file   = get_result[len(get_result)-1]
+                print("\nCipher successfully saved as %s" % self.clr(fin_file,'g'))
+                print("Cipher with the "+self.clr('reverse','g')+" extensions means it's in the reverse order")
+                print('\n'+self.clr('Query finished successfully in','y')+' %s seconds ...' % (frmt_query))
             else:
-                print("\nThe only valid arguments for the process are 'encrypt' and 'decrypt'")
+                print("\nThe only valid arguments for the process are "+self.clr("'encrypt'",'g')+" and "+self.clr("'decrypt'",'g'))
                 print('Please verify what the action needed to do with the source file')
         except:
             print("\nPlease verify the source file name and it's path in the correct format")
-            print('Check out bug-tracker.log for more detail about this current event')
-            bug_logger.bug_logger_proc('CR')
+            print('Check out '+self.clr('bug-tracker.log','g')+' for more detail about this current event')
+            bug_logger.bug_logger_proc('RO')
 
     # encrypting the plain text
     def rot13_encypt(self, plain_char, rot13_enc, cipher_char, cipher_str, file_path):

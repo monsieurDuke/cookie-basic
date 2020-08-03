@@ -20,3 +20,4 @@ for file in os.listdir("/home/cookie/Sandbox/Cookie-Basic/wordlist-master"):
 		inc += 1
 
 print(get_list)
+print(str(os.getcwd()))
