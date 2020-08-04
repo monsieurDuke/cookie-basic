@@ -17,7 +17,7 @@ Faker is heavily inspired by `PHP Faker`_, `Perl Faker`_, and by `Ruby Faker`_.
 "   |::.. . |::.. . |::.. . |::.| .  |::.|::.. . |                              "
 "   `-------`-------`-------`--- ---'`---`-------'                              "
 
-|coverage| |license| |release_ver| |python_ver| |commit_since| |github_stars| 
+|coverage| |license| |contributor| |release_ver| |python_ver| |commit_since| |github_stars| |github_watches| |github_forks|
 
 ----
 
@@ -465,7 +465,7 @@ Credits
     :target: https://github.com/hotpotcookie/cookie-basic/commit/
     :alt: Commit Since
     
-.. |github_stars| image:: https://img.shields.io/github/stars/hotpotcookie/cookie-basic.svg?style=social&label=Star
+.. |github_stars| image:: https://img.shields.io/github/stars/hotpotcookie/cookie-basic.svg?style=social&label=star
     :target: https://github.com/hotpotcookie/cookie-basic/stargazers/
     :alt: Github Stars
 
@@ -474,3 +474,12 @@ Credits
     
 .. |release_ver| image:: https://img.shields.io/github/release/hotpotcookie/cookie-basic.svg
     :target: https://GitHub.com/hotpotcookie/cookie-basic/releases/
+
+.. |github_watches| image:: https://img.shields.io/github/watchers/hotpotcookie/cookie-basic.svg?style=social&label=watch&maxAge=2592000
+    :target: https://github.com/hotpotcookie/cookie-basic/watchers/
+    
+.. |github_forks| image:: https://img.shields.io/github/forks/hotpotcookie/cookie-basic.svg?style=social&label=fork&maxAge=2592000    
+    :target: https://GitHub.com/hotpotcookie/cookie-basic/network/
+    
+.. |contributor| image::  https://img.shields.io/github/contributors/hotpotcookie/cookie-basic.svg
+    :target: https://GitHub.com/hotpotcookie/cookie-basic/graphs/contributors/
