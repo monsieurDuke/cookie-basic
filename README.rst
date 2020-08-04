@@ -17,7 +17,7 @@ Faker is heavily inspired by `PHP Faker`_, `Perl Faker`_, and by `Ruby Faker`_.
 "   |::.. . |::.. . |::.. . |::.| .  |::.|::.. . |                              "
 "   `-------`-------`-------`--- ---'`---`-------'                              "
 
-|coverage| |license| |contributor| |release_ver| |python_ver| |commit_since| |github_stars| |github_watches| |github_forks|
+|coverage| |license| |contributor| |release_ver| |python_ver| |commit_since| |github_size|
 
 ----
 
@@ -483,3 +483,9 @@ Credits
     
 .. |contributor| image::  https://img.shields.io/github/contributors/hotpotcookie/cookie-basic.svg
     :target: https://GitHub.com/hotpotcookie/cookie-basic/graphs/contributors/
+
+.. |github_size| image:: https://badge-size.herokuapp.com/hotpotcookie/cookie-basic/master/cookie-basic.py?label=main  size
+    :target: https://github.com/hotpotcookie/cookie-basic/blob/master/cookie-basic.py
+ 
+.. |github_issue| image:: https://img.shields.io/github/issues/hotpotcookie/cookie-basic
+    :target: https://GitHub.com/hotpotcookie/cookie-basic/issues/
