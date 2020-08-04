@@ -444,7 +444,7 @@ Credits
     :target: https://pypi.org/project/Faker/
     :alt: Latest version released on PyPI
 
-.. |coverage| image:: https://coveralls.io/repos/github/hotpotcookie/cookie-basic/badge.svg?branch=master
+.. |coverage| image:: https://travis-ci.com/hotpotcookie/cookie-basic.svg?branch=master
     :target: https://coveralls.io/github/hotpotcookie/cookie-basic?branch=master
     :alt: Test coverage
     
