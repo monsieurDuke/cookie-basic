@@ -6,19 +6,3 @@ branches:
   - master
 rvm:
  - 3.8
-
-install:
- - pip install nmap
- - pip install datetime
- - pip install getpass
- - pip install os
- - pip install sys
- - pip install time
- - pip install decimal
- - pip install re
- - pip install smtplib
- - pip install clear_screen
- - pip install faker
- - pip install email
- - pip install zipfile
- - pip install termcolor

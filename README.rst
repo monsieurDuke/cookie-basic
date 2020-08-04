@@ -448,7 +448,6 @@ Credits
     :target: https://coveralls.io/github/hotpotcookie/cookie-basic?branch=master
     :alt: Test coverage
     
-
 .. |unix_build| image:: https://img.shields.io/travis/joke2k/faker/master.svg?style=flat-square&label=unix%20build
     :target: http://travis-ci.org/joke2k/faker
     :alt: Build status of the master branch on Mac/Linux
