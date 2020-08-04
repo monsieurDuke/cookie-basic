@@ -72,13 +72,8 @@ def clr(letter, color):
 	letter = colored(letter, color, attrs=['bold'])
 	return letter
 
-def m_clr(title, alias, text, alias2, text2):
-	if (title == 'RO') or (title == 'RS'):
-		menu = clr('[','y')+clr(title,'c')+clr(']','y')+clr(text,'w')+clr(alias2,'w')+clr(text2,'w')
-	elif (title == 'XX'):
-		menu = clr('[','y')+clr(title,'c')+clr(']','y')+clr(alias,'w')
-	else:
-		menu = clr('[','y')+clr(title,'c')+clr(']','y')+clr(alias,'w')+clr(text,'w')+clr(alias2,'w')+clr(text2,'w')
+def m_clr(title, text):
+	menu = clr('[','y')+clr(title,'c')+clr(']','y')+' '+text
 	return menu
 
 def menu_display():
@@ -87,11 +82,11 @@ def menu_display():
 	line_u = ''.join(map(str, line_und))
 	line_u    = colored(line_u, 'magenta', attrs=['bold'])
 
-	print('|::    '+m_clr('NS',' N','ETWORK',' S','CANNER')+'  |  '+m_clr('PS',' P','ORT',' S','CANNER')+'  |  '+m_clr('SF',' S','UBNET',' F','INDER')+'       ::|')
-	print('|::    '+m_clr('DF',' D','ATA-GEN',' F','AKER')+'   |  '+m_clr('MB',' M','AIL',' B','OMBER')+'   |  '+m_clr('RO',' ',' CIPHER-GEN',' RO','T13')+'    ::|')
-	print('|::    '+m_clr('RS',' ',' CIPHER-GEN',' RS','A')+'   |  '+m_clr('WS',' W','EB',' S','CRAPPER')+'  |  '+m_clr('XX',' ...',' ',' ',' ')+'                 ::|')
-	print('|::    '+clr('--------------------------------------------------------------------','m')+'    ::|')
-	print('|::    '+clr('OPTION','c')+' : '+clr('[clear] // [menu] // [home] // [exit] // [help]','y')+'                ::|')
+	print('|::    '+m_clr('NS','NETWORK SCANNER')+'  |  '+m_clr('PS','PORT SCANNER')+'  |  '+m_clr('SF','SUBNET FINDER')+'     |  '+m_clr('ZC','ZIP CRACKER')+'      ::|')
+	print('|::    '+m_clr('DF','DATA-GEN FAKER')+'   |  '+m_clr('MB','MAIL BOMBER')+'   |  '+m_clr('RO','CIPHER-GEN ROT13')+'  |  '+m_clr('SB','SSH BRUTEFORCE')+'   ::|')
+	print('|::    '+m_clr('RS','CIPHER-GEN RSA')+'   |  '+m_clr('WS','WEB SCRAPPER')+'  |  '+m_clr('XX','...')+'               |  '+m_clr('XX','...')+'              ::|')
+	print('|::    '+clr('--------------------------------------------------------------------------------------------','m')+'   ::|')
+	print('|::    '+clr('OPTION','c')+' : '+clr('[clear] // [menu] // [home] // [exit] // [help]','y')+'                                       ::|')
 	print(line_u+'\n')
 
 ## User Input
