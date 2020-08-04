@@ -444,9 +444,10 @@ Credits
     :target: https://pypi.org/project/Faker/
     :alt: Latest version released on PyPI
 
-.. |coverage| image:: https://img.shields.io/coveralls/joke2k/faker/master.svg?style=flat-square
-    :target: https://coveralls.io/r/joke2k/faker?branch=master
+.. |coverage| image:: https://coveralls.io/repos/github/hotpotcookie/cookie-basic/badge.svg?branch=master
+    :target: https://coveralls.io/github/hotpotcookie/cookie-basic?branch=master
     :alt: Test coverage
+    
 
 .. |unix_build| image:: https://img.shields.io/travis/joke2k/faker/master.svg?style=flat-square&label=unix%20build
     :target: http://travis-ci.org/joke2k/faker
