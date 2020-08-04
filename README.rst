@@ -17,7 +17,7 @@ Faker is heavily inspired by `PHP Faker`_, `Perl Faker`_, and by `Ruby Faker`_.
 "   |::.. . |::.. . |::.. . |::.| .  |::.|::.. . |                              "
 "   `-------`-------`-------`--- ---'`---`-------'                              "
 
-|unix_build| |windows_build| |coverage| |license|
+|unix_build| |windows_build| |coverage| |license| |commit_since| |github_stars|
 
 ----
 
@@ -457,6 +457,14 @@ Credits
     :target: https://ci.appveyor.com/project/joke2k/faker
     :alt: Build status of the master branch on Windows
 
-.. |license| image:: https://img.shields.io/badge/license-GPL3.0-blue.svg?style=flat-square
+.. |license| image:: https://img.shields.io/badge/License-GPL%20v3-yellow.svg
     :target: https://raw.githubusercontent.com/hotpotcookie/cookie-basic/master/LICENSE
     :alt: Package license
+
+.. |commit_since| image:: https://img.shields.io/github/commits-since/hotpotcookie/cookie-basic/v3.1.2.svg
+    :target: https://github.com/hotpotcookie/cookie-basic/commit/
+    :alt: Commit Since
+    
+.. |github_stars| image:: https://img.shields.io/github/stars/tterb/playmusic.svg?style=social&label=Star
+    :target: https://github.com/hotpotcookie/StrapDown.js/commit/
+    :alt: Github Stars
