@@ -1,4 +1,4 @@
-nmap
+python-nmap
 datetime
 getpass
 os
@@ -8,7 +8,7 @@ decimal
 re
 smtplib
 clear_screen
-faker
+Faker
 email
 zipfile
 termcolor
