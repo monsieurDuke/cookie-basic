@@ -1,0 +1,4 @@
+language: python
+sudo: true
+rvm:
+ - 3.7
