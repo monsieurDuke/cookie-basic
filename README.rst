@@ -17,7 +17,7 @@ Faker is heavily inspired by `PHP Faker`_, `Perl Faker`_, and by `Ruby Faker`_.
 "   |::.. . |::.. . |::.. . |::.| .  |::.|::.. . |                              "
 "   `-------`-------`-------`--- ---'`---`-------'                              "
 
-|unix_build| |windows_build| |coverage| |license| |commit_since| |github_stars|
+|coverage| |license| |commit_since| |github_stars| |python_ver| |release_ver|
 
 ----
 
@@ -461,10 +461,16 @@ Credits
     :target: https://raw.githubusercontent.com/hotpotcookie/cookie-basic/master/LICENSE
     :alt: Package license
 
-.. |commit_since| image:: https://img.shields.io/github/commits-since/hotpotcookie/cookie-basic/v3.1.2.svg
+.. |commit_since| image:: https://img.shields.io/github/commits-since/hotpotcookie/cookie-basic/2020.8.almondjoy.svg
     :target: https://github.com/hotpotcookie/cookie-basic/commit/
     :alt: Commit Since
     
-.. |github_stars| image:: https://img.shields.io/github/stars/tterb/playmusic.svg?style=social&label=Star
-    :target: https://github.com/hotpotcookie/StrapDown.js/commit/
+.. |github_stars| image:: https://img.shields.io/github/stars/hotpotcookie/cookie-basic.svg?style=social&label=Star
+    :target: https://github.com/hotpotcookie/cookie-basic/stargazers/
     :alt: Github Stars
+
+.. |python_ver| image:: https://camo.githubusercontent.com/ba2171fe9ab58bba2f169b740c35c26bd3cb4241/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f70796261646765732e737667
+    :target: https://pypi.python.org/pypi/ansicolortags/
+    
+.. |release_ver| image:: https://img.shields.io/github/release/hotpotcookie/cookie-basic.svg
+    :target: https://GitHub.com/hotpotcookie/cookie-basic/releases/
