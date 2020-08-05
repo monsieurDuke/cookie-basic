@@ -33,7 +33,7 @@ def bug_logger_proc(menu):
     logs.close()
 
 ## Main Display
-def header():
+def test_header():
 	clear()
 	#row, columns = os.popen('stty size', 'r').read().split()
 	columns   = 109
@@ -78,7 +78,7 @@ def m_clr(title, text):
 	menu = clr('[','y')+clr(title,'c')+clr(']','y')+' '+text
 	return menu
 
-def menu_display():
+def test_menu_display():
 	#row, columns = os.popen('stty size', 'r').read().split()
 	columns  = 109
 	rows     = 49
@@ -622,10 +622,10 @@ def mail_bomber_proc():
 
 
 ## Main Method
-def main_method():
+def test_main_method():
 	checker = 'false'
-	header()
-	menu_display()
+	test_header()
+	test_menu_display()
 	#while checker == 'false':
 	#	key = menu_display_input()
 	#	sw_case_menu(key)
@@ -636,7 +636,7 @@ if __name__ == "__main__":
 	rows = 49
 	columns = 109
 	if (int(columns) >= 109) and (int(rows) >= 49):
-		main_method()
+		test_main_method()
 	else:
 		print("\n"+clr('Info:','y')+" please consider to resize your terminal screen into atleast ["+clr('49','c')+' x '+clr('109','c')+"] characters")
 		print('      your current resosultion are [%s x %s] characters, which may cause some results' % (clr(rows,'c'), clr(columns,'c')))
