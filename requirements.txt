@@ -2,3 +2,4 @@ python-nmap
 clear_screen
 Faker
 termcolor
+pytest
