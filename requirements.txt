@@ -3,4 +3,5 @@ clear_screen
 Faker
 termcolor
 pytest
+pytest-cov
 pycryptodome
