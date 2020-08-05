@@ -35,7 +35,9 @@ def bug_logger_proc(menu):
 ## Main Display
 def header():
 	clear()
-	row, columns = os.popen('stty size', 'r').read().split()
+	#row, columns = os.popen('stty size', 'r').read().split()
+	columns   = 109
+	rows      = 49
 	line_und  = ['_']*(int(columns))
 	line_u    = ''.join(map(str, line_und))
 	line_u    = colored(line_u, 'magenta', attrs=['bold'])
@@ -77,21 +79,25 @@ def m_clr(title, text):
 	return menu
 
 def menu_display():
-	row, columns = os.popen('stty size', 'r').read().split()
+	#row, columns = os.popen('stty size', 'r').read().split()
+	columns  = 109
+	rows     = 49
 	line_und = ['_']*(int(columns))
-	line_u = ''.join(map(str, line_und))
-	line_u    = colored(line_u, 'magenta', attrs=['bold'])
+	line_u   = ''.join(map(str, line_und))
+	line_u   = colored(line_u, 'magenta', attrs=['bold'])
 
-	print('|::    '+m_clr('NS','NETWORK SCANNER')+'  |  '+m_clr('PS','PORT SCANNER')+'  |  '+m_clr('SF','SUBNET FINDER')+'     |  '+m_clr('ZC','ZIP CRACKER')+'       ::|')
-	print('|::    '+m_clr('DF','DATA-GEN FAKER')+'   |  '+m_clr('MB','MAIL BOMBER')+'   |  '+m_clr('RO','CIPHER-GEN ROT13')+'  |  '+m_clr('SB','SSH BRUTEFORCE')+'    ::|')
-	print('|::    '+m_clr('RS','CIPHER-GEN RSA')+'   |  '+m_clr('WS','WEB SCRAPPER')+'  |  '+m_clr('XX','...')+'               |  '+m_clr('XX','...')+'               ::|')
-	print('|::    '+clr('--------------------------------------------------------------------------------------------','m')+'    ::|')
-	print('|::    '+clr('OPTION','c')+' : '+clr('[clear] // [menu] // [home] // [exit] // [help]','y')+'                                        ::|')
+	print('|::     '+m_clr('NS','NETWORK SCANNER')+'  |  '+m_clr('PS','PORT SCANNER')+'  |  '+m_clr('SF','SUBNET FINDER')+'     |  '+m_clr('ZC','ZIP CRACKER')+'         ::|')
+	print('|::     '+m_clr('DF','DATA-GEN FAKER')+'   |  '+m_clr('MB','MAIL BOMBER')+'   |  '+m_clr('RO','CIPHER-GEN ROT13')+'  |  '+m_clr('SB','SSH BRUTEFORCE')+'      ::|')
+	print('|::     '+m_clr('RS','CIPHER-GEN RSA')+'   |  '+m_clr('WS','WEB SCRAPPER')+'  |  '+m_clr('XX','...')+'               |  '+m_clr('XX','...')+'                 ::|')
+	print('|::     '+clr('--------------------------------------------------------------------------------------------','m')+'      ::|')
+	print('|::     '+clr('OPTION','c')+' : '+clr('[clear] // [menu] // [home] // [exit] // [help]','y')+'                                          ::|')
 	print(line_u+'\n')
 
 ## User Input
 def menu_display_input():
 	rows, columns = os.popen('stty size', 'r').read().split()
+	#rows    = 49
+	#columns = 109
 	if (int(columns) >= 109) and (int(rows) >= 49):
 		menu_input = input(colored('>> ', 'yellow', attrs=['bold']))
 		return menu_input
@@ -102,7 +108,7 @@ def menu_display_input():
 		sys.exit(0)
 
 def sw_case_menu(key):
-	row, columns = os.popen('stty size', 'r').read().split()
+	#row, columns = os.popen('stty size', 'r').read().split()
 	line_und  = ['_']*(int(columns))
 	line_u    = ''.join(map(str, line_und))
 	line_u    = colored(line_u, 'magenta', attrs=['bold'])
@@ -626,6 +632,8 @@ def main_method():
 
 while 1 > 0:
 	rows, columns = os.popen('stty size', 'r').read().split()
+	#rows = 49
+	#columns = 109
 	if (int(columns) >= 109) and (int(rows) >= 49):
 		main_method()
 	else:
