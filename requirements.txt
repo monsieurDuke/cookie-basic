@@ -3,3 +3,4 @@ clear_screen
 Faker
 termcolor
 pytest
+pycryptodome
