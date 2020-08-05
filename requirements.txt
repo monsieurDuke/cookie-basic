@@ -1,14 +1,4 @@
 python-nmap
-datetime
-getpass
-os
-sys
-time
-decimal
-re
-smtplib
 clear_screen
 Faker
-email
-zipfile
 termcolor

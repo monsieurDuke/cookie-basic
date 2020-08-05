@@ -82,11 +82,11 @@ def menu_display():
 	line_u = ''.join(map(str, line_und))
 	line_u    = colored(line_u, 'magenta', attrs=['bold'])
 
-	print('|::    '+m_clr('NS','NETWORK SCANNER')+'  |  '+m_clr('PS','PORT SCANNER')+'  |  '+m_clr('SF','SUBNET FINDER')+'     |  '+m_clr('ZC','ZIP CRACKER')+'      ::|')
-	print('|::    '+m_clr('DF','DATA-GEN FAKER')+'   |  '+m_clr('MB','MAIL BOMBER')+'   |  '+m_clr('RO','CIPHER-GEN ROT13')+'  |  '+m_clr('SB','SSH BRUTEFORCE')+'   ::|')
-	print('|::    '+m_clr('RS','CIPHER-GEN RSA')+'   |  '+m_clr('WS','WEB SCRAPPER')+'  |  '+m_clr('XX','...')+'               |  '+m_clr('XX','...')+'              ::|')
-	print('|::    '+clr('--------------------------------------------------------------------------------------------','m')+'   ::|')
-	print('|::    '+clr('OPTION','c')+' : '+clr('[clear] // [menu] // [home] // [exit] // [help]','y')+'                                       ::|')
+	print('|::    '+m_clr('NS','NETWORK SCANNER')+'  |  '+m_clr('PS','PORT SCANNER')+'  |  '+m_clr('SF','SUBNET FINDER')+'     |  '+m_clr('ZC','ZIP CRACKER')+'       ::|')
+	print('|::    '+m_clr('DF','DATA-GEN FAKER')+'   |  '+m_clr('MB','MAIL BOMBER')+'   |  '+m_clr('RO','CIPHER-GEN ROT13')+'  |  '+m_clr('SB','SSH BRUTEFORCE')+'    ::|')
+	print('|::    '+m_clr('RS','CIPHER-GEN RSA')+'   |  '+m_clr('WS','WEB SCRAPPER')+'  |  '+m_clr('XX','...')+'               |  '+m_clr('XX','...')+'               ::|')
+	print('|::    '+clr('--------------------------------------------------------------------------------------------','m')+'    ::|')
+	print('|::    '+clr('OPTION','c')+' : '+clr('[clear] // [menu] // [home] // [exit] // [help]','y')+'                                        ::|')
 	print(line_u+'\n')
 
 ## User Input
