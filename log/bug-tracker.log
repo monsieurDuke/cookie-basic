@@ -29,3 +29,5 @@
 [03/08/2020 08:39:51 PM] (RO) ERROR: name 'reverse' is not defined
 [03/08/2020 08:40:22 PM] (RO) ERROR: name 'reverse' is not defined
 [03/08/2020 09:57:05 PM] (RO) ERROR: [Errno 2] No such file or directory: '/home/cookie/Sandbox/Cookie-Basic/cipher/warning'
+[05/08/2020 11:17:46 PM] (PS) ERROR: 'a'
+[05/08/2020 11:51:36 PM] (RO) ERROR: [Errno 21] Is a directory: '/home/'

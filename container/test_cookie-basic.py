@@ -1,14 +1,25 @@
 import nmap, datetime, getpass
 import sys, time, decimal, re
-import smtplib
+import smtplib, os, pytest
+
+from termcolor import colored
 from zipfile import ZipFile
 from clear_screen import clear
 from faker import Faker
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-nmap_sc = nmap.PortScanner()
-curuser = getpass.getuser()
+from bug_logger import BugLogger
+from ro_ciphergen_rot13 import CipherROT13
+from ns_network_scanner import NetworkScanner
+from ps_port_scanner import PortScanner
+
+nmap_sc    = nmap.PortScanner()
+curuser    = getpass.getuser()
+bug_logger = BugLogger()
+cipher_r13 = CipherROT13()
+net_scan   = NetworkScanner()
+port_scan  = PortScanner()
 
 ## Bug Logger
 def bug_logger_proc(menu):
@@ -21,39 +32,90 @@ def bug_logger_proc(menu):
     error_frm  = '[%s %s] (%s) ERROR: %s\n' % (getdate, gettime, menu, error_info)
     logs = open('bug-tracker.log', 'a')
     logs.write(error_frm)
-    logs.close()    
-    
+    logs.close()
+
 ## Main Display
 def header():
 	clear()
+	#row, columns = os.popen('stty size', 'r').read().split()
+	columns   = 109
+	rows      = 49
+	line_und  = ['_']*(int(columns))
+	line_u    = ''.join(map(str, line_und))
+	line_u    = colored(line_u, 'magenta', attrs=['bold'])
+	line_hint = ['_']*(int(columns)-14)
+	line_h    = ''.join(map(str, line_hint))
+
+	#print(row+' x '+columns)
+
 	curdate = datetime.datetime.now()
-	getdate = curdate.strftime('%A, %d %b %Y')
-	gettime = curdate.strftime('%I:%M:%S %p') + ' | v.1.2.1'
-	print('_______ _______ _______ ___ ___  ___ _______ __                __       ')
-	print('|   _   |   _   |   _   |   Y   )|   |   _   |  |--.---.-.-----|__.----.')
-	print('|.  1___|.  |   |.  |   |.  1  / |.  |.  1___|  _  |  _  |__ --|  |  __|')
-	print('|.  |___|.  |   |.  |   |.  _  \ |.  |.  __)_|_____|___._|_____|__|____|')
-	print('|:  1   |:  1   |:  1   |:  |   \|:  |:  1   |                          ')
-	print('|::.. . |::.. . |::.. . |::.| .  |::.|::.. . |   ' + str(getdate).upper())
-	print("`-------`-------`-------`--- ---'`---`-------'   " + str(gettime).upper())
-	print('________________________________________________________________________\n')
-	print('::::.   NAVIGATE FOLLOWING MENU OPTIONS TO IT CORRESSPOND NUMBER   .::::')
-	print('::::::.__________________________________________________________.::::::\n')
+	getdate = curdate.strftime('%A, %d %B %Y')
+	gettime = curdate.strftime('%I:%M:%S %p')
+	print(colored(' _______ _______ _______ ___ ___  ___ _______', 'cyan', attrs=['bold']) , colored('__                __       ', 'yellow', attrs=['bold']))
+	print(colored('|   _   |   _   |   _   |   Y   )|   |   _  ', 'cyan', attrs=['bold']) , colored('|  |--.---.-.-----|__.----.', 'yellow', attrs=['bold']))
+	print(colored('|.  1___|.  |   |.  |   |.  1  / |.  |. ____', 'cyan', attrs=['bold']), colored('|  _  |  _  |__ --|  |  __|', 'yellow', attrs=['bold']))
+	print(colored('|.  |___|.  |   |.  |   |.  _  \ |.  |. ____', 'cyan' , attrs=['bold']), colored('|_____|___._|_____|__|____|', 'yellow', attrs=['bold']))
+	print(colored('|:  1   |:  1   |:  1   |:  |   \|:  |:  1   |' , 'cyan' , attrs=['bold']))
+	print(colored('|::.. . |::.. . |::.. . |::.| .  |::.|::.. . |  ' , 'cyan' , attrs=['bold']) + colored(str(getdate).upper(), 'cyan', attrs=['bold']))
+	print(colored("`-------`-------`-------`--- ---'`---`-------'  ", 'cyan' , attrs=['bold']) + colored(str(gettime).upper(), 'yellow', attrs=['bold']))
+	print(line_u)
+	#print(hint)
+	print(line_u+'\n')
+
+def clr(letter, color):
+	if color == 'g':
+		color = 'green'
+	if color == 'c':
+		color = 'cyan'
+	if color == 'y':
+		color = 'yellow'
+	if color == 'm':
+		color = 'magenta'
+	if color == 'w':
+		color = 'white'
+	letter = colored(letter, color, attrs=['bold'])
+	return letter
+
+def m_clr(title, text):
+	menu = clr('[','y')+clr(title,'c')+clr(']','y')+' '+text
+	return menu
 
 def menu_display():
-	print('|::    [1] NETWORK SCANNER   [2] PORT SCANNER  [3] SUBNET FINDER     ::|')
-	print('|::    [4] DATA-GEN FAKER    [5] MAIL BOMBER   [6] CIPHER-GEN ROT13  ::|')
-	print('|::    [7] CIPHER-GEN RSA    [8] BRUTE-FORCE   [M] ...               ::|')
-	print('|::    ----------------------------------------------------------    ::|')
-	print('|::    OPTION : [clear] // [menu] // [home] // [exit]                ::|')
-	print('________________________________________________________________________\n')
+	#row, columns = os.popen('stty size', 'r').read().split()
+	columns  = 109
+	rows     = 49
+	line_und = ['_']*(int(columns))
+	line_u   = ''.join(map(str, line_und))
+	line_u   = colored(line_u, 'magenta', attrs=['bold'])
+
+	print('|::     '+m_clr('NS','NETWORK SCANNER')+'  |  '+m_clr('PS','PORT SCANNER')+'  |  '+m_clr('SF','SUBNET FINDER')+'     |  '+m_clr('ZC','ZIP CRACKER')+'         ::|')
+	print('|::     '+m_clr('DF','DATA-GEN FAKER')+'   |  '+m_clr('MB','MAIL BOMBER')+'   |  '+m_clr('RO','CIPHER-GEN ROT13')+'  |  '+m_clr('SB','SSH BRUTEFORCE')+'      ::|')
+	print('|::     '+m_clr('RS','CIPHER-GEN RSA')+'   |  '+m_clr('WS','WEB SCRAPPER')+'  |  '+m_clr('XX','...')+'               |  '+m_clr('XX','...')+'                 ::|')
+	print('|::     '+clr('--------------------------------------------------------------------------------------------','m')+'      ::|')
+	print('|::     '+clr('OPTION','c')+' : '+clr('[clear] // [menu] // [home] // [exit] // [help]','y')+'                                          ::|')
+	print(line_u+'\n')
 
 ## User Input
 def menu_display_input():
-	menu_input = input('>> ')
-	return menu_input
+	rows, columns = os.popen('stty size', 'r').read().split()
+	#rows    = 49
+	#columns = 109
+	if (int(columns) >= 109) and (int(rows) >= 49):
+		menu_input = input(colored('>> ', 'yellow', attrs=['bold']))
+		return menu_input
+	else:
+		print("\n"+clr('Info:','y')+" please consider to resize your terminal screen into atleast ["+clr('49','c')+' x '+clr('109','c')+"] characters")
+		print('      your current resosultion are [%s x %s] characters, which may cause some results' % (clr(rows,'c'), clr(columns,'c')))
+		print('      not in a proper and desired format ...\n      Program exiting now :( \n')
+		sys.exit(0)
 
 def sw_case_menu(key):
+	#row, columns = os.popen('stty size', 'r').read().split()
+	rows      = 49
+	columns   = 109
+	line_und  = ['_']*(int(columns))
+	line_u    = ''.join(map(str, line_und))
+	line_u    = colored(line_u, 'magenta', attrs=['bold'])
 	checker = 'false'
 	if key == 'clear':
 		clear()
@@ -61,30 +123,34 @@ def sw_case_menu(key):
 		clear()
 		main_method()
 	elif key == 'menu':
-		print('________________________________________________________________________\n')
+		print(line_u+'\n')
 		menu_display()
 	elif key == 'exit':
 		sys.exit(0)
-	elif key == '1':
-		print('________________________________________________________________________\n')
-		network_scan_proc(network_scan_input())
-		print('________________________________________________________________________\n')
-	elif key == '2':
-		print('________________________________________________________________________\n')
-		port_scan_proc(port_scan_input())
-		print('________________________________________________________________________\n')
+	elif key == 'NS':
+		print(line_u+'\n')
+		net_scan.network_scan_proc(net_scan.network_scan_input())
+		print(line_u+'\n')
+	elif key == 'PS':
+		print(line_u+'\n')
+		port_scan.port_scan_proc(port_scan.port_scan_input())
+		print(line_u+'\n')
 	elif key == '3':
-		print('________________________________________________________________________\n')
+		print(line_u+'\n')
 		subnet_finder_proc()
-		print('________________________________________________________________________\n')
+		print(line_u+'\n')
 	elif re.search('4', key):
-		print('________________________________________________________________________\n')
+		print(line_u+'\n')
 		data_gen_proc(key)
-		print('________________________________________________________________________\n')
+		print(line_u+'\n')
 	elif key == '5':
-		print('________________________________________________________________________\n')
+		print(line_u+'\n')
 		mail_bomber_proc()
-		print('________________________________________________________________________\n')
+		print(line_u+'\n')
+	elif key == 'RO':
+		print(line_u+'\n')
+		cipher_r13.cipher_gen_rot13_proc()
+		print(line_u+'\n')
 
 ## Port Scanner
 def port_scan_input():
@@ -108,7 +174,7 @@ def port_scan_proc(host):
 			for ports in nmap_sc[host]['tcp'].keys():
 				fm_ports = '{:<6}'.format(ports)
 				product_detail = '{:<14}'.format((str(nmap_sc[host]['tcp'][ports]['name']).upper() + ' ' + str(nmap_sc[host]['tcp'][ports]['version']))[:13])
-				version_detail = '{:<6}'.format((nmap_sc[host]['tcp'][ports]['product'] + ' ' + nmap_sc[host]['tcp'][ports]['extrainfo'])[:38])
+				version_detail = '{:<6}'.format((nmap_sc[host]['tcp'][ports]['product'] + ' ' + nmap_sc[host]['tcp'][ports]['extrainfo'])) #[:38])
 				state_detail   = '{:<3}'.format(str(nmap_sc[host]['tcp'][ports]['state']).upper()[:4])
 				print('|- %s  %s\t %s | %s' % (fm_ports, state_detail, product_detail, version_detail))
 			frmt_query = '{:.3f}'.format(time.time() - go_time)
@@ -120,7 +186,7 @@ def port_scan_proc(host):
 			bug_logger_proc('PS')
 	except:
 		print('Host requires atleast 1 open port for the scanning')
-		print('Also make sure the IP Address is in the correct format')
+		print('Also make sure the IP Address is in the correct format\n')
 		bug_logger_proc('PS')
 
 ## Network Scanner
@@ -449,7 +515,7 @@ def mail_bomber_proc():
 		mail_content = ''
 		texts = ''
 
-		open_json = open("setting.json","r")
+		open_json = open(str(os.getcwd())+"/conf/gmail_account.json","r")
 		str_json  = open_json.read()
 		arr_json  = re.split('; |, |\\n', str_json)
 		get_gmailaddr = re.split('; |, |\"', str(arr_json[0]))
@@ -503,7 +569,7 @@ def mail_bomber_proc():
 						texts = mail_maker(sender_address, sender_pass, receiver_address, mail_subject, mail_content)
 					if re.search('//random', mail_passer_cont):
 						mail_content_2 = ''
-						for i in range(10):
+						for i in range(30):
 							mail_content_2 += fake_text.text()
 						mail_content = mail_content_2
 						texts = mail_maker(sender_address, sender_pass, receiver_address, mail_subject, mail_content)
@@ -521,7 +587,7 @@ def mail_bomber_proc():
 						texts = mail_maker(sender_address, sender_pass, receiver_address, mail_subject, mail_content)
 					if re.search('//random', mail_passer_cont):
 						mail_content_2 = ''
-						for i in range(10):
+						for i in range(30):
 							mail_content_2 += fake_text.text()
 						mail_content = mail_content_2
 						texts = mail_maker(sender_address, sender_pass, receiver_address, mail_subject, mail_content)
@@ -533,7 +599,7 @@ def mail_bomber_proc():
 						time.sleep(0.3)
 			prog = ':'
 			print(prog, end="", flush=True)
-			time.sleep(0.3)
+			time.sleep(0.1)
 
 		print('\n[+] Finalizing  | ', end="", flush=True)
 		for i in range(54):
@@ -545,12 +611,15 @@ def mail_bomber_proc():
 		open_json.close()
 
 		frmt_query = '{:.3f}'.format(time.time() - go_time)
+		print('\n%s have been bombed successfully' % receiver_address)
+		print("Take a break pause if the bomb have reach atleast 100 emails in one single attack")
+		print('to avoid any refused or blocked connection from google smtp server')
 		print('\nQuery finished successfully in %s seconds ...' % (frmt_query))
 	except:
 		err_i = str(sys.exc_info()[1]) + ' ...)'
 		print('\n\nIt seems the connection got refused from the service or by the user')
 		print('Check out buglogger.log for more detail about this current event')
-		bug_logger_proc('BM')
+		bug_logger_proc('MB')
 
 ## Bug Logger
 #def bug_logg_proc():
@@ -566,4 +635,13 @@ def main_method():
 		sw_case_menu(key)
 
 while 1 > 0:
-	main_method()
+	rows, columns = os.popen('stty size', 'r').read().split()
+	#rows = 49
+	#columns = 109
+	if (int(columns) >= 109) and (int(rows) >= 49):
+		main_method()
+	else:
+		print("\n"+clr('Info:','y')+" please consider to resize your terminal screen into atleast ["+clr('49','c')+' x '+clr('109','c')+"] characters")
+		print('      your current resosultion are [%s x %s] characters, which may cause some results' % (clr(rows,'c'), clr(columns,'c')))
+		print('      not in a proper and desired format ...\n      Program exiting now :( \n')
+		sys.exit(0)
