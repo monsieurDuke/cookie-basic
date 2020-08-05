@@ -8,11 +8,15 @@ branches:
  only:
   - master
 
+git:
+  lfs_skip_smudge: true
+
 before_install:
   - sudo apt-get update
   - sudo apt-get -y install nmap
 
 install:
+  - git lfs pull
   - pip install -r requirements.txt
 
 script: pytest
