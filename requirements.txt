@@ -4,3 +4,4 @@ Faker
 termcolor
 pytest
 pycryptodome
+python-coveralls
