@@ -9,15 +9,15 @@ from faker import Faker
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-from bug_logger import BugLogger
-from ro_ciphergen_rot13 import CipherROT13
-from ns_network_scanner import NetworkScanner
+#from test_bug_logger import TestBugLogger
+#from ro_ciphergen_rot13 import CipherROT13
+#from ns_network_scanner import NetworkScanner
 
 nmap_sc    = nmap.PortScanner()
 curuser    = getpass.getuser()
-bug_logger = BugLogger()
-cipher_r13 = CipherROT13()
-net_scan   = NetworkScanner()
+#bug_logger = TestBugLogger()
+#ipher_r13 = CipherROT13()
+#net_scan   = NetworkScanner()
 
 ## Bug Logger
 def bug_logger_proc(menu):
