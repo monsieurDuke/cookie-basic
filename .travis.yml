@@ -3,22 +3,21 @@ os: linux
 language: python
 python:
   - "3.8"
-
 branches:
  only:
   - master
 
 git:
-  lfs_skip_smudge: true
+  - lfs_skip_smudge: true
 
 before_install:
   - sudo apt-get update -y
   - sudo apt-get install -y nmap
-
 install:
   - pip install -r requirements.txt
 
-script: pytest --cov
+before_script: cd test-repos
+script: pytest --cov=test-repos/
 
 after_success:
   - coveralls
