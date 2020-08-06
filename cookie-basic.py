@@ -13,6 +13,7 @@ from bug_logger import BugLogger
 from ro_ciphergen_rot13 import CipherROT13
 from ns_network_scanner import NetworkScanner
 from ps_port_scanner import PortScanner
+from sf_subnet_finder import SubnetFinder
 
 nmap_sc    = nmap.PortScanner()
 curuser    = getpass.getuser()
@@ -20,6 +21,7 @@ bug_logger = BugLogger()
 cipher_r13 = CipherROT13()
 net_scan   = NetworkScanner()
 port_scan  = PortScanner()
+sub_finder = SubnetFinder()
 
 ## Bug Logger
 def bug_logger_proc(menu):
@@ -37,7 +39,7 @@ def bug_logger_proc(menu):
 ## Main Display
 def header():
 	clear()
-	#row, columns = os.popen('stty size', 'r').read().split()
+	x_row, y_columns = os.popen('stty size', 'r').read().split()
 	columns   = 109
 	rows      = 49
 	line_und  = ['_']*(int(columns))
@@ -46,14 +48,14 @@ def header():
 	line_hint = ['_']*(int(columns)-14)
 	line_h    = ''.join(map(str, line_hint))
 
-	#print(row+' x '+columns)
+	print(x_row+' x '+y_columns)
 
 	curdate = datetime.datetime.now()
 	getdate = curdate.strftime('%A, %d %B %Y')
 	gettime = curdate.strftime('%I:%M:%S %p')
 	print(colored(' _______ _______ _______ ___ ___  ___ _______', 'cyan', attrs=['bold']) , colored('__                __       ', 'yellow', attrs=['bold']))
 	print(colored('|   _   |   _   |   _   |   Y   )|   |   _  ', 'cyan', attrs=['bold']) , colored('|  |--.---.-.-----|__.----.', 'yellow', attrs=['bold']))
-	print(colored('|.  1___|.  |   |.  |   |.  1  / |.  |. ____', 'cyan', attrs=['bold']), colored('|  _  |  _  |__ --|  |  __|', 'yellow', attrs=['bold']))
+	print(colored('|.  1___|.  |   |.  |   |.  1  / |.  |. ____', 'cyan', attrs=['bold']),  colored('|  _  |  _  |__ --|  |  __|', 'yellow', attrs=['bold']))
 	print(colored('|.  |___|.  |   |.  |   |.  _  \ |.  |. ____', 'cyan' , attrs=['bold']), colored('|_____|___._|_____|__|____|', 'yellow', attrs=['bold']))
 	print(colored('|:  1   |:  1   |:  1   |:  |   \|:  |:  1   |' , 'cyan' , attrs=['bold']))
 	print(colored('|::.. . |::.. . |::.. . |::.| .  |::.|::.. . |  ' , 'cyan' , attrs=['bold']) + colored(str(getdate).upper(), 'cyan', attrs=['bold']))
@@ -97,9 +99,9 @@ def menu_display():
 
 ## User Input
 def menu_display_input():
-	rows, columns = os.popen('stty size', 'r').read().split()
-	#rows    = 49
-	#columns = 109
+	#ows, columns = os.popen('stty size', 'r').read().split()
+	rows    = 49
+	columns = 109
 	if (int(columns) >= 109) and (int(rows) >= 49):
 		menu_input = input(colored('>> ', 'yellow', attrs=['bold']))
 		return menu_input
@@ -135,9 +137,9 @@ def sw_case_menu(key):
 		print(line_u+'\n')
 		port_scan.port_scan_proc(port_scan.port_scan_input())
 		print(line_u+'\n')
-	elif key == '3':
+	elif key == 'SF':
 		print(line_u+'\n')
-		subnet_finder_proc()
+		sub_finder.subnet_finder_proc()
 		print(line_u+'\n')
 	elif re.search('4', key):
 		print(line_u+'\n')
@@ -635,9 +637,9 @@ def main_method():
 		sw_case_menu(key)
 
 while 1 > 0:
-	rows, columns = os.popen('stty size', 'r').read().split()
-	#rows = 49
-	#columns = 109
+	#rows, columns = os.popen('stty size', 'r').read().split()
+	rows = 49
+	columns = 109
 	if (int(columns) >= 109) and (int(rows) >= 49):
 		main_method()
 	else:

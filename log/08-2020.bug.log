@@ -1,10 +1,3 @@
-[29/07/2020 07:31:37 PM] (BM) ERROR: action have been cancled manually by user (ctrl + c)
-[29/07/2020 07:34:22 PM] (BM) ERROR: action have been cancled manually by user (ctrl + c)
-[29/07/2020 07:35:25 PM] (BM) ERROR: action have been cancled manually by user (ctrl + c)
-[29/07/2020 07:36:18 PM] (BM) ERROR: action have been cancled manually by user (ctrl + c)
-[30/07/2020 06:23:20 AM] (NS) ERROR: action have been cancled manually by user (ctrl + c)
-[31/07/2020 09:15:43 PM] (BM) ERROR: (421, b'4.7.0 Try again later, closing connection. (MAIL) u26sm10217428pgo.71 - gsmtp', 'icatmuhammad3@gmail.com')
-[31/07/2020 09:20:22 PM] (BM) ERROR: (421, b'4.7.0 Try again later, closing connection. (MAIL) w70sm9894644pfc.98 - gsmtp', 'icatmuhammad3@gmail.com')
 [01/08/2020 11:30:16 PM] (CR) ERROR: [Errno 2] No such file or directory: '/home/aw'
 [01/08/2020 11:47:51 PM] (CR) ERROR: [Errno 2] No such file or directory: '/home/cookie/Sandbox/Cookie-Basic/cipher/my-dairy.txt'
 [02/08/2020 10:39:19 AM] (NS) ERROR: unsupported format character 'S' (0x53) at index 32
@@ -31,3 +24,13 @@
 [03/08/2020 09:57:05 PM] (RO) ERROR: [Errno 2] No such file or directory: '/home/cookie/Sandbox/Cookie-Basic/cipher/warning'
 [05/08/2020 11:17:46 PM] (PS) ERROR: 'a'
 [05/08/2020 11:51:36 PM] (RO) ERROR: [Errno 21] Is a directory: '/home/'
+[06/08/2020 10:06:54 AM] (PS) ERROR: 'tcp'
+[06/08/2020 11:17:35 AM] (SF) ERROR: invalid literal for int() with base 10: 'a'
+[06/08/2020 11:25:34 PM] (SF) ERROR: invalid literal for int() with base 10: 'awd'
+[07/08/2020 12:06:31 AM] (NS) ERROR: action have been manually cancled by user (ctrl + c)
+[07/08/2020 12:15:48 AM] (NS) ERROR: list index out of range
+[07/08/2020 12:17:33 AM] (NS) ERROR: action have been manually cancled by user (ctrl + c)
+[07/08/2020 12:19:25 AM] (SF) ERROR: list index out of range
+[07/08/2020 12:35:27 AM] (SF) ERROR: action have been manually cancled by user (ctrl + c)
+[07/08/2020 12:40:26 AM] (PS) ERROR: 'yeet'
+[07/08/2020 12:44:37 AM] (SF) ERROR: invalid literal for int() with base 10: 'a'

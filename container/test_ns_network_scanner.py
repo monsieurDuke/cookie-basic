@@ -1,5 +1,6 @@
 import nmap
 import time
+import datetime
 import re
 
 from termcolor import colored
@@ -39,6 +40,8 @@ class NetworkScanner:
             frmt_query = '{:.3f}'.format(time.time() - go_time)
             print('\n'+self.clr('Query finished successfully in','y')+' %s seconds ...' % (frmt_query))
         except:
+            curdate = datetime.datetime.now()
+            fldate  = curdate.strftime('%m-%Y')
             print('Network range requires the prefix to be included in correct format')
-            print('Check out '+self.clr('bug-tracker.log','g')+' for more detail about this current event')
+            print('Check out '+self.clr('log/'+fldate+'.bug.log','g')+' for more detail about this current event')
             bug_logger.bug_logger_proc('NS')
