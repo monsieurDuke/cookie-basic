@@ -21,6 +21,10 @@ Faker is heavily inspired by `PHP Faker`_, `Perl Faker`_, and by `Ruby Faker`_.
 
 ----
 
+|github_stat| |github_lang|
+
+----
+
 For more details, see the `extended docs`_, especially if you are upgrading
 from version ``2.0.4`` and below as there might be breaking changes.
 
@@ -491,3 +495,9 @@ Credits
  
 .. |github_issue| image:: https://img.shields.io/github/issues/hotpotcookie/cookie-basic
     :target: https://GitHub.com/hotpotcookie/cookie-basic/issues/
+    
+.. |github_stat| image:: https://github-readme-stats.vercel.app/api?username=hotpotcookie&show_icons=true&hide_title=true&include_all_commits=true
+    :target: https://github.com/anuraghazra/github-readme-stats
+
+.. |github_lang| image:: https://github-readme-stats.vercel.app/api/top-langs/?username=hotpotcookie&layout=compact&hide_title=true
+    :target: https://github.com/anuraghazra/github-readme-stats
