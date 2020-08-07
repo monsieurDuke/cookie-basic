@@ -34,3 +34,37 @@
 [07/08/2020 12:35:27 AM] (SF) ERROR: action have been manually cancled by user (ctrl + c)
 [07/08/2020 12:40:26 AM] (PS) ERROR: 'yeet'
 [07/08/2020 12:44:37 AM] (SF) ERROR: invalid literal for int() with base 10: 'a'
+[07/08/2020 06:15:17 AM] (SF) ERROR: invalid literal for int() with base 10: 'a'
+[07/08/2020 06:19:03 AM] (SF) ERROR: invalid literal for int() with base 10: 'a'
+[07/08/2020 06:19:37 AM] (SF) ERROR: invalid literal for int() with base 10: 'satu'
+[07/08/2020 09:28:31 AM] (DF) ERROR: list index out of range
+[07/08/2020 09:29:59 AM] (DF) ERROR: list index out of range
+[07/08/2020 09:30:35 AM] (DF) ERROR: list index out of range
+[07/08/2020 09:31:26 AM] (DF) ERROR: list index out of range
+[07/08/2020 09:32:08 AM] (DF) ERROR: list index out of range
+[07/08/2020 09:32:42 AM] (DF) ERROR: 'DataFaker' object has no attribute 'fake_email'
+[07/08/2020 09:36:41 AM] (DF) ERROR: list index out of range
+[07/08/2020 09:37:17 AM] (DF) ERROR: fake_email() takes 0 positional arguments but 1 was given
+[07/08/2020 09:37:47 AM] (DF) ERROR: list index out of range
+[07/08/2020 09:38:39 AM] (DF) ERROR: list index out of range
+[07/08/2020 09:39:30 AM] (DF) ERROR: list index out of range
+[07/08/2020 09:42:00 AM] (DF) ERROR: list index out of range
+[07/08/2020 09:11:13 PM] (DF) ERROR: list index out of range
+[07/08/2020 09:12:29 PM] (DF) ERROR: list index out of range
+[07/08/2020 09:12:45 PM] (MB) ERROR: name 're' is not defined
+[07/08/2020 09:28:21 PM] (MB) ERROR: {'ok': (553, b'5.1.3 The recipient address <ok> is not a valid RFC-5321 address. l63sm10808731pgl.24 - gsmtp')}
+[07/08/2020 09:30:10 PM] (MB) ERROR: {'ashiap': (553, b'5.1.3 The recipient address <ashiap> is not a valid RFC-5321 address. a10sm11634353pfk.26 - gsmtp')}
+[07/08/2020 09:31:44 PM] (MB) ERROR: {'o': (553, b'5.1.3 The recipient address <o> is not a valid RFC-5321 address. jb1sm11571640pjb.9 - gsmtp')}
+[07/08/2020 09:44:11 PM] (MB) ERROR: (421, b'4.7.0 Try again later, closing connection. (MAIL) p20sm10843162pjz.49 - gsmtp', 'icatmuhammad3@gmail.com')
+[07/08/2020 09:51:40 PM] (MB) ERROR: (421, b'4.7.0 Try again later, closing connection. (MAIL) 131sm9669198pgh.67 - gsmtp', 'icatmuhammad3@gmail.com')
+[07/08/2020 10:00:10 PM] (MB) ERROR: (421, b'4.7.0 Try again later, closing connection. (MAIL) t17sm11529129pgu.30 - gsmtp', 'icatmuhammad3@gmail.com')
+[07/08/2020 10:01:59 PM] (MB) ERROR: invalid literal for int() with base 10: 'ukai'
+[07/08/2020 10:03:25 PM] (MB) ERROR: {'yyyyyeeeeeeeeeeet': (553, b'5.1.3 The recipient address <yyyyyeeeeeeeeeeet> is not a valid RFC-5321\n5.1.3 address. t14sm2404019pgb.51 - gsmtp')}
+[07/08/2020 10:04:43 PM] (MB) ERROR: {'yeet': (553, b'5.1.3 The recipient address <yeet> is not a valid RFC-5321 address. x127sm13914357pfd.86 - gsmtp')}
+[07/08/2020 10:05:41 PM] (MB) ERROR: {'yeet': (553, b'5.1.3 The recipient address <yeet> is not a valid RFC-5321 address. h15sm13050680pfo.192 - gsmtp')}
+[07/08/2020 10:08:04 PM] (MB) ERROR: (535, b'5.7.8 Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials k2sm10947988pgm.11 - gsmtp')
+[07/08/2020 10:09:24 PM] (MB) ERROR: {'ica': (553, b'5.1.3 The recipient address <ica> is not a valid RFC-5321 address. w14sm13770996pfj.220 - gsmtp')}
+[07/08/2020 11:21:20 PM] (PS) ERROR: 'tcp'
+[07/08/2020 11:24:30 PM] (PS) ERROR: 'aa'
+[07/08/2020 11:28:16 PM] (DF) ERROR: list index out of range
+[08/08/2020 12:07:52 AM] (NS) ERROR: list index out of range

@@ -14,6 +14,8 @@ from ro_ciphergen_rot13 import CipherROT13
 from ns_network_scanner import NetworkScanner
 from ps_port_scanner import PortScanner
 from sf_subnet_finder import SubnetFinder
+from df_datagen_faker import DataFaker
+from mb_mail_bomber import MailBomber
 
 nmap_sc    = nmap.PortScanner()
 curuser    = getpass.getuser()
@@ -22,6 +24,8 @@ cipher_r13 = CipherROT13()
 net_scan   = NetworkScanner()
 port_scan  = PortScanner()
 sub_finder = SubnetFinder()
+data_faker = DataFaker()
+mail_bomb  = MailBomber()
 
 ## Bug Logger
 def bug_logger_proc(menu):
@@ -141,13 +145,13 @@ def sw_case_menu(key):
 		print(line_u+'\n')
 		sub_finder.subnet_finder_proc()
 		print(line_u+'\n')
-	elif re.search('4', key):
+	elif re.search('DF', key):
 		print(line_u+'\n')
-		data_gen_proc(key)
+		data_faker.data_gen_proc(key)
 		print(line_u+'\n')
-	elif key == '5':
+	elif key == 'MB':
 		print(line_u+'\n')
-		mail_bomber_proc()
+		mail_bomb.mail_bomber_proc()
 		print(line_u+'\n')
 	elif key == 'RO':
 		print(line_u+'\n')
@@ -370,13 +374,13 @@ def data_gen_proc(param):
 		else:
 			print('Invalid argument: %s\n' % arr_param[1])
 			print('| full-name | email-address | domain-name | full-date ')
-			print('| phone_number | street-address | job_position |\n')
+			print('| phone-number | street-address | job_position |\n')
 			print('Please input the available argument in the correct format')
 			print('[menu_option] > [argument]')
 	except:
 			print('Invalid argument: %s\n' % param)
 			print('| full-name | email-address | domain-name | full-date ')
-			print('| phone_number | street-address | job_position |\n')
+			print('| phone-number | street-address | job_position |\n')
 			print('Please input the available argument in the correct format')
 			print('[menu_option] > [argument]')
 			bug_logger_proc('DF')

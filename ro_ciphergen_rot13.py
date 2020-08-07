@@ -2,6 +2,7 @@ import hashlib
 import binascii
 import re
 import time
+import datetime
 import os
 
 from termcolor import colored
@@ -81,9 +82,11 @@ class CipherROT13:
                 print("\nThe only valid arguments for the process are "+self.clr("'encrypt'",'g')+" and "+self.clr("'decrypt'",'g'))
                 print('Please verify what the action needed to do with the source file')
         except:
+            curdate = datetime.datetime.now()
+            fldate  = curdate.strftime('%m-%Y')
             print("\nPlease verify the source file name and it's path in the correct format")
-            print('Check out '+self.clr('bug-tracker.log','g')+' for more detail about this current event')
-            bug_logger.bug_logger_proc('RO')
+            print('Check out '+self.clr('log/'+fldate+'.bug.log','g')+' for more detail about this current event')
+            bug_logger.bug_logger_proc('PS')
 
     # encrypting the plain text
     def rot13_encypt(self, plain_char, rot13_enc, cipher_char, cipher_str, file_path):

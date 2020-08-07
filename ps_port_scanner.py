@@ -48,12 +48,14 @@ class PortScanner:
                 frmt_query = '{:.3f}'.format(time.time() - go_time)
                 print('\n'+self.clr('Query finished successfully in','y')+' %s seconds ...' % (frmt_query))
             except:
-                print("It seems that the host doesn't have any relevant services")
-                print('Check out '+self.clr('bug-tracker.log','g')+' for more detail about this current event')
+                curdate = datetime.datetime.now()
+                fldate  = curdate.strftime('%m-%Y')
+                print('Host requires atleast 1 open port for the scanning, therefore please check the IP formatting')
+                print('Check out '+self.clr('log/'+fldate+'.bug.log','g')+' for more detail about this current event')
                 bug_logger.bug_logger_proc('PS')
         except:
             curdate = datetime.datetime.now()
             fldate  = curdate.strftime('%m-%Y')
             print('Host requires atleast 1 open port for the scanning, therefore please check the IP formatting')
-            print('Check out '+self.clr('log/'+fldate+'bug.log','g')+' for more detail about this current event')
+            print('Check out '+self.clr('log/'+fldate+'.bug.log','g')+' for more detail about this current event')
             bug_logger.bug_logger_proc('PS')
