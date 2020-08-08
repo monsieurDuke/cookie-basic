@@ -21,10 +21,6 @@ Faker is heavily inspired by `PHP Faker`_, `Perl Faker`_, and by `Ruby Faker`_.
 
 ----
 
-|github_stat| |github_lang|
-
-----
-
 For more details, see the `extended docs`_, especially if you are upgrading
 from version ``2.0.4`` and below as there might be breaking changes.
 
