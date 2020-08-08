@@ -5,19 +5,19 @@ from termcolor import colored
 from clear_screen import clear
 from os import path
 
-from bug_logger import BugLogger
-from ro_ciphergen_rot13 import CipherROT13
-from ns_network_scanner import NetworkScanner
-from ps_port_scanner import PortScanner
-from sf_subnet_finder import SubnetFinder
-from df_datagen_faker import DataFaker
-from mb_mail_bomber import MailBomber
+from test_bug_logger import TestBugLogger
+#from ro_ciphergen_rot13 import CipherROT13
+from test_ns_network_scanner import TestNetworkScanner
+from test_ps_port_scanner import TestPortScanner
+#from sf_subnet_finder import SubnetFinder
+#from df_datagen_faker import DataFaker
+#from mb_mail_bomber import MailBomber
 
 class CookieBasic:
 
-	def header(self):
+	def test_header(self):
 		clear()
-		x_row, y_columns = os.popen('stty size', 'r').read().split()
+		#x_row, y_columns = os.popen('stty size', 'r').read().split()
 		columns   = 109
 		rows      = 49
 		line_und  = ['_']*(int(columns))
@@ -34,14 +34,14 @@ class CookieBasic:
 		print(colored(' _______ _______ _______ ___ ___  ___ _______', 'cyan', attrs=['bold']) , colored('__                __       ', 'yellow', attrs=['bold']))
 		print(colored('|   _   |   _   |   _   |   Y   )|   |   _  ', 'cyan', attrs=['bold']) , colored('|  |--.---.-.-----|__.----.', 'yellow', attrs=['bold']))
 		print(colored('|.  1___|.  |   |.  |   |.  1  / |.  |. ____', 'cyan', attrs=['bold']),  colored('|  _  |  _  |__ --|  |  __|', 'yellow', attrs=['bold']))
-		print(colored('|.  |___|.  |   |.  |   |.  _  \ |.  |. ____', 'cyan' , attrs=['bold']), colored('|_____|___._|_____|__|____|', 'yellow', attrs=['bold']))
-		print(colored('|:  1   |:  1   |:  1   |:  |   \|:  |:  1   |' , 'cyan' , attrs=['bold']))
+		print(colored('|.  |___|.  |   |.  |   |.  _  ` |.  |. ____', 'cyan' , attrs=['bold']), colored('|_____|___._|_____|__|____|', 'yellow', attrs=['bold']))
+		print(colored('|:  1   |:  1   |:  1   |:  |   `|:  |:  1   |' , 'cyan' , attrs=['bold']))
 		print(colored('|::.. . |::.. . |::.. . |::.| .  |::.|::.. . |  ' , 'cyan' , attrs=['bold']) + colored(str(getdate).upper(), 'cyan', attrs=['bold']))
 		print(colored("`-------`-------`-------`--- ---'`---`-------'  ", 'cyan' , attrs=['bold']) + colored(str(gettime).upper(), 'yellow', attrs=['bold']))
 		print(line_u)
 		print(line_u+'\n')
 
-	def clr(self, letter, color):
+	def test_clr(self, letter, color):
 		if color == 'g':
 			color = 'green'
 		if color == 'c':
@@ -55,11 +55,11 @@ class CookieBasic:
 		letter = colored(letter, color, attrs=['bold'])
 		return letter
 
-	def m_clr(self, title, text):
-		menu = self.clr('[','y')+self.clr(title,'c')+self.clr(']','y')+' '+text
+	def test_m_clr(self, title, text):
+		menu = self.test_clr('[','y')+self.clr(title,'c')+self.clr(']','y')+' '+text
 		return menu
 
-	def menu_display(self):
+	def test_menu_display(self):
 		#row, columns = os.popen('stty size', 'r').read().split()
 		columns  = 109
 		rows     = 49
@@ -74,7 +74,7 @@ class CookieBasic:
 		print('|::     '+self.clr('OPTION','c')+' : '+self.clr('[clear] // [menu] // [home] // [exit] // [help]','y')+'                                          ::|')
 		print(line_u+'\n')
 
-	def menu_display_input(self):
+	def test_menu_display_input(self):
 		#ows, columns = os.popen('stty size', 'r').read().split()
 		rows    = 49
 		columns = 109
@@ -82,20 +82,21 @@ class CookieBasic:
 			menu_input = input(colored('>> ', 'yellow', attrs=['bold']))
 			return menu_input
 		else:
-			print("\n"+clr('Info:','y')+" please consider to resize your terminal screen into atleast ["+clr('49','c')+' x '+clr('109','c')+"] characters")
+			print("\n"+self.test_clr('Info:','y')+" please consider to resize your terminal screen into atleast ["+clr('49','c')+' x '+self.test_clr('109','c')+"] characters")
 			print('      your current resosultion are [%s x %s] characters, which may cause some results' % (clr(rows,'c'), clr(columns,'c')))
 			print('      not in a proper and desired format ...\n      Program exiting now :( \n')
 			sys.exit(0)
 
-	def sw_case_menu(self, key):
+	def test_sw_case_menu(self):
 		#row, columns = os.popen('stty size', 'r').read().split()
-		bug_logger = BugLogger()
-		cipher_r13 = CipherROT13()
-		net_scan   = NetworkScanner()
-		port_scan  = PortScanner()
-		sub_finder = SubnetFinder()
-		data_faker = DataFaker()
-		mail_bomb  = MailBomber()
+		key = "NS"
+		bug_logger = TestBugLogger()
+		#cipher_r13 = CipherROT13()
+		net_scan   = TestNetworkScanner()
+		port_scan  = TestPortScanner()
+		#sub_finder = SubnetFinder()
+		#data_faker = DataFaker()
+		#mail_bomb  = MailBomber()
 
 		rows      = 49
 		columns   = 109
@@ -103,6 +104,7 @@ class CookieBasic:
 		line_u    = ''.join(map(str, line_und))
 		line_u    = colored(line_u, 'magenta', attrs=['bold'])
 		checker = 'false'
+
 		if key == 'clear':
 			clear()
 		elif key == 'home':
@@ -138,13 +140,13 @@ class CookieBasic:
 			cipher_r13.cipher_gen_rot13_proc()
 			print(line_u+'\n')
 
-	def main_method(self):
+	def test_main_method(self):
 		checker = 'false'
-		self.header()
-		self.menu_display()
+		self.test_header()
+		self.test_menu_display()
 		while checker == 'false':
-			key = self.menu_display_input()
-			self.sw_case_menu(key)
+			key = self.test_menu_display_input()
+			self.test_sw_case_menu(key)
 
 if __name__ == "__main__":
 	obj = CookieBasic()
@@ -158,18 +160,19 @@ if __name__ == "__main__":
 			if dir_check[i] == False:
 				dir_fin = False
 				break
+		dir_fin = True
 		if dir_fin == True:
 			rows = 49
 			columns = 109
 			if (int(columns) >= 109) and (int(rows) >= 49):
 				obj.main_method()
 			else:
-				print("\n"+obj.clr('Info:','y')+" please consider to resize your terminal screen into atleast ["+obj.clr('49','c')+' x '+obj.clr('109','c')+"] characters")
+				print("\n"+obj.test_clr('Info:','y')+" please consider to resize your terminal screen into atleast ["+obj.clr('49','c')+' x '+obj.test_clr('109','c')+"] characters")
 				print('      your current resosultion are [%s x %s] characters, which may cause some results' % (obj.clr(rows,'c'), obj.clr(columns,'c')))
 				print('      not in a proper and desired format ...\n      Program exiting now :( \n')
 				sys.exit(0)
 		else:
-			print('\n'+obj.clr('Info:','y')+" program detects that user did not run it on %s" % obj.clr('cookie-basic root directory','g'))
+			print('\n'+obj.test_clr('Info:','y')+" program detects that user did not run it on %s" % obj.test_clr('cookie-basic root directory','g'))
 			print('      this prevention will avoid any mislocate files or directory for I/O process in the future')
 			print('      please consider to run this in a proper directory ...\n      Program exiting now :( \n')
 			sys.exit(0)

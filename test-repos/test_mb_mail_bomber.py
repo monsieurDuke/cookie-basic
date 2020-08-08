@@ -4,28 +4,26 @@ import smtplib
 import sys
 import os
 import re
+import pytest
 
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from faker import Faker
 from termcolor import colored
-from bug_logger import BugLogger
+from test_bug_logger import TestBugLogger
 
-class MailBomber:
+class TestMailBomber:
 
-    def clr(self, letter, color):
+    def test_clr(self):
+        letter = 'TEST'
+        color  = 'g'
         if color == 'g':
             color = 'green'
-        if color == 'c':
-            color = 'cyan'
-        if color == 'y':
-            color = 'yellow'
-        if color == 'm':
-            color = 'magenta'
         letter = colored(letter, color, attrs=['bold'])
         return letter
 
-    def mail_maker(self, gmail_addr, gmail_pass, target_addr, subject, body):
+    @pytest.fixture
+    def test_mail_maker(self, gmail_addr, gmail_pass, target_addr, subject, body):
         bug_logger = BugLogger()
         try:
             sender_addr   = gmail_pass

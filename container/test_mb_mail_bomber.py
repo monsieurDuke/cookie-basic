@@ -48,7 +48,7 @@ class MailBomber:
     def mail_bomber_proc(self):
         bug_logger = BugLogger()
         total_mail = 0
-        counter    = 0
+        counter    = 1
         try:
             fake_text = Faker(['it_IT', 'ja_JP', 'cs_CZ', 'de_DE', 'es_ES', 'hi_IN', 'hr_HR', 'ar_SA', 'el_GR', 'tr_TR'])
             fin_input = False
@@ -146,12 +146,12 @@ class MailBomber:
             open_json.close()
 
             frmt_query = '{:.3f}'.format(time.time() - go_time)
-            print('\n%s have been bombed successfully' % self.clr(receiver_address,'g'))
+            print('\n%s have been bombed successfully, %s out of %s' % (self.clr(receiver_address,'g'), self.clr((counter-1),'y'), self.clr(total_mail,'c')))
             print("Consider to take a break to avoid any refused or blocked connection from google smtp server")
             print('\n'+self.clr('Query finished successfully in','y')+' %s seconds ...' % (frmt_query))
         except:
             curdate = datetime.datetime.now()
             fldate  = curdate.strftime('%m-%Y')
-            print('\n\nError have been occured at '+self.clr(counter,'y')+' out of '+self.clr(total_mail,'c')+' may due to the sending limitation rules or misconfiguration')
+            print('\n\nError have been occured at '+self.clr((counter-1),'y')+' out of '+self.clr(total_mail,'c')+' may due to the sending limitation rules or misconfiguration')
             print('Check out '+self.clr('log/'+fldate+'.bug.log','g')+' for more detail about this current event')
             bug_logger.bug_logger_proc('MB')

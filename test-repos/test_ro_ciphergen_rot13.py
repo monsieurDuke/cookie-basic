@@ -4,15 +4,18 @@ import re
 import time
 import datetime
 import os
+import pytest
 
 from termcolor import colored
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
-from bug_logger import BugLogger
+from test_bug_logger import TestBugLogger
 
-class CipherROT13:
+class TestCipherROT13:
 
-    def clr(self, letter, color):
+    def test_clr(self):
+        letter = 'TEST'
+        color  = 'g'
         if color == 'g':
             color = 'green'
         if color == 'c':
@@ -24,10 +27,12 @@ class CipherROT13:
         letter = colored(letter, color, attrs=['bold'])
         return letter
 
-    def str_to_char(self, text):
+    @pytest.fixture
+    def test_str_to_char(self, text):
         return [char for char in text]
 
-    def cipher_gen_rot13_proc(self):
+    @pytest.fixture
+    def test_cipher_gen_rot13_proc(self):
         bug_logger = BugLogger()
         try:
             file_path =  input(self.clr('FUll path of source : ','c'))
@@ -89,7 +94,8 @@ class CipherROT13:
             bug_logger.bug_logger_proc('PS')
 
     # encrypting the plain text
-    def rot13_encypt(self, plain_char, rot13_enc, cipher_char, cipher_str, file_path):
+    @pytest.fixture
+    def test_rot13_encypt(self, plain_char, rot13_enc, cipher_char, cipher_str, file_path):
         try:
             dir_path  = str(os.getcwd())+'/cipher/'
             print('\nDestination path : %s' % dir_path)
@@ -137,7 +143,8 @@ class CipherROT13:
             bug_logger.bug_logger_proc('PS')
 
     # decrypting the plain text
-    def rot13_decrypt(self, cipher_char, rot13_enc, rot13_dec, uncipher_char, uncipher_str, file_path):
+    @pytest.fixture
+    def test_rot13_decrypt(self, cipher_char, rot13_enc, rot13_dec, uncipher_char, uncipher_str, file_path):
         try:
             dir_path  = str(os.getcwd())+'/cipher/'
             print('\nDestination path : %s' % dir_path)

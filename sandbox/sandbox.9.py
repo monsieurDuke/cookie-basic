@@ -10,3 +10,6 @@ def clr(letter):
 	return letter
 
 print(clr(a)+"awawa")
+
+for i in range(3):
+	print(i)

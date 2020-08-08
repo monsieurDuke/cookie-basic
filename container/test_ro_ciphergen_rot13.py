@@ -2,6 +2,7 @@ import hashlib
 import binascii
 import re
 import time
+import datetime
 import os
 
 from termcolor import colored
@@ -89,82 +90,94 @@ class CipherROT13:
 
     # encrypting the plain text
     def rot13_encypt(self, plain_char, rot13_enc, cipher_char, cipher_str, file_path):
-        dir_path  = str(os.getcwd())+'/cipher/'
-        print('\nDestination path : %s' % dir_path)
-        for i in range(len(plain_char)):
-            for j in range(len(rot13_enc)):
-                if plain_char[i] == rot13_enc[j]:
-                    cipher_char[i] = rot13_enc[j+13]
-                    cipher_str += cipher_char[i]
-                    break
+        try:
+            dir_path  = str(os.getcwd())+'/cipher/'
+            print('\nDestination path : %s' % dir_path)
+            for i in range(len(plain_char)):
+                for j in range(len(rot13_enc)):
+                    if plain_char[i] == rot13_enc[j]:
+                        cipher_char[i] = rot13_enc[j+13]
+                        cipher_str += cipher_char[i]
+                        break
 
-        file_ext = re.split('; |, |\/', file_path)
-        name_file = file_ext[len(file_ext)-1]
-        pure_file = name_file+'.encrypt.r13'
-        file_path = ''
+            file_ext = re.split('; |, |\/', file_path)
+            name_file = file_ext[len(file_ext)-1]
+            pure_file = name_file+'.encrypt.r13'
+            file_path = ''
 
-        if re.search('encrypt', name_file):
-            try:
-                get_pure = re.split('; |, |\.encrypt.', name_file)
-                pure_file = get_pure[0]+'.encrypt.r13'
-            except:
-                pure_file = get_pure[0]+'.encrypt.r13'
-            if re.search('reverse', name_file):
-                pure_file += '.reverse'
-        if re.search('decrypt', name_file):
-            try:
-                get_pure = re.split('; |, |\.decrypt.', name_file)
-                pure_file = get_pure[0]+'.encrypt.r13'
-            except:
-                pure_file = name_file+'.encrypt.r13'
-            if re.search('reverse', name_file):
-                pure_file += '.reverse'
+            if re.search('encrypt', name_file):
+                try:
+                    get_pure = re.split('; |, |\.encrypt.', name_file)
+                    pure_file = get_pure[0]+'.encrypt.r13'
+                except:
+                    pure_file = get_pure[0]+'.encrypt.r13'
+                if re.search('reverse', name_file):
+                    pure_file += '.reverse'
+            if re.search('decrypt', name_file):
+                try:
+                    get_pure = re.split('; |, |\.decrypt.', name_file)
+                    pure_file = get_pure[0]+'.encrypt.r13'
+                except:
+                    pure_file = name_file+'.encrypt.r13'
+                if re.search('reverse', name_file):
+                    pure_file += '.reverse'
 
-        file_path = dir_path+''+pure_file
+            file_path = dir_path+''+pure_file
 
-        print('Destination file : '+pure_file)
-        print('Origin file      : '+name_file)
-        write_cipher = open(file_path, 'w')
-        write_cipher.write(cipher_str)
-        write_cipher.close()
-        return cipher_str+'#'+pure_file
+            print('Destination file : '+pure_file)
+            print('Origin file      : '+name_file)
+            write_cipher = open(file_path, 'w')
+            write_cipher.write(cipher_str)
+            write_cipher.close()
+            return cipher_str+'#'+pure_file
+        except:
+            print("It seems program cannot determine the cipher destination path properly")
+            print('Please consider to run this program at the root directory of cookie-basic')
+            print('Check out '+self.clr('log/'+fldate+'.bug.log','g')+' for more detail about this current event')
+            bug_logger.bug_logger_proc('PS')
 
     # decrypting the plain text
     def rot13_decrypt(self, cipher_char, rot13_enc, rot13_dec, uncipher_char, uncipher_str, file_path):
-        dir_path  = str(os.getcwd())+'/cipher/'
-        print('\nDestination path : %s' % dir_path)
-        for i in range(len(cipher_char)):
-            for j in range(len(rot13_enc)):
-                if cipher_char[i] == rot13_dec[j]:
-                    uncipher_char[i] = rot13_dec[j+13]
-                    uncipher_str += uncipher_char[i]
-                    break
+        try:
+            dir_path  = str(os.getcwd())+'/cipher/'
+            print('\nDestination path : %s' % dir_path)
+            for i in range(len(cipher_char)):
+                for j in range(len(rot13_enc)):
+                    if cipher_char[i] == rot13_dec[j]:
+                        uncipher_char[i] = rot13_dec[j+13]
+                        uncipher_str += uncipher_char[i]
+                        break
 
-        file_ext = re.split('; |, |\/', file_path)
-        name_file = file_ext[len(file_ext)-1]
-        pure_file = name_file+'.decrypt.r13.reverse'
-        file_path = ''
+            file_ext = re.split('; |, |\/', file_path)
+            name_file = file_ext[len(file_ext)-1]
+            pure_file = name_file+'.decrypt.r13.reverse'
+            file_path = ''
 
-        if re.search('encrypt', name_file):
-            try:
-                get_pure = re.split('; |, |\.encrypt.', name_file)
-                pure_file = get_pure[0]+'.decrypt.r13'
-            except:
-                pure_file = name_file+'.decrypt.r13'
-        if re.search('decrypt', name_file):
-            try:
-                get_pure = re.split('; |, |\.decrypt.', name_file)
-                pure_file = get_pure[0]+'.decrypt.r13'
-            except:
-                pure_file = name_file+'.decrypt.r13'
-            if re.search('reverse', name_file):
-                pure_file += '.reverse'
+            if re.search('encrypt', name_file):
+                try:
+                    get_pure = re.split('; |, |\.encrypt.', name_file)
+                    pure_file = get_pure[0]+'.decrypt.r13'
+                except:
+                    pure_file = name_file+'.decrypt.r13'
+            if re.search('decrypt', name_file):
+                try:
+                    get_pure = re.split('; |, |\.decrypt.', name_file)
+                    pure_file = get_pure[0]+'.decrypt.r13'
+                except:
+                    pure_file = name_file+'.decrypt.r13'
+                if re.search('reverse', name_file):
+                    pure_file += '.reverse'
 
-        file_path = dir_path+''+pure_file
+            file_path = dir_path+''+pure_file
 
-        print('Destination file : '+pure_file)
-        print('Origin file      : '+name_file)
-        write_cipher = open(file_path, 'w')
-        write_cipher.write(uncipher_str)
-        write_cipher.close()
-        return uncipher_str+'#'+pure_file
+            print('Destination file : '+pure_file)
+            print('Origin file      : '+name_file)
+            write_cipher = open(file_path, 'w')
+            write_cipher.write(uncipher_str)
+            write_cipher.close()
+            return uncipher_str+'#'+pure_file
+        except:
+            print("It seems program cannot determine the cipher destination path properly")
+            print('Please consider to run this program at the root directory of cookie-basic')
+            print('Check out '+self.clr('log/'+fldate+'.bug.log','g')+' for more detail about this current event')
+            bug_logger.bug_logger_proc('PS')

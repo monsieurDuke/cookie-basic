@@ -4,11 +4,13 @@ import datetime
 
 from faker import Faker
 from termcolor import colored
-from bug_logger import BugLogger
+from test_bug_logger import TestBugLogger
 
-class DataFaker:
+class TestDataFaker:
 
-    def clr(self, letter, color):
+    def test_clr(self):
+        letter = 'TEST'
+        color  = 'g'
         if color == 'g':
             color = 'green'
         if color == 'c':
@@ -20,8 +22,9 @@ class DataFaker:
         letter = colored(letter, color, attrs=['bold'])
         return letter
 
-    def data_gen_proc(self, param):
-        bug_logger = BugLogger()
+    def test_data_gen_proc(self):
+        param = '4 > full-name'
+        bug_logger = TestBugLogger()
         arg_sym = '>'
         try:
             arr_param = re.split('; |, |\ > ', param)
@@ -50,23 +53,25 @@ class DataFaker:
                 print('Invalid argument: %s\n' % param)
                 print('| full-name    | email-address  | domain-name  | full-date |')
                 print('| phone-number | street-address | job-position | ...       |\n')
-                print("Please input the available argument in the correct format by adding the '%s' flag" % self.clr(arg_sym,'g'))
-                print('Check out '+self.clr('log/'+fldate+'.bug.log','g')+' for more detail about this current event')
-                bug_logger.bug_logger_proc('DF')
+                print("Please input the available argument in the correct format by adding the '>' flag")
+                print('Check out '+self.test_clr()+'bug.log for more detail about this current event')
+                bug_logger.test_bug_logger_proc()
 
-    def timestop(self, go_time):
+    def test_timestop(self):
+        go_time = 0.04
         frmt_query = '{:.3f}'.format(time.time() - go_time)
-        str_result = '\n'+self.clr('Query finished successfully in','y')+' %s seconds ...' % (frmt_query)
+        str_result = '\n'+self.test_clr()+'Query successfully finished in %s seconds ...' % (frmt_query)
         return str_result
 
-    def heading(self, title):
-        print(self.clr('Initializing Faker ...','c'))
-        print(self.clr('Generating: '+title+' ...\n','c'))
+    def test_heading(self):
+        title = 'full-name (30)'
+        print(self.test_clr()+'Initializing Faker ...')
+        print(self.test_clr()+'Generating: '+title+' ...\n')
 
-    def fake_name(self):
+    def test_fake_name(self):
         fake_gen = Faker()
         go_time  = time.time()
-        self.heading('full-name (30)')
+        self.test_heading()
         for i in range(10):
             name_gen = '{:<21}'.format(fake_gen.name())
             print('|- %s' % (name_gen), end =' ')
@@ -76,19 +81,19 @@ class DataFaker:
                 for i in range(1):
                     name_gen = '{:<23}'.format(fake_gen.name())
                     print('|- %s' % (name_gen))
-        print(self.timestop(go_time))
+        print(self.test_timestop())
 
-    def fake_email(self):
+    def test_fake_email(self):
         fake_gen = Faker()
         go_time  = time.time()
-        self.heading('email-address (20)')
+        self.test_heading()
         for i in range(10):
             email_gen = '{:<34}'.format(fake_gen.email())
             print('|- %s' % (email_gen), end =' ')
             for i in range(1):
                 email_gen = '{:<26}'.format(fake_gen.email())
                 print('|- %s' % (email_gen))
-        print(self.timestop(go_time))
+        print(self.test_timestop())
 
     def fake_domain(self):
         fake_gen = Faker()
