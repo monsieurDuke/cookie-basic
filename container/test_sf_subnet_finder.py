@@ -153,5 +153,5 @@ class SubnetFinder:
             curdate = datetime.datetime.now()
             fldate  = curdate.strftime('%m-%Y')
             print('\nIP Address requires the prefix to be included, therefore please check the IP formatting')
-            print('Check out '+self.clr('log/'+fldate+'.bug.log','g')+' for more detail about this current event')
+            print('Check out '+self.clr('log/bug/'+fldate+'.bug.log','g')+' for more detail about this current event')
             bug_logger.bug_logger_proc('SF')

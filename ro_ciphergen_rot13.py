@@ -85,8 +85,8 @@ class CipherROT13:
             curdate = datetime.datetime.now()
             fldate  = curdate.strftime('%m-%Y')
             print("\nPlease verify the source file name and it's path in the correct format")
-            print('Check out '+self.clr('log/'+fldate+'.bug.log','g')+' for more detail about this current event')
-            bug_logger.bug_logger_proc('PS')
+            print('Check out '+self.clr('log/bug/'+fldate+'.bug.log','g')+' for more detail about this current event')
+            bug_logger.bug_logger_proc('RO')
 
     # encrypting the plain text
     def rot13_encypt(self, plain_char, rot13_enc, cipher_char, cipher_str, file_path):
@@ -133,8 +133,8 @@ class CipherROT13:
         except:
             print("It seems program cannot determine the cipher destination path properly")
             print('Please consider to run this program at the root directory of cookie-basic')
-            print('Check out '+self.clr('log/'+fldate+'.bug.log','g')+' for more detail about this current event')
-            bug_logger.bug_logger_proc('PS')
+            print('Check out '+self.clr('log/bug/'+fldate+'.bug.log','g')+' for more detail about this current event')
+            bug_logger.bug_logger_proc('RO')
 
     # decrypting the plain text
     def rot13_decrypt(self, cipher_char, rot13_enc, rot13_dec, uncipher_char, uncipher_str, file_path):
@@ -179,5 +179,5 @@ class CipherROT13:
         except:
             print("It seems program cannot determine the cipher destination path properly")
             print('Please consider to run this program at the root directory of cookie-basic')
-            print('Check out '+self.clr('log/'+fldate+'.bug.log','g')+' for more detail about this current event')
-            bug_logger.bug_logger_proc('PS')
+            print('Check out '+self.clr('log/bug/'+fldate+'.bug.log','g')+' for more detail about this current event')
+            bug_logger.bug_logger_proc('RO')

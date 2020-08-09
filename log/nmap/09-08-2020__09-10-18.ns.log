@@ -1,0 +1,7 @@
+Network : 192.168.1.0/27
+Successfully collected 5 active hosts out of 32 
+|- 192.168.1.1 (csp1.zte.com.cn)
+|- 192.168.1.3 (192.168.1.3)
+|- 192.168.1.5 (PC)
+|- 192.168.1.6 (admin)
+|- 192.168.1.7 (192.168.1.7)

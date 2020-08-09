@@ -1,0 +1,3 @@
+Host	: PC (192.168.1.5)
+Machine	: Windows Longhorn (Microsoft)
+Kernel	: ['cpe:/o:microsoft:windows']

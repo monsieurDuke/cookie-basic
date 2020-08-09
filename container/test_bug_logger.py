@@ -13,6 +13,6 @@ class BugLogger:
         if error_info == '':
             error_info = 'action have been manually cancled by user (ctrl + c)'
         error_frm = '[%s %s] (%s) ERROR: %s\n' % (getdate, gettime, menu, error_info)
-        logs = open(str(os.getcwd())+'/log/'+fldate+'.bug.log', "a+")
+        logs = open(str(os.getcwd())+'/log/bug/'+fldate+'.bug.log', "a+")
         logs.write(error_frm)
         logs.close()

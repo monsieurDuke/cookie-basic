@@ -4,6 +4,7 @@ import smtplib
 import sys
 import os
 import re
+import json
 
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -42,7 +43,7 @@ class MailBomber:
             curdate = datetime.datetime.now()
             fldate  = curdate.strftime('%m-%Y')
             print('Please confirm and verify the gmail account settings on '+self.clr('conf/gmail_account.json','g'))
-            print('Check out '+self.clr('log/'+fldate+'.bug.log','g')+' for more detail about this current event')
+            print('Check out '+self.clr('log/bug/'+fldate+'.bug.log','g')+' for more detail about this current event')
             bug_logger.bug_logger_proc('MB')
 
     def mail_bomber_proc(self):
@@ -55,14 +56,15 @@ class MailBomber:
             mail_content = ''
             texts = ''
 
-            open_json = open(str(os.getcwd())+"/conf/gmail_account.json","r")
-            str_json  = open_json.read()
-            arr_json  = re.split('; |, |\\n', str_json)
-            get_gmailaddr = re.split('; |, |\"', str(arr_json[0]))
-            get_gmailpass = re.split('; |, |\"', str(arr_json[1]))
+            with open(str(os.getcwd())+"/conf/gmail_account.json","r") as f:
+                gm_acc = json.load(f)
 
-            sender_address   = get_gmailaddr[1]
-            sender_pass      = get_gmailpass[1]
+            for gmail in gm_acc:
+                gm_addr = gmail['email_addr_sender']
+                gm_pass = gmail['email_pass_sender']
+
+            sender_address   = gm_addr
+            sender_pass      = gm_pass
             receiver_address = input(self.clr('Target E-Mail\t: ','c'))
 
             mail_subject = input(self.clr('Mail Subject\t: ','c'))
@@ -153,5 +155,5 @@ class MailBomber:
             curdate = datetime.datetime.now()
             fldate  = curdate.strftime('%m-%Y')
             print('\n\nError have been occured at '+self.clr((counter-1),'y')+' out of '+self.clr(total_mail,'c')+' may due to the sending limitation rules or misconfiguration')
-            print('Check out '+self.clr('log/'+fldate+'.bug.log','g')+' for more detail about this current event')
+            print('Check out '+self.clr('log/bug/'+fldate+'.bug.log','g')+' for more detail about this current event')
             bug_logger.bug_logger_proc('MB')

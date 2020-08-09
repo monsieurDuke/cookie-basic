@@ -51,7 +51,7 @@ class DataFaker:
                 print('| full-name    | email-address  | domain-name  | full-date |')
                 print('| phone-number | street-address | job-position | ...       |\n')
                 print("Please input the available argument in the correct format by adding the '%s' flag" % self.clr(arg_sym,'g'))
-                print('Check out '+self.clr('log/'+fldate+'.bug.log','g')+' for more detail about this current event')
+                print('Check out '+self.clr('log/bug/'+fldate+'.bug.log','g')+' for more detail about this current event')
                 bug_logger.bug_logger_proc('DF')
 
     def timestop(self, go_time):

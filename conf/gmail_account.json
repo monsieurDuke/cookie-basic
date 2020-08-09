@@ -1,2 +1,6 @@
-email_addr_sender = "icatmuhammad3@gmail.com"
-emial_pass_sender = "wuooppacgpugsups"
+[
+	{
+		"email_addr_sender": "icatmuhammad3@gmail.com",
+		"email_pass_sender": "wuooppacgpugsups"
+	}
+]
