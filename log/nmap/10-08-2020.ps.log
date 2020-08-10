@@ -1,3 +1,20 @@
+______________________
+10-08-2020 11:53:13 AM
+----------------------
+Host	: csp1.zte.com.cn (192.168.1.1)
+Machine	: Linux 2.6.X (Linux)
+Kernel	: ['cpe:/o:linux:linux_kernel:2.6']
+Ports	: 4 ports are open, 996 not shown
+   PORTS   STAT	 SERVICE	  VERSION DETAIL
+   -----   ----	 -------	  --------------
+|- 23      FILT	 TELNET         |       
+|- 53      OPEN	 DOMAIN         |       
+|- 80      OPEN	 HTTP 1.0       | Mini web server ZTE ZXV10 W300 ADSL ro
+|- 443     OPEN	 HTTP 1.0       | Mini web server ZTE ZXV10 W300 ADSL ro
+
+______________________
+10-08-2020 12:03:44 PM
+----------------------
 Host	: PC (192.168.1.5)
 Machine	: Windows Longhorn (Microsoft)
 Kernel	: ['cpe:/o:microsoft:windows']
@@ -12,3 +29,4 @@ Ports	: 8 ports are open, 992 not shown
 |- 912     OPEN	 VMWARE-AUTH 1  | VMware Authentication Daemon Uses VNC,
 |- 3306    OPEN	 MYSQL          | MySQL unauthorized
 |- 5357    OPEN	 HTTP 2.0       | Microsoft HTTPAPI httpd SSDP/UPnP
+

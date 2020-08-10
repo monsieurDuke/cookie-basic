@@ -1,0 +1,3 @@
+# byte compile / optimized /
+__pycache__/
+test-repos/__pycache__/
