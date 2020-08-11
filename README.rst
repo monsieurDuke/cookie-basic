@@ -17,7 +17,7 @@ Faker is heavily inspired by `PHP Faker`_, `Perl Faker`_, and by `Ruby Faker`_.
 "   |::.. . |::.. . |::.. . |::.| .  |::.|::.. . |                              "
 "   `-------`-------`-------`--- ---'`---`-------'                              "
 
-|coverage| |coverall| |license| |contributor| |python_ver| |commit_since| |github_issue|
+|coverage| |coverall| |license| |python_ver| |commit_since|
 
 ----
 
