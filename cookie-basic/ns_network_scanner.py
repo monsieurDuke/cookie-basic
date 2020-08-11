@@ -49,7 +49,7 @@ class NetworkScanner:
             gettime  = curdate.strftime('%I:%M:%S %p')
             str_time = fldate+' '+gettime
 
-            logs = open(str(os.getcwd())+'/log/nmap/'+fldate+'.ns.log', "a+")
+            logs = open(str(os.getcwd())+'/../log/nmap/'+fldate+'.ns.log', "a+")
             logs.write('______________________\n'+str_time+'\n----------------------\n')
             logs.write('Network : %s\n' % network)
             logs.write(info_head)
@@ -63,5 +63,5 @@ class NetworkScanner:
             print('Check out '+self.clr('log/bug/'+fldate+'.bug.log','g')+' for more detail about this current event')
             bug_logger.bug_logger_proc('NS')
 
-#________________________
-#[03-08-2020 05:09:30 PM]
+#obj = NetworkScanner()
+#obj.network_scan_proc(obj.network_scan_input())

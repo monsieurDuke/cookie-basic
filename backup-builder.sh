@@ -57,7 +57,7 @@ exec_copy() {
 	fi
 }
 
-dest_dir="$PWD/container/"
+dest_dir="$PWD/../container/"
 while getopts ":f:c:h" flag
 do
 	case "${flag}" in

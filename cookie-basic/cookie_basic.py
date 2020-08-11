@@ -12,6 +12,7 @@ from ps_port_scanner import PortScanner
 from sf_subnet_finder import SubnetFinder
 from df_datagen_faker import DataFaker
 from mb_mail_bomber import MailBomber
+from rs_ciphergen_rsa import CipherRSA
 
 class CookieBasic:
 
@@ -96,6 +97,7 @@ class CookieBasic:
 		sub_finder = SubnetFinder()
 		data_faker = DataFaker()
 		mail_bomb  = MailBomber()
+		cipher_rsa = CipherRSA()
 
 		rows      = 49
 		columns   = 109
@@ -136,6 +138,10 @@ class CookieBasic:
 		elif key == 'RO':
 			print(line_u+'\n')
 			cipher_r13.cipher_gen_rot13_proc()
+			print(line_u+'\n')
+		elif key == 'RS':
+			print(line_u+'\n')
+			cipher_rsa.cipher_gen_rsa_proc()
 			print(line_u+'\n')
 
 	def main_method(self):

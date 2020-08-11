@@ -39,7 +39,7 @@ class CipherROT13:
             plain_str = read_plain.read()
             read_plain.close()
 
-            read_rot13key = open('/home/cookie/Sandbox/Cookie-Basic/cipher/cipher-rot13.key', 'r')
+            read_rot13key = open(str(os.getcwd())+'/cipher/.cipher.r13.key', 'r')
             rot13_str = read_rot13key.read()
             read_rot13key.close()
 
@@ -79,7 +79,7 @@ class CipherROT13:
                 print("Cipher with the "+self.clr('reverse','g')+" extensions means it's in the reverse order")
                 print('\n'+self.clr('Query finished successfully in','y')+' %s seconds ...' % (frmt_query))
             else:
-                print("\nThe only valid arguments for the process are "+self.clr("'encrypt'",'g')+" and "+self.clr("'decrypt'",'g'))
+                print("\nThe only valid arguments for the process are "+self.clr("encrypt",'g')+" and "+self.clr("decrypt",'g'))
                 print('Please verify what the action needed to do with the source file')
         except:
             curdate = datetime.datetime.now()
