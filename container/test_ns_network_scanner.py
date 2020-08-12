@@ -46,13 +46,15 @@ class NetworkScanner:
             print(self.clr('Query finished successfully in','y')+' %s seconds ...' % (frmt_query))
 
             fldate   = curdate.strftime('%d-%m-%Y')
-            gettime  = curdate.strftime('%H:%M:%S')
+            gettime  = curdate.strftime('%I:%M:%S %p')
             str_time = fldate+' '+gettime
 
-            logs = open(str(os.getcwd())+'/log/nmap/'+str_time+'.ns.log', "w+")
+            logs = open(str(os.getcwd())+'/log/nmap/'+fldate+'.ns.log', "a+")
+            logs.write('______________________\n'+str_time+'\n----------------------\n')
             logs.write('Network : %s\n' % network)
             logs.write(info_head)
             logs.write(info_body)
+            logs.write('\n')
             logs.close()
         except:
             curdate = datetime.datetime.now()
@@ -60,3 +62,6 @@ class NetworkScanner:
             print('Network range requires the prefix to be included in correct format')
             print('Check out '+self.clr('log/bug/'+fldate+'.bug.log','g')+' for more detail about this current event')
             bug_logger.bug_logger_proc('NS')
+
+#obj = NetworkScanner()
+#obj.network_scan_proc(obj.network_scan_input())

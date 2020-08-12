@@ -70,7 +70,7 @@ class CookieBasic:
 
 		print('|::     '+self.m_clr('NS','NETWORK SCANNER')+'  |  '+self.m_clr('PS','PORT SCANNER')+'  |  '+self.m_clr('SF','SUBNET FINDER')+'     |  '+self.m_clr('ZC','ZIP PASS-CRACKER')+'    ::|')
 		print('|::     '+self.m_clr('DF','DATA-GEN FAKER')+'   |  '+self.m_clr('MB','MAIL BOMBER')+'   |  '+self.m_clr('RO','CIPHER-GEN ROT13')+'  |  '+self.m_clr('SB','SSH BRUTEFORCE')+'      ::|')
-		print('|::     '+self.m_clr('RS','CIPHER-GEN RSA')+'   |  '+self.m_clr('WS','WEB SCRAPPER')+'  |  '+self.m_clr('ZD','ZIP OF DEATH')+'      |  '+self.m_clr('SH','SHODAN HASHER')+'       ::|')
+		print('|::     '+self.m_clr('RS','CIPHER-GEN RSA')+'   |  '+self.m_clr('WS','WEB SCRAPPER')+'  |  '+self.m_clr('ZD','ZIP-OF-DEATH')+'      |  '+self.m_clr('SS','SHODAN SEEKER')+'       ::|')
 		print('|::     '+self.clr('----------------------------------------------------------------------------------------------','m')+'    ::|')
 		print('|::     '+self.clr('OPTION','c')+' : '+self.clr('[clear] // [menu] // [home] // [exit] // [help]','y')+'                                          ::|')
 		print(line_u+'\n')

@@ -32,20 +32,22 @@ class PortScanner:
         bug_logger = BugLogger()
         curdate = datetime.datetime.now()
         fldate   = curdate.strftime('%d-%m-%Y')
-        gettime  = curdate.strftime('%H:%M:%S')
+        gettime  = curdate.strftime('%I:%M:%S %p')
         str_time = fldate+' '+gettime
         try:
-            logs = open(str(os.getcwd())+'/log/nmap/'+str_time+'.ps.log', "w+")
+            logs = open(str(os.getcwd())+'/log/nmap/'+fldate+'.ps.log', "a+")
             nmap_sc.scan(host, arguments='-O -sV -T4')
             port_list = len(nmap_sc[host]['tcp'].keys())
             info_host = 'Host\t: %s (%s)' % (nmap_sc[host].hostname(), host)
             info_mchn = 'Machine\t: %s %s (%s)' % (nmap_sc[host]['osmatch'][0]['osclass'][0]['osfamily'], nmap_sc[host]['osmatch'][0]['osclass'][0]['osgen'],nmap_sc[host]['osmatch'][0]['osclass'][0]['vendor'])
             info_krnl = 'Kernel\t: %s' % (nmap_sc[host]['osmatch'][0]['osclass'][0]['cpe'])
             print(info_host+'\n'+info_mchn+'\n'+info_krnl)
+            logs.write('______________________\n'+str_time+'\n----------------------\n')
             logs.write(info_host+'\n'+info_mchn+'\n'+info_krnl+'\n')
             try:
                 print('Ports\t: %s ports are open, %s not shown\n' % (port_list, str((1000-port_list))))
                 logs.write('Ports\t: %s ports are open, %s not shown\n' % (port_list, str((1000-port_list))))
+                logs.write('------------------------------------------------\n')
                 print('   PORTS   STAT\t SERVICE\t  VERSION DETAIL')
                 logs.write('   PORTS   STAT\t SERVICE\t  VERSION DETAIL\n')
                 print('   -----   ----\t -------\t  --------------')
@@ -58,6 +60,7 @@ class PortScanner:
                     print('|- %s  %s\t %s | %s' % (fm_ports, state_detail, product_detail, version_detail))
                     logs.write('|- %s  %s\t %s | %s\n' % (fm_ports, state_detail, product_detail, version_detail))
                 frmt_query = '{:.3f}'.format(time.time() - go_time)
+                logs.write('\n')
                 logs.close()
 
                 print('\n'+self.clr('Query finished successfully in','y')+' %s seconds ...' % (frmt_query))

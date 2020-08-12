@@ -10,6 +10,7 @@ exec_copy() {
 	dest_dir=$1
 	if [[ -d $dest_dir ]]
 	then
+		cd cookie-basic/
 		IFS='/'
 		file_name=(*.py)
 		failed_file=()
