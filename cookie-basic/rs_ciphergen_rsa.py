@@ -117,14 +117,13 @@ class CipherRSA:
 					key_error = True
 
 				if not key_error:
-					print('\nDestination path : %s' % dest_path)
-					print('Destination file : %s' % (name_file+'.encrypt.rsa'))
-					print('Origin file      : %s' % name_file)
 					encrypted_msg = self.encrypt_blob(unencrypted_file.read_bytes(), public_key.read_bytes())
-
 					enc_cipher = Path(str(encrypted_file))
 					enc_cipher.touch(mode=0o600)
 					enc_cipher.write_bytes(encrypted_msg)
+					print('\nDestination path : %s' % dest_path)
+					print('Destination file : %s' % (name_file+'.encrypt.rsa'))
+					print('Origin file      : %s' % name_file)
 
 			if cipher_act == 'decrypt':
 				check_opt = True
@@ -148,14 +147,14 @@ class CipherRSA:
 				read_cipher.close()
 
 				final_file = str(decrypted_file)
-				print('\nDestination path : %s' % dest_path)
-				print('Destination file : %s' % final_file)
-				print('Origin file      : %s' % name_file)
 				decrypted_msg = self.decrypt_blob(encrypted_msg, private_key.read_bytes())
 
 				dec_cipher = open(str(os.getcwd())+'/cipher/'+decrypted_file, 'w+')
 				dec_cipher.write(str(decrypted_msg)+'\n')
 				dec_cipher.close()
+				print('\nDestination path : %s' % dest_path)
+				print('Destination file : %s' % final_file)
+				print('Origin file      : %s' % name_file)
 
 			if check_opt:
 				frmt_query = '{:.3f}'.format(time.time() - go_time)

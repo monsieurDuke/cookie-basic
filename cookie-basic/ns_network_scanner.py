@@ -49,7 +49,7 @@ class NetworkScanner:
             gettime  = curdate.strftime('%I:%M:%S %p')
             str_time = fldate+' '+gettime
 
-            logs = open(str(os.getcwd())+'/../log/nmap/'+fldate+'.ns.log', "a+")
+            logs = open(str(os.getcwd())+'/log/nmap/'+fldate+'.ns.log', "a+")
             logs.write('______________________\n'+str_time+'\n----------------------\n')
             logs.write('Network : %s\n' % network)
             logs.write(info_head)

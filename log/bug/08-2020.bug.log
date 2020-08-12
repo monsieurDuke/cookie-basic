@@ -95,3 +95,7 @@
 [11/08/2020 09:55:21 PM] (RS) ERROR: [Errno 2] No such file or directory: '/home/cookie/Sandbox/Cookie-Sandbox/eyet.txt.yeet'
 [11/08/2020 09:56:01 PM] (RS) ERROR: [Errno 2] No such file or directory: '/home/cookie/Sandbox/Cookie-Sandbox/eyet.txt.yeet'
 [11/08/2020 10:04:02 PM] (RS) ERROR: name 'check' is not defined
+[12/08/2020 08:37:56 AM] (DF) ERROR: list index out of range
+[12/08/2020 08:40:19 AM] (MB) ERROR: name 'open_json' is not defined
+[12/08/2020 08:56:29 AM] (RS) ERROR: Invalid base64-encoded string: number of data characters (37) cannot be 1 more than a multiple of 4
+[12/08/2020 09:00:05 AM] (RS) ERROR: Invalid base64-encoded string: number of data characters (37) cannot be 1 more than a multiple of 4

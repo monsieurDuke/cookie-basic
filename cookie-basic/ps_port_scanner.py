@@ -47,6 +47,7 @@ class PortScanner:
             try:
                 print('Ports\t: %s ports are open, %s not shown\n' % (port_list, str((1000-port_list))))
                 logs.write('Ports\t: %s ports are open, %s not shown\n' % (port_list, str((1000-port_list))))
+                logs.write('------------------------------------------------\n')
                 print('   PORTS   STAT\t SERVICE\t  VERSION DETAIL')
                 logs.write('   PORTS   STAT\t SERVICE\t  VERSION DETAIL\n')
                 print('   -----   ----\t -------\t  --------------')

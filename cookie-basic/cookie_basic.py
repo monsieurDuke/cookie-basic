@@ -154,6 +154,7 @@ class CookieBasic:
 
 if __name__ == "__main__":
 	obj = CookieBasic()
+	#os.chdir('cookie-basic')
 	while 1 > 0:
 		#rows, columns = os.popen('stty size', 'r').read().split()
 		dir_manda = ['log','cipher','conf','container','sandbox','test-repos','wordlist-master']
@@ -162,6 +163,7 @@ if __name__ == "__main__":
 		for i in range(len(dir_manda)):
 			dir_check[i] = path.exists(dir_manda[i])
 			if dir_check[i] == False:
+				#print(dir_manda[i])
 				dir_fin = False
 				break
 		if dir_fin == True:

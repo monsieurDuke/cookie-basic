@@ -145,8 +145,6 @@ class MailBomber:
                 time.sleep(0.06)
             print()
             session.quit()
-            open_json.close()
-
             frmt_query = '{:.3f}'.format(time.time() - go_time)
             print('\n%s have been bombed successfully, %s out of %s' % (self.clr(receiver_address,'g'), self.clr((counter-1),'y'), self.clr(total_mail,'c')))
             print("Consider to take a break to avoid any refused or blocked connection from google smtp server")
