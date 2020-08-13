@@ -6,4 +6,4 @@ pytest
 pytest-cov
 coveralls
 pycryptodome
-mmh3
+#mmh3
