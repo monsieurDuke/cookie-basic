@@ -100,3 +100,4 @@
 [12/08/2020 08:56:29 AM] (RS) ERROR: Invalid base64-encoded string: number of data characters (37) cannot be 1 more than a multiple of 4
 [12/08/2020 09:00:05 AM] (RS) ERROR: Invalid base64-encoded string: number of data characters (37) cannot be 1 more than a multiple of 4
 [12/08/2020 10:46:43 AM] (DF) ERROR: list index out of range
+[15/08/2020 08:16:32 AM] (PS) ERROR: list index out of range

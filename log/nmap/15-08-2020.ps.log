@@ -1,0 +1,38 @@
+______________________
+15-08-2020 08:21:09 AM
+----------------------
+Host	: PC (192.168.1.3)
+Machine	: Windows Longhorn (Microsoft)
+Kernel	: ['cpe:/o:microsoft:windows']
+Ports	: 8 ports are open, 992 not shown
+------------------------------------------------
+   PORTS   STAT	 SERVICE	  VERSION DETAIL
+   -----   ----	 -------	  --------------
+|- 135     OPEN	 MSRPC          | Microsoft Windows RPC 
+|- 139     OPEN	 NETBIOS-SSN    | Microsoft Windows netbios-ssn 
+|- 443     OPEN	 HTTPS 15.5.6   | VMware Workstation SOAP API 
+|- 445     OPEN	 MICROSOFT-DS   |       
+|- 902     OPEN	 VMWARE-AUTH 1  | VMware Authentication Daemon Uses VNC,
+|- 912     OPEN	 VMWARE-AUTH 1  | VMware Authentication Daemon Uses VNC,
+|- 3306    OPEN	 MYSQL          | MySQL unauthorized
+|- 5357    OPEN	 HTTP 2.0       | Microsoft HTTPAPI httpd SSDP/UPnP
+
+______________________
+15-08-2020 09:02:03 AM
+----------------------
+Host	: PC (192.168.1.3)
+Machine	: Windows Longhorn (Microsoft)
+Kernel	: ['cpe:/o:microsoft:windows']
+Ports	: 8 ports are open, 992 not shown
+------------------------------------------------
+   PORTS   STAT	 SERVICE	  VERSION DETAIL
+   -----   ----	 -------	  --------------
+|- 135     OPEN	 MSRPC          | Microsoft Windows RPC 
+|- 139     OPEN	 NETBIOS-SSN    | Microsoft Windows netbios-ssn 
+|- 443     OPEN	 HTTPS 15.5.6   | VMware Workstation SOAP API 
+|- 445     OPEN	 MICROSOFT-DS   |       
+|- 902     OPEN	 VMWARE-AUTH 1  | VMware Authentication Daemon Uses VNC, SOAP
+|- 912     OPEN	 VMWARE-AUTH 1  | VMware Authentication Daemon Uses VNC, SOAP
+|- 3306    OPEN	 MYSQL          | MySQL unauthorized
+|- 5357    OPEN	 HTTP 2.0       | Microsoft HTTPAPI httpd SSDP/UPnP
+

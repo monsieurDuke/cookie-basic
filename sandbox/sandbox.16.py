@@ -5,6 +5,8 @@ import os
 import json
 import codecs
 import sys
+import re
+
 class ShodanSeeker:
 
 	def get_shodankey(self):
@@ -26,16 +28,15 @@ class ShodanSeeker:
 		deg = u"\N{DEGREE SIGN}"
 		dnsResolve = 'https://api.shodan.io/dns/resolve?hostnames='+target+'&key='+get_key
 
-		# First we need to resolve our targets domain to an IP
 		resolved = requests.get(dnsResolve)
 		hostIP = resolved.json()[target]
 
-		# Then we need to do a Shodan search on that IP
 		host    = api.host(hostIP, history=False)
 		result  = api.host(host['ip_str'])
 		port_countr = 0
 		vuln_countr = 0
 		tech_countr = 0
+
 		for item in host['data']:
 			port_countr += 1
 		for item in host['data'][0]['vulns']:
@@ -59,13 +60,11 @@ class ShodanSeeker:
 		except:
 			abstract_ass = None
 
-		# Print all technologies
 		print ("------------------------------------------------------------------------------\nTechnologies    [ %s ]\n------------------------------------------------------------------------------" % tech_countr)
 		print ("Backend Infras  : %s" % host['data'][0]['info'])
 		for item in host['data'][0]['http']['components']:
 			print ("| - %s (%s)" % (item, host['data'][0]['http']['components'][item]['categories'][0]))
 
-		# Print all banners
 		print ("------------------------------------------------------------------------------\nOpen Services   [ %s ]\n------------------------------------------------------------------------------" % port_countr)
 		for item in host['data']:
 			print ("Open Port\t: %s/%s" % (item['port'],str(item['transport']).upper()))
@@ -80,11 +79,16 @@ class ShodanSeeker:
 					print (ssl_ver,end=" / ")
 				print ("\nSigntr-Algo\t: %s ver %s modulus %s bit" % (item['ssl']['cert']['sig_alg'],item['ssl']['cert']['version'],item['ssl']['cert']['pubkey']['bits']))
 				print ("Subj-Issuer\t: %s, %s (%s)" % (item['ssl']['cert']['subject']['OU'],item['ssl']['cert']['subject']['O'], host['country_code']))
-				print ("Cert-Issuer\t: %s, %s (%s)" % (item['ssl']['cert']['issuer']['O'], item['ssl']['cert']['issuer']['CN'], item['ssl']['cert']['issuer']['C']))
-				print ('')
-#				print ("Banner\t\t: \n%s" % item['data'])
+				print ("Cert-Issuer\t: %s, %s (%s)\n" % (item['ssl']['cert']['issuer']['O'], item['ssl']['cert']['issuer']['CN'], item['ssl']['cert']['issuer']['C']))
 			except:
 				abstract_ass = None
+
+		print ("------------------------------------------------------------------------------\nDomain Banner\n------------------------------------------------------------------------------")
+#		for i in host['data'][0]['data']:
+#			print ('|- %s' % i)
+		banner = host['data'][0]['data']
+		banner = banner.strip()
+		print (banner)
 
 	    # Print vuln information
 		parag = True
@@ -105,7 +109,6 @@ class ShodanSeeker:
 		print ("Initiate shodan API query for %s ..." % target)
 		#self.shodan_hash(target)
 		self.shodan_search(target)
-		print ("\n")
 
 ## main
 obj = ShodanSeeker()
