@@ -62,6 +62,8 @@ class ShodanSeeker:
 		for i in range(10):
 			try:
 				print ("\n------------------------------------------------------------------------------\nDomain Profile\n------------------------------------------------------------------------------")
+				print ("Favicon hash\t: http.favicon.hash:%s" % host['data'][i]['hash'])
+				print ("Hostname        : %s" % host['data'][i]['http']['host'])
 				print ("IP address      : %s" % host['ip_str'])
 				print ("AS number       : %s" % host['asn'])
 				print ("Organization    : %s" % host['org'])
