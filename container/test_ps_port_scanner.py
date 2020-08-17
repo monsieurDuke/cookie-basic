@@ -55,7 +55,7 @@ class PortScanner:
                 for ports in nmap_sc[host]['tcp'].keys():
                     fm_ports = '{:<6}'.format(ports)
                     product_detail = '{:<14}'.format((str(nmap_sc[host]['tcp'][ports]['name']).upper() + ' ' + str(nmap_sc[host]['tcp'][ports]['version']))[:13])
-                    version_detail = '{:<6}'.format((nmap_sc[host]['tcp'][ports]['product'] + ' ' + nmap_sc[host]['tcp'][ports]['extrainfo'])[:38])
+                    version_detail = '{:<6}'.format((nmap_sc[host]['tcp'][ports]['product'] + ' ' + nmap_sc[host]['tcp'][ports]['extrainfo']))
                     state_detail   = '{:<3}'.format(str(nmap_sc[host]['tcp'][ports]['state']).upper()[:4])
                     print('|- %s  %s\t %s | %s' % (fm_ports, state_detail, product_detail, version_detail))
                     logs.write('|- %s  %s\t %s | %s\n' % (fm_ports, state_detail, product_detail, version_detail))

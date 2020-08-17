@@ -13,6 +13,7 @@ from sf_subnet_finder import SubnetFinder
 from df_datagen_faker import DataFaker
 from mb_mail_bomber import MailBomber
 from rs_ciphergen_rsa import CipherRSA
+from ss_shodan_seeker import ShodanSeeker
 
 class CookieBasic:
 
@@ -98,6 +99,7 @@ class CookieBasic:
 		data_faker = DataFaker()
 		mail_bomb  = MailBomber()
 		cipher_rsa = CipherRSA()
+		shodan_skr = ShodanSeeker()
 
 		rows      = 49
 		columns   = 109
@@ -143,6 +145,11 @@ class CookieBasic:
 			print(line_u+'\n')
 			cipher_rsa.cipher_gen_rsa_proc()
 			print(line_u+'\n')
+		elif key == 'SS':
+			print(line_u+'\n')
+			shodan_skr.shodan_seeker_proc()
+			print(line_u+'\n')
+
 
 	def main_method(self):
 		checker = 'false'

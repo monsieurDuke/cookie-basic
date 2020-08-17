@@ -6,8 +6,25 @@ import json
 import codecs
 import sys
 import re
+import time
+import datetime
+
+from termcolor import colored
+from bug_logger import BugLogger
 
 class ShodanSeeker:
+
+	def clr(self, letter, color):
+		if color == 'g':
+			color = 'green'
+		if color == 'c':
+			color = 'cyan'
+		if color == 'y':
+			color = 'yellow'
+		if color == 'm':
+			color = 'magenta'
+		letter = colored(letter, color, attrs=['bold'])
+		return letter	
 
 	def get_shodankey(self):
 		with open(str(os.getcwd())+"/../conf/shodan_api.json","r") as f:
@@ -158,10 +175,14 @@ class ShodanSeeker:
 			abstract_ass = None
 
 	def shodan_seeker_proc(self):
-		target = input("Target domain\t: ")
-		print ("Initiate shodan API query for %s ..." % target)
-		#self.shodan_hash(target)
-		self.shodan_search(target)
+		bug_logger = BugLogger()
+		target = input(self.clr("Target domain\t: ",'c'))
+		try:
+			print ("Initiate shodan API query for %s ..." % target)
+			self.shodan_hash(target)
+			self.shodan_search(target)
+		except:
+			bug_logger.bug_logger_proc('SS')
 
 ## main
 obj = ShodanSeeker()

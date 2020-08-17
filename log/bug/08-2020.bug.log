@@ -101,3 +101,14 @@
 [12/08/2020 09:00:05 AM] (RS) ERROR: Invalid base64-encoded string: number of data characters (37) cannot be 1 more than a multiple of 4
 [12/08/2020 10:46:43 AM] (DF) ERROR: list index out of range
 [15/08/2020 08:16:32 AM] (PS) ERROR: list index out of range
+[17/08/2020 01:08:39 PM] (SS) ERROR: [Errno 2] No such file or directory: '/home/cookie/gitrepo/cookie-basicconf/shodan_api.json'
+[17/08/2020 01:08:39 PM] (SS) ERROR: can only concatenate str (not "NoneType") to str
+[17/08/2020 01:10:06 PM] (SS) ERROR: can only join an iterable
+[17/08/2020 01:12:43 PM] (SS) ERROR: can only join an iterable
+[17/08/2020 01:37:22 PM] (SS) ERROR: not all arguments converted during string formatting
+[17/08/2020 01:39:44 PM] (SS) ERROR: not all arguments converted during string formatting
+[17/08/2020 01:42:16 PM] (SS) ERROR: can only concatenate str (not "int") to str
+[17/08/2020 04:20:33 PM] (SS) ERROR: can only join an iterable
+[17/08/2020 10:59:27 PM] (SS) ERROR: Expecting value: line 1 column 1 (char 0)
+[17/08/2020 11:00:16 PM] (SS) ERROR: Expecting value: line 1 column 1 (char 0)
+[17/08/2020 11:04:54 PM] (SS) ERROR: can only join an iterable
