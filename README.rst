@@ -497,3 +497,8 @@ Credits
 
 .. |github_lang| image:: https://github-readme-stats.vercel.app/api/top-langs/?username=hotpotcookie&layout=compact&hide_title=true
     :target: https://github.com/anuraghazra/github-readme-stats
+
+
+.. image:: https://api.codacy.com/project/badge/Grade/06dee91c09ae40cfad65f4b133fc3da2
+   :alt: Codacy Badge
+   :target: https://app.codacy.com/manual/hotpotcookie/cookie-basic?utm_source=github.com&utm_medium=referral&utm_content=hotpotcookie/cookie-basic&utm_campaign=Badge_Grade_Dashboard
