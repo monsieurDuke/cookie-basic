@@ -1,0 +1,31 @@
+______________________
+18-08-2020 01:03:22 PM
+----------------------
+Target domain   : pnj.ac.id
+-----------------
+Domain Profile
+-----------------
+Profile hash    : [-1817071039]
+IP address      : 103.36.14.58
+AS number       : AS133364
+Domain regist   : []
+Organization    : Politeknik Negeri Jakarta
+IS provider     : Politeknik Negeri Jakarta
+Origin domain   : Jawa Barat, Indonesia (ID)
+Origin coordnt  : 106.8286° x -6.175°
+| - Timestamp   : 2020-08-15T09:37:52.267088 (8080)
+| - Timestamp   : 2020-08-08T23:33:25.532104 (8848)
+| - Timestamp   : 2020-08-02T11:47:05.273599 (80)
+| - Timestamp   : 2020-07-22T07:45:33.241748 (443)
+-----------------
+Technologies
+-----------------
+Backend Infras  : (CentOS) OpenSSL/1.0.2k-fips PHP/7.2.33
+| - jQuery ([])
+| - Bootstrap ([])
+| - Font Awesome ([])
+| - Lightbox ([])
+| - Modernizr ([])
+| - OWL Carousel ([])
+| - jQuery Migrate ([])
+| - animate.css ([])
