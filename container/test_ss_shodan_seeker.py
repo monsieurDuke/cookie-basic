@@ -55,6 +55,8 @@ class ShodanSeeker:
 		bug_logger = BugLogger()		
 		curdate = datetime.datetime.now()
 		fldate   = curdate.strftime('%d-%m-%Y')		
+		gettime  = curdate.strftime('%I:%M:%S %p')
+		str_time = fldate+' '+gettime		
 		columns  = 109
 		rows     = 49
 		line_und = ['-']*(int(columns))
@@ -83,19 +85,19 @@ class ShodanSeeker:
 			#print (str_target)
 			#pnjacid.10-08-2020.shodan.log						
 			logs = open(str(os.getcwd())+'/log/shodan/'+str_target+'.'+fldate+'.shodan.log', "w+")
-			logs.write(str_target+'\n')
-			logs.close()
-
+			logs.write('______________________\n'+str_time+'\n----------------------\n')			
+			logs.write("Target domain   : "+target+'\n')
 			try:
 				for item in host['data']:
 					port_countr += 1
 			except:
 				abstract_ass = None
-			try:
-				for item in host['data'][0]['vulns']:
-					vuln_countr += 1
-			except:
-				abstract_ass = None
+			for i in range(10):
+				try:
+					for item in host['data'][i]['vulns']:
+						vuln_countr += 1
+				except:
+					abstract_ass = None
 			for i in range(10):
 				try:
 					for item in host['data'][i]['http']['components']:
@@ -116,7 +118,15 @@ class ShodanSeeker:
 					print ("Domain regist   : %s" % host['domains'])					
 					print ("Organization    : %s" % host['org'])
 					print ("ISP source      : %s" % host['isp'])
+					logs.write('-----------------\nDomain Profile\n-----------------\n')
+					logs.write("Profile hash    : %s\n" % target_hash)
+					logs.write("IP address      : %s\n" % host['ip_str'])
+					logs.write("AS number       : %s\n" % host['asn'])
+					logs.write("Domain regist   : %s\n" % host['domains'])					
+					logs.write("Organization    : %s\n" % host['org'])
+					logs.write("IS provider     : %s\n" % host['isp'])		
 					break
+					## sampai disini			
 				except:
 					abstract_ass = None
 
@@ -125,27 +135,32 @@ class ShodanSeeker:
 				for i in range(10):
 					try:
 						print ("Origin domain   : %s, %s (%s)" % (host['data'][i]['ssl']['cert']['subject']['ST'], host['country_name'], host['country_code']))
+						logs.write("Origin domain   : %s, %s (%s)\n" % (host['data'][i]['ssl']['cert']['subject']['ST'], host['country_name'], host['country_code']))						
 						city_check = True						
 					except:
 						abstract_ass = None
 				if city_check == False:
-					print ("Origin domain   : %s (%s)" % (host['country_name'], host['country_code']))											
+					print ("Origin domain   : %s (%s)" % (host['country_name'], host['country_code']))
+					logs.write("Origin domain   : %s (%s)\n" % (host['country_name'], host['country_code']))																
 				print ("Origin coordnt  : %s x %s" % (str(host['longitude'])+deg, str(host['latitude'])+deg))					
+				logs.write("Origin coordnt  : %s x %s\n" % (str(host['longitude'])+deg, str(host['latitude'])+deg))									
 			except:
 				abstract_ass = None
 
 			for i in range(10):
 				try:
-					print ("Last timestamp  : %s" % host['data'][i]['timestamp'])
-					break
+					print ("| - Timestamp   : %s (%s)" % (host['data'][i]['timestamp'],host['data'][i]['port']))					
+					logs.write("| - Timestamp   : %s (%s)\n" % (host['data'][i]['timestamp'],host['data'][i]['port']))										
 				except:
 					abstract_ass = None
 
 			print (line_u+"\n"+self.clr('Technologies    : [ '+str(tech_countr)+' ]','g')+"\n"+line_u)
+			logs.write('-----------------\nTechnologies\n-----------------\n')			
 			for i in range(10):
 				try:
 					backend = "Backend Infras  : " + str(host['data'][i]['info'])
 					print (backend)
+					logs.write(backend+'\n')
 					break
 				except:
 					abstract_ass = None
@@ -153,49 +168,61 @@ class ShodanSeeker:
 				try:
 					for item in host['data'][i]['http']['components']:
 						print ("| - %s (%s)" % (item, host['data'][i]['http']['components'][item]['categories']))
+						logs.write("| - %s (%s)\n" % (item, host['data'][i]['http']['components'][item]['categories']))						
 						tech_check = True
 					if tech_check:
 						break
 				except:
 					abstract_ass = None
-
 			try:
 				print (line_u+"\n"+self.clr('Open Services   : [ '+str(port_countr)+' ]','g')+"\n"+line_u)
+				logs.write('-----------------\nOpen Services\n-----------------\n')							
 				port_det = ""
 				for item in host['data']:
 					try:
 						print ("Open Port\t: %s/%s (%s %s)" % (item['port'],str(item['transport']).upper(),item['product'],item['version']))
+						logs.write("Open Port\t: %s/%s (%s %s)\n" % (item['port'],str(item['transport']).upper(),item['product'],item['version']))						
 					except:
 						try:
 							print ("Open Port\t: %s/%s (%s)" % (item['port'],str(item['transport']).upper(),item['product']))
+							logs.write("Open Port\t: %s/%s (%s)\n" % (item['port'],str(item['transport']).upper(),item['product']))							
 						except:
 							try:
 								print ("Open Port\t: %s/%s" % (item['port'],str(item['transport']).upper()))
+								logs.write("Open Port\t: %s/%s\n" % (item['port'],str(item['transport']).upper()))								
 							except:
 								abstract_ass = None
 					try:
 						try:
 							print ("| - Fingerprint\t: %s in %s" % (item['ssl']['dhparams']['fingerprint'], item['ssl']['dhparams']['bits']))
+							logs.write("| - Fingerprint\t: %s in %s\n" % (item['ssl']['dhparams']['fingerprint'], item['ssl']['dhparams']['bits']))							
 						except:
 							abstract_ass = None
 						for ssl_ver in item['ssl']['versions']:
 							port_det += str(ssl_ver) + " / "
+						print ("| - SSL Vers\t: %s" % port_det)							
+						logs.write("| - SSL Vers\t: %s\n" % port_det)													
 						try:
-							print ("| - Cipher\t: %s in %s bit" % (item['ssl']['cipher']['name'], item['ssl']['cipher']['bits']))
+							print ("| - Cipher-Algo\t: %s in %s bit" % (item['ssl']['cipher']['name'], item['ssl']['cipher']['bits']))
+							logs.write("| - Cipher-Algo\t: %s in %s bit\n" % (item['ssl']['cipher']['name'], item['ssl']['cipher']['bits']))							
 						except:
 							abstract_ass = None
-						print ("| - SSL Vers\t: %s" % port_det)
 						print ("| - Signtr-Algo\t: %s ver %s modulus %s bit" % (item['ssl']['cert']['sig_alg'],item['ssl']['cert']['version'],item['ssl']['cert']['pubkey']['bits']))
+						logs.write("| - Signtr-Algo\t: %s ver %s modulus %s bit\n" % (item['ssl']['cert']['sig_alg'],item['ssl']['cert']['version'],item['ssl']['cert']['pubkey']['bits']))						
 						try:
 							print ("| - Subj-Issuer\t: %s, %s (%s)" % (item['ssl']['cert']['subject']['OU'],item['ssl']['cert']['subject']['O'], host['country_code']))
+							logs.write("| - Subj-Issuer\t: %s, %s (%s)\n" % (item['ssl']['cert']['subject']['OU'],item['ssl']['cert']['subject']['O'], host['country_code']))							
 						except:	
 							abstract_ass = None							
 						print ("| - Cert-Issuer\t: %s, %s (%s)" % (item['ssl']['cert']['issuer']['O'], item['ssl']['cert']['issuer']['CN'], item['ssl']['cert']['issuer']['C']))
+						logs.write("| - Cert-Issuer\t: %s, %s (%s)\n" % (item['ssl']['cert']['issuer']['O'], item['ssl']['cert']['issuer']['CN'], item['ssl']['cert']['issuer']['C']))						
 					except:
 						abstract_ass = None
 			except:
 				abstract_ass = None
 
+
+			logs.write('-----------------\nBanner Services\n-----------------\n')	
 			for i in host['data']:
 				try:
 					banner = i['data']
@@ -204,28 +231,38 @@ class ShodanSeeker:
 					if banner != "":
 						print (line_u+"\n"+self.clr('Banner Services : [ '+str(i['port'])+'/'+str(i['transport']).upper()+' ]','g')+"\n"+line_u)
 						print (str_banner)
+						logs.write('| - '+str(i['port'])+'/'+str(i['transport'])+'\n'+str_banner+'\n')						
 				except:
 					abstract_ass = None
-
 			try:
 				end_line = False
 				parag = True
 				print (line_u+"\n"+self.clr('Vulnerabilities : [ '+str(vuln_countr)+' ]','g')+"\n"+line_u)
-				for item in host['data'][0]['vulns']:
-					if parag:
-						print ('| - [%s/10.0] %s' % (host['data'][0]['vulns'][item]['cvss'], item), end="")
-						parag = False
-						end_line = False
-						continue
-					else:
-						print ('\t| - [%s/10.0] %s' % (host['data'][0]['vulns'][item]['cvss'], item))
-						parag = True
-						end_line = True
-						continue
-				if end_line == False:
-					print ("")
+				logs.write('-----------------\nVulnerabilities\n-----------------\n')					
+				for i in range(10):		
+					try:
+						for item in host['data'][i]['vulns']:
+							if parag:
+								print ('| - [%s/10.0] %s' % (host['data'][i]['vulns'][item]['cvss'], item), end="")
+								logs.write('| - [%s/10.0] %s' % (host['data'][i]['vulns'][item]['cvss'], item))								
+								parag = False
+								end_line = False
+								continue
+							else:
+								print ('\t| - [%s/10.0] %s' % (host['data'][i]['vulns'][item]['cvss'], item))
+								logs.write('\t| - [%s/10.0] %s' % (host['data'][i]['vulns'][item]['cvss'], item))								
+								logs.write("\n")
+								parag = True
+								end_line = True
+								continue
+						if end_line == False:
+							print ("")
+						logs.write("\n")							
+					except:
+						abstract_ass = None
 			except:
 				abstract_ass = None
+			logs.close()
 			frmt_query = '{:.3f}'.format(time.time() - go_time)
 			print(self.clr('\nQuery finished successfully in','y')+' %s seconds ...' % (frmt_query))				
 		except:

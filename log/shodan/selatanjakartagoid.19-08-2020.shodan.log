@@ -1,0 +1,48 @@
+______________________
+19-08-2020 12:44:08 AM
+----------------------
+Target domain   : selatan.jakarta.go.id
+-----------------
+Domain Profile
+-----------------
+Profile hash    : [-2012985668]
+IP address      : 103.209.7.36
+AS number       : AS134659
+Domain regist   : []
+Organization    : Diskominfo DKI Jakarta
+IS provider     : Diskominfo DKI Jakarta
+Origin domain   : Indonesia (ID)
+Origin coordnt  : 106.8296° x -6.1741°
+| - Timestamp   : 2020-08-13T05:52:47.938134 (443)
+| - Timestamp   : 2020-08-07T06:58:15.770535 (8008)
+| - Timestamp   : 2020-08-03T09:14:07.492335 (80)
+-----------------
+Technologies
+-----------------
+-----------------
+Open Services
+-----------------
+Open Port	: 443/TCP
+Open Port	: 8008/TCP
+Open Port	: 80/TCP
+-----------------
+Banner Services
+-----------------
+| - 8008/tcp
+HTTP/1.1 302 Found
+Location: https://103.209.7.36:8015/
+Connection: close
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Content-Security-Policy: frame-ancestors
+| - 80/tcp
+HTTP/1.0 302 Moved Temporarily
+Location: https://103.209.7.36/
+Server: BigIP
+Connection: Keep-Alive
+Content-Length: 0
+-----------------
+Vulnerabilities
+-----------------
+

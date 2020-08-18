@@ -1,0 +1,64 @@
+______________________
+19-08-2020 12:05:35 AM
+----------------------
+Target domain   : simpus.depok.go.id
+-----------------
+Domain Profile
+-----------------
+Profile hash    : [1638206971]
+IP address      : 103.113.30.34
+AS number       : AS137340
+Domain regist   : ['depok.go.id']
+Organization    : Dinas Komunikasi dan Informatika Pemerintah Kota D
+IS provider     : Dinas Komunikasi dan Informatika Pemerintah Kota D
+Origin domain   : SomeState, Indonesia (ID)
+Origin coordnt  : 106.8286° x -6.175°
+| - Timestamp   : 2020-08-03T15:48:47.677151 (80)
+| - Timestamp   : 2020-08-01T13:46:00.229113 (443)
+-----------------
+Technologies
+-----------------
+Backend Infras  : (CentOS)
+| - jQuery ([])
+| - Font Awesome ([])
+| - Ionicons ([])
+| - jQuery UI ([])
+| - Bootstrap ([])
+| - Moment.js ([])
+-----------------
+Open Services
+-----------------
+Open Port	: 80/TCP (Apache httpd 2.2.15)
+Open Port	: 443/TCP (Apache httpd 2.2.15)
+| - Fingerprint	: RFC2409/Oakley Group 2 in 1024
+| - SSL Vers	: TLSv1 / -SSLv2 / SSLv3 / TLSv1.1 / TLSv1.2 / -TLSv1.3 / 
+| - Cipher-Algo	: ECDHE-RSA-AES256-GCM-SHA384 in 256 bit
+| - Signtr-Algo	: sha1WithRSAEncryption ver 2 modulus 1024 bit
+| - Subj-Issuer	: SomeOrganizationalUnit, SomeOrganization (ID)
+| - Cert-Issuer	: SomeOrganization, localhost.localdomain (--)
+-----------------
+Banner Services
+-----------------
+| - 80/tcp
+HTTP/1.1 302 Found
+Date: Mon, 03 Aug 2020 15:48:46 GMT
+Server: Apache/2.2.15 (CentOS)
+X-Powered-By: PHP/5.6.32
+location: https://simpus.depok.go.id/pendaftaran/web/
+Content-Length: 0
+Content-Type: text/html; charset=UTF-8
+| - 443/tcp
+HTTP/1.1 200 OK
+Date: Sat, 01 Aug 2020 13:45:59 GMT
+Server: Apache/2.2.15 (CentOS)
+X-Powered-By: PHP/5.6.32
+Set-Cookie: PHPSESSID=211muognnbl7jmco4uf5qlr3v0; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: no-cache
+Content-Length: 4271
+Content-Type: text/html; charset=UTF-8
+
+-----------------
+Vulnerabilities
+-----------------
