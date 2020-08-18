@@ -17,7 +17,7 @@ Faker is heavily inspired by `PHP Faker`_, `Perl Faker`_, and by `Ruby Faker`_.
 "   |::.. . |::.. . |::.. . |::.| .  |::.|::.. . |                              "
 "   `-------`-------`-------`--- ---'`---`-------'                              "
 
-|coverage| |coverall| |license| |python_ver| |release_ver|
+|coverage| |coverall| |codacy| |license| |python_ver| |release_ver|
 
 ----
 
@@ -497,3 +497,5 @@ Credits
 
 .. |github_lang| image:: https://github-readme-stats.vercel.app/api/top-langs/?username=hotpotcookie&layout=compact&hide_title=true
     :target: https://github.com/anuraghazra/github-readme-stats
+.. |codacy| image:: https://app.codacy.com/project/badge/Grade/38f17e48ef754fd79a7ba6c0a6b90b5b
+    :target: https://www.codacy.com/manual/hotpotcookie/cookie-basic?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hotpotcookie/cookie-basic&amp;utm_campaign=Badge_Grade)
