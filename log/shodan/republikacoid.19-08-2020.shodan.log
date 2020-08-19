@@ -1,0 +1,41 @@
+______________________
+19-08-2020 11:08:20 AM
+----------------------
+Target domain   : republika.co.id
+-----------------
+Domain Profile
+-----------------
+Profile hash    : [-2022197787]
+IP address      : 13.228.13.35
+AS number       : AS16509
+Domain regist   : ['amazonaws.com']
+Organization    : Amazon.com
+IS provider     : Amazon.com
+Origin domain   : Singapore (SG)
+Origin coordnt  : 103.8547° x 1.2929°
+| - Timestamp   : 2020-08-15T18:27:06.110821 (443)
+-----------------
+Technologies
+-----------------
+Backend Infras  : Ubuntu
+-----------------
+Open Services
+-----------------
+Open Port	: 443/TCP (nginx 1.14.0)
+| - SSL Vers	: TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / -TLSv1.3 / 
+| - Cipher-Algo	: ECDHE-RSA-AES128-GCM-SHA256 in 128 bit
+| - Signtr-Algo	: sha256WithRSAEncryption ver 2 modulus 2048 bit
+| - Cert-Issuer	: Amazon, Amazon (US)
+-----------------
+Banner Services
+-----------------
+| - 443/tcp
+HTTP/1.1 403 Forbidden
+Date: Sat, 15 Aug 2020 18:27:05 GMT
+Content-Type: text/html
+Content-Length: 580
+Connection: keep-alive
+Server: nginx/1.14.0 (Ubuntu)
+-----------------
+Vulnerabilities
+-----------------

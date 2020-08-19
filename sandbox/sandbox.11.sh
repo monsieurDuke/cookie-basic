@@ -1,3 +1,5 @@
+#!/bin/bash
+
 while getopts "d" flag; do
   case "${flag}" in
     d) destination=${OPTARG}

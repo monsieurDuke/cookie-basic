@@ -63,10 +63,10 @@ while getopts ":f:c:h" flag
 do
 	case "${flag}" in
 		f) dest_dir=${OPTARG}
-           exec_copy $dest_dir
+           exec_copy "$dest_dir"
 		   exit 0 ;;
 		c) dest_dir="$PWD/${OPTARG}"
-		   exec_copy $dest_dir
+		   exec_copy "$dest_dir"
            exit 0 ;;
 		h) printf "[backup-builder] : it backups your python files in this directory, to other desired directory\n"
 		   printf "[arguments]      : -f >> full path. require a full path to the directory / folder\n"

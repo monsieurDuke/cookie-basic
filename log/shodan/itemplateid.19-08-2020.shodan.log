@@ -1,0 +1,238 @@
+______________________
+19-08-2020 11:12:39 AM
+----------------------
+Target domain   : itemplate.id
+-----------------
+Domain Profile
+-----------------
+Profile hash    : [-411474780]
+IP address      : 185.237.144.72
+AS number       : AS47583
+Domain regist   : ['niagahoster.com']
+Organization    : Hostinger International Limited
+IS provider     : Hostinger International Limited
+Origin domain   : Germany (DE)
+Origin coordnt  : 9.491° x 51.2993°
+| - Timestamp   : 2020-08-15T07:29:20.750397 (2086)
+| - Timestamp   : 2020-08-15T02:50:31.592955 (443)
+| - Timestamp   : 2020-08-14T03:57:44.692414 (80)
+| - Timestamp   : 2020-08-13T15:11:28.263991 (2087)
+| - Timestamp   : 2020-08-13T14:15:43.957754 (995)
+| - Timestamp   : 2020-08-13T08:02:02.111747 (993)
+| - Timestamp   : 2020-08-13T07:15:45.783936 (2077)
+| - Timestamp   : 2020-08-12T04:58:01.806412 (3306)
+| - Timestamp   : 2020-08-09T01:29:49.928390 (2083)
+| - Timestamp   : 2020-08-08T23:04:57.768440 (465)
+-----------------
+Technologies
+-----------------
+-----------------
+Open Services
+-----------------
+Open Port	: 2086/TCP
+Open Port	: 443/TCP (LiteSpeed httpd)
+| - SSL Vers	: TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / TLSv1.3 / 
+| - Cipher-Algo	: ECDHE-RSA-AES128-GCM-SHA256 in 128 bit
+| - Signtr-Algo	: sha256WithRSAEncryption ver 2 modulus 2048 bit
+| - Cert-Issuer	: cPanel, Inc., cPanel, Inc. Certification Authority (US)
+Open Port	: 80/TCP (LiteSpeed httpd)
+Open Port	: 2087/TCP
+| - SSL Vers	: TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / TLSv1.3 / -TLSv1 / -SSLv2 / -SSLv3 / -TLSv1.1 / TLSv1.2 / 
+| - Cipher-Algo	: ECDHE-RSA-AES128-GCM-SHA256 in 128 bit
+| - Signtr-Algo	: sha256WithRSAEncryption ver 2 modulus 2048 bit
+| - Cert-Issuer	: cPanel, Inc., cPanel, Inc. Certification Authority (US)
+Open Port	: 995/TCP
+| - SSL Vers	: TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / TLSv1.3 / -TLSv1 / -SSLv2 / -SSLv3 / -TLSv1.1 / TLSv1.2 / TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / 
+| - Cipher-Algo	: ECDHE-RSA-AES256-GCM-SHA384 in 256 bit
+| - Signtr-Algo	: sha256WithRSAEncryption ver 2 modulus 2048 bit
+| - Cert-Issuer	: cPanel, Inc., cPanel, Inc. Certification Authority (US)
+Open Port	: 993/TCP
+| - SSL Vers	: TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / TLSv1.3 / -TLSv1 / -SSLv2 / -SSLv3 / -TLSv1.1 / TLSv1.2 / TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / 
+| - Cipher-Algo	: ECDHE-RSA-AES256-GCM-SHA384 in 256 bit
+| - Signtr-Algo	: sha256WithRSAEncryption ver 2 modulus 2048 bit
+| - Cert-Issuer	: cPanel, Inc., cPanel, Inc. Certification Authority (US)
+Open Port	: 2077/TCP
+Open Port	: 3306/TCP (MySQL 5.5.5-10.3.23-MariaDB)
+Open Port	: 2083/TCP
+| - SSL Vers	: TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / TLSv1.3 / -TLSv1 / -SSLv2 / -SSLv3 / -TLSv1.1 / TLSv1.2 / TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / -TLSv1 / -SSLv2 / -SSLv3 / -TLSv1.1 / TLSv1.2 / 
+| - Cipher-Algo	: ECDHE-RSA-AES128-GCM-SHA256 in 128 bit
+| - Signtr-Algo	: sha256WithRSAEncryption ver 2 modulus 2048 bit
+| - Cert-Issuer	: cPanel, Inc., cPanel, Inc. Certification Authority (US)
+Open Port	: 465/TCP (Exim smtpd 4.93)
+| - Fingerprint	: RFC5114/2048-bit MODP Group with 224-bit Prime Order Subgroup in 2048
+| - SSL Vers	: TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / TLSv1.3 / -TLSv1 / -SSLv2 / -SSLv3 / -TLSv1.1 / TLSv1.2 / TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / -TLSv1 / -SSLv2 / -SSLv3 / -TLSv1.1 / TLSv1.2 / TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / 
+| - Cipher-Algo	: ECDHE-RSA-AES256-GCM-SHA384 in 256 bit
+| - Signtr-Algo	: sha256WithRSAEncryption ver 2 modulus 2048 bit
+| - Cert-Issuer	: cPanel, Inc., cPanel, Inc. Certification Authority (US)
+Open Port	: 2082/TCP
+Open Port	: 110/TCP
+| - SSL Vers	: TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / TLSv1.3 / -TLSv1 / -SSLv2 / -SSLv3 / -TLSv1.1 / TLSv1.2 / TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / -TLSv1 / -SSLv2 / -SSLv3 / -TLSv1.1 / TLSv1.2 / TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / 
+| - Cipher-Algo	: ECDHE-RSA-AES256-GCM-SHA384 in 256 bit
+| - Signtr-Algo	: sha256WithRSAEncryption ver 2 modulus 2048 bit
+| - Cert-Issuer	: cPanel, Inc., cPanel, Inc. Certification Authority (US)
+-----------------
+Banner Services
+-----------------
+| - 2086/tcp
+HTTP/1.1 200 OK
+Connection: close
+Content-Type: text/html; charset="utf-8"
+Date: Sat, 15 Aug 2020 07:29:20 GMT
+Cache-Control: no-cache, no-store, must-revalidate, private
+Pragma: no-cache
+Set-Cookie: whostmgrrelogin=no; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2086
+Set-Cookie: whostmgrsession=%3a_To4ABU7inkA5rtW%2c76716a2362e19e8961b59feca1e01859; HttpOnly; path=/; port=2086
+Set-Cookie: roundcube_sessid=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2086
+Set-Cookie: roundcube_sessauth=expired; HttpOnly; domain=185.237.144.72; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2086
+Set-Cookie: Horde=expired; HttpOnly; domain=.185.237.144.72; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2086
+Set-Cookie: horde_secret_key=expired; HttpOnly; domain=.185.237.144.72; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2086
+Set-Cookie: Horde=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2086
+Set-Cookie: Horde=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/horde; port=2086
+Set-Cookie: PPA_ID=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2086
+Set-Cookie: imp_key=expired; HttpOnly; domain=185.237.144.72; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2086
+Cache-Control: no-cache, no-store, must-revalidate, private
+Content-Length: 37891
+| - 443/tcp
+HTTP/1.1 302 Found
+Connection: Keep-Alive
+Content-Type: text/html
+Content-Length: 682
+Date: Sat, 15 Aug 2020 02:50:31 GMT
+Server: LiteSpeed
+Cache-Control: no-cache, no-store, must-revalidate, max-age=0
+Location: https://ups-error.com
+Vary: User-Agent
+Alt-Svc: quic=":443"; ma=2592000; v="43,46", h3-Q043=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-25=":443"; ma=2592000, h3-27=":443"; ma=2592000
+| - 80/tcp
+HTTP/1.1 302 Found
+Connection: Keep-Alive
+Content-Type: text/html
+Content-Length: 682
+Date: Fri, 14 Aug 2020 03:57:44 GMT
+Server: LiteSpeed
+Cache-Control: no-cache, no-store, must-revalidate, max-age=0
+Location: https://ups-error.com
+Vary: User-Agent
+| - 2087/tcp
+HTTP/1.1 200 OK
+Connection: close
+Content-Type: text/html; charset="utf-8"
+Date: Thu, 13 Aug 2020 15:11:27 GMT
+Cache-Control: no-cache, no-store, must-revalidate, private
+Pragma: no-cache
+Set-Cookie: whostmgrrelogin=no; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2087; secure
+Set-Cookie: whostmgrsession=%3aHO4FBRp5YousoXG7%2ce4995cda2241c21428a8dc9ec01fa312; HttpOnly; path=/; port=2087; secure
+Set-Cookie: roundcube_sessid=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2087; secure
+Set-Cookie: roundcube_sessauth=expired; HttpOnly; domain=185.237.144.72; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2087; secure
+Set-Cookie: Horde=expired; HttpOnly; domain=.185.237.144.72; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2087; secure
+Set-Cookie: horde_secret_key=expired; HttpOnly; domain=.185.237.144.72; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2087; secure
+Set-Cookie: Horde=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2087; secure
+Set-Cookie: Horde=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/horde; port=2087; secure
+Set-Cookie: PPA_ID=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2087; secure
+Set-Cookie: imp_key=expired; HttpOnly; domain=185.237.144.72; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2087; secure
+Set-Cookie: Horde=expired; HttpOnly; domain=.185.237.144.72; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2087
+Set-Cookie: horde_secret_key=expired; HttpOnly; domain=.185.237.144.72; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2087
+Cache-Control: no-cache, no-store, must-revalidate, private
+Content-Length: 37891
+| - 995/tcp
++OK Dovecot ready.
++OK
+CAPA
+TOP
+UIDL
+RESP-CODES
+PIPELINING
+AUTH-RESP-CODE
+USER
+SASL PLAIN LOGIN
+.
+| - 993/tcp
+* OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE NAMESPACE LITERAL+ AUTH=PLAIN AUTH=LOGIN] Dovecot ready.
+* CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE NAMESPACE LITERAL+ AUTH=PLAIN AUTH=LOGIN
+A001 OK Pre-login capabilities listed, post-login capabilities have more.
+* ID ("name" "Dovecot")
+A002 OK ID completed.
+A003 BAD Error in IMAP command received by server.
+* BYE Logging out
+A004 OK Logout completed.
+| - 2077/tcp
+HTTP/1.1 401 Unauthorized
+Date: Thu, 13 Aug 2020 07:15:45 GMT
+Server: cPanel
+Persistent-Auth: false
+Host: 185.237.144.72:2077
+Cache-Control: no-cache, no-store, must-revalidate, private
+Connection: close
+Vary: Accept-Encoding
+WWW-Authenticate: Basic realm="Restricted Area"
+Content-Length: 35
+Content-Type: text/html; charset="utf-8"
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+| - 3306/tcp
+5.5.5-10.3.23-MariaDB
+| - 2083/tcp
+HTTP/1.1 200 OK
+Connection: close
+Content-Type: text/html; charset="utf-8"
+Date: Sun, 09 Aug 2020 01:29:49 GMT
+Cache-Control: no-cache, no-store, must-revalidate, private
+Pragma: no-cache
+Set-Cookie: cprelogin=no; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2083; secure
+Set-Cookie: cpsession=%3aTobfNv8g90suA9xC%2cfe061868fdae58b8023c1b1122155c53; HttpOnly; path=/; port=2083; secure
+Set-Cookie: roundcube_sessid=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2083; secure
+Set-Cookie: roundcube_sessauth=expired; HttpOnly; domain=185.237.144.72; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2083; secure
+Set-Cookie: Horde=expired; HttpOnly; domain=.185.237.144.72; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2083; secure
+Set-Cookie: horde_secret_key=expired; HttpOnly; domain=.185.237.144.72; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2083; secure
+Set-Cookie: Horde=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2083; secure
+Set-Cookie: Horde=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/horde; port=2083; secure
+Set-Cookie: PPA_ID=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2083; secure
+Set-Cookie: imp_key=expired; HttpOnly; domain=185.237.144.72; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2083; secure
+Set-Cookie: Horde=expired; HttpOnly; domain=.185.237.144.72; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2083
+Set-Cookie: horde_secret_key=expired; HttpOnly; domain=.185.237.144.72; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2083
+Cache-Control: no-cache, no-store, must-revalidate, private
+Content-Length: 37909
+| - 465/tcp
+220-srv79.niagahoster.com ESMTP Exim 4.93 #2 Sun, 09 Aug 2020 06:04:35 +0700 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+250-srv79.niagahoster.com Hello 229.102.11.246 [229.102.11.246]
+250-SIZE 31457280
+250-8BITMIME
+250-PIPELINING
+250-AUTH PLAIN LOGIN
+250 HELP
+| - 2082/tcp
+HTTP/1.1 200 OK
+Connection: close
+Content-Type: text/html; charset="utf-8"
+Date: Tue, 28 Jul 2020 12:19:09 GMT
+Cache-Control: no-cache, no-store, must-revalidate, private
+Pragma: no-cache
+Set-Cookie: cprelogin=no; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2082
+Set-Cookie: cpsession=%3awHLOhttAaunGWX55%2c4a9873fdd37a9034c58a4692ea2e6fc3; HttpOnly; path=/; port=2082
+Set-Cookie: roundcube_sessid=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2082
+Set-Cookie: roundcube_sessauth=expired; HttpOnly; domain=185.237.144.72; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2082
+Set-Cookie: Horde=expired; HttpOnly; domain=.185.237.144.72; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2082
+Set-Cookie: horde_secret_key=expired; HttpOnly; domain=.185.237.144.72; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2082
+Set-Cookie: Horde=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2082
+Set-Cookie: Horde=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/horde; port=2082
+Set-Cookie: PPA_ID=expired; HttpOnly; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2082
+Set-Cookie: imp_key=expired; HttpOnly; domain=185.237.144.72; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; port=2082
+Cache-Control: no-cache, no-store, must-revalidate, private
+Content-Length: 37909
+| - 110/tcp
++OK Dovecot ready.
++OK
+CAPA
+TOP
+UIDL
+RESP-CODES
+PIPELINING
+AUTH-RESP-CODE
+STLS
+USER
+SASL PLAIN LOGIN
+.
+-----------------
+Vulnerabilities
+-----------------
