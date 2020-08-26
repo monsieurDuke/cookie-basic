@@ -1,0 +1,116 @@
+______________________
+23-08-2020 09:42:00 PM
+----------------------
+Target domain   : 1010dry.id
+-----------------
+Domain Profile
+-----------------
+Profile hash    : [1520817769]
+IP address      : 117.53.47.3
+AS number       : AS58397
+Domain regist   : []
+Organization    : PT Infinys System Indonesia
+IS provider     : PT Infinys System Indonesia
+Origin domain   : Indonesia (ID)
+Origin coordnt  : 106.8286° x -6.175°
+| - Timestamp   : 2020-08-18T23:58:55.052489 (80)
+| - Timestamp   : 2020-08-13T01:14:16.491963 (443)
+| - Timestamp   : 2020-08-10T19:06:31.966024 (22)
+-----------------
+Technologies
+-----------------
+Backend Infras  : Ubuntu
+| - jQuery ([])
+| - Bootstrap ([])
+| - jQuery UI ([])
+| - Modernizr ([])
+| - GSAP ([])
+| - OWL Carousel ([])
+| - Google Font API ([])
+-----------------
+Open Services
+-----------------
+Open Port	: 80/TCP (nginx 1.14.0)
+Open Port	: 443/TCP (nginx 1.14.0)
+| - SSL Vers	: TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / -TLSv1.3 / 
+| - Cipher-Algo	: ECDHE-RSA-AES128-GCM-SHA256 in 128 bit
+| - Signtr-Algo	: sha256WithRSAEncryption ver 2 modulus 2048 bit
+| - Cert-Issuer	: Let's Encrypt, Let's Encrypt Authority X3 (US)
+Open Port	: 22/TCP (OpenSSH 7.6p1 Ubuntu-4ubuntu0.3)
+-----------------
+Banner Services
+-----------------
+| - 80/tcp
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Tue, 18 Aug 2020 23:58:54 GMT
+Content-Type: text/html
+Content-Length: 612
+Last-Modified: Thu, 02 Jul 2020 01:35:12 GMT
+Connection: keep-alive
+ETag: "5efd39d0-264"
+Accept-Ranges: bytes
+| - 443/tcp
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Thu, 13 Aug 2020 01:14:15 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 40959
+Connection: keep-alive
+Vary: Cookie
+Set-Cookie: session=eyJjc3JmX3Rva2VuIjoiYTEzMzMxN2NkOTMzNTY0N2ZjMmU0NmU5MDQxZjQ0ZThmMGM0ODMxNSJ9.EhYlZw.7HKOlJBnamT9vZM3t7kqt4ANurk; HttpOnly; Path=/
+| - 22/tcp
+SSH-2.0-OpenSSH_7.6p1 Ubuntu-4ubuntu0.3
+Key type: ssh-rsa
+Key: AAAAB3NzaC1yc2EAAAADAQABAAABAQDpd9xlLTQCGhYX3+crOiXKdVtq60itxT+gnx6oIZJ7uYPa
+CZnevdFEQC+7dSlkg7gjRNOvAdOByW+yAvdt1VklQ66w+5WBH4ufOxRiKUpZdCbLgqCPJQga/M17
++h2r/tfi6tsnUYbKm+NlvZp74oWqMQO+trSCmKm1CRoCr1GZWcysjo4F90QZ9khwWd/GBB4MZK8A
+jBpr7P9j0v8dzHsKpoURVvd6Aq3deNJTVyJjcLXtZHnPE+QspM6X6uvY7WQ+Fwni8Q3AKoF+836o
+iJAp6p9FGiyV81KEKDMBEWonUnIV8idj0ALnJg5S52cPu6r1j2e2MxsHCt73SiByC23X
+Fingerprint: 76:dd:37:6c:62:11:e5:93:f3:8f:7d:84:0c:5a:ec:5a
+
+Kex Algorithms:
+	curve25519-sha256
+	curve25519-sha256@libssh.org
+	ecdh-sha2-nistp256
+	ecdh-sha2-nistp384
+	ecdh-sha2-nistp521
+	diffie-hellman-group-exchange-sha256
+	diffie-hellman-group16-sha512
+	diffie-hellman-group18-sha512
+	diffie-hellman-group14-sha256
+	diffie-hellman-group14-sha1
+
+Server Host Key Algorithms:
+	ssh-rsa
+	rsa-sha2-512
+	rsa-sha2-256
+	ecdsa-sha2-nistp256
+	ssh-ed25519
+
+Encryption Algorithms:
+	chacha20-poly1305@openssh.com
+	aes128-ctr
+	aes192-ctr
+	aes256-ctr
+	aes128-gcm@openssh.com
+	aes256-gcm@openssh.com
+
+MAC Algorithms:
+	umac-64-etm@openssh.com
+	umac-128-etm@openssh.com
+	hmac-sha2-256-etm@openssh.com
+	hmac-sha2-512-etm@openssh.com
+	hmac-sha1-etm@openssh.com
+	umac-64@openssh.com
+	umac-128@openssh.com
+	hmac-sha2-256
+	hmac-sha2-512
+	hmac-sha1
+
+Compression Algorithms:
+	none
+	zlib@openssh.com
+-----------------
+Vulnerabilities
+-----------------
