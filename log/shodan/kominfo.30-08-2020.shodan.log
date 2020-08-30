@@ -1,0 +1,91 @@
+______________________
+30-08-2020 08:19:32 AM
+----------------------
+Target domain   : komin.fo
+-----------------
+Domain Profile
+-----------------
+Profile hash    : [51320174]
+IP address      : 202.89.117.234
+AS number       : AS45320
+Domain regist   : []
+Organization    : Departemen Komunikasi dan Informasi Republik Indon
+IS provider     : Departemen Komunikasi dan Informasi Republik Indon
+Origin domain   : Indonesia (ID)
+Origin coordnt  : 106.8286° x -6.175°
+| - Timestamp   : 2020-08-27T10:00:56.661364 (2000)
+| - Timestamp   : 2020-08-24T15:29:26.494223 (443)
+| - Timestamp   : 2020-08-19T13:40:29.518127 (80)
+-----------------
+Technologies
+-----------------
+Backend Infras  : (centos) OpenSSL/1.1.1c
+| - jQuery ([])
+| - Bootstrap ([])
+| - Font Awesome ([])
+| - AngularJS ([])
+-----------------
+Open Services
+-----------------
+Open Port	: 2000/TCP
+Open Port	: 443/TCP (Apache httpd 2.4.37)
+| - Fingerprint	: RFC3526/Oakley Group 14 in 2048
+| - SSL Vers	: -TLSv1 / -SSLv2 / -SSLv3 / -TLSv1.1 / TLSv1.2 / TLSv1.3 / 
+| - Cipher-Algo	: ECDHE-RSA-AES256-GCM-SHA384 in 256 bit
+| - Signtr-Algo	: sha256WithRSAEncryption ver 2 modulus 2048 bit
+| - Cert-Issuer	: Let's Encrypt, Let's Encrypt Authority X3 (US)
+Open Port	: 80/TCP (Apache httpd 2.4.37)
+-----------------
+Banner Services
+-----------------
+| - 443/tcp
+HTTP/1.1 200 OK
+Date: Mon, 24 Aug 2020 15:27:53 GMT
+Server: Apache/2.4.37 (centos) OpenSSL/1.1.1c
+X-Powered-By: PHP/7.2.11
+Cache-Control: no-cache
+Set-Cookie: XSRF-TOKEN=eyJpdiI6IjRHeDhxeGJtN3VlNyswWllIKzV0XC9RPT0iLCJ2YWx1ZSI6ImU2YlwvZW10MzNmUXdQdGloK25OSVZKTW1JYmo1QlwvUXl5cUxaRWRpZUtoalEzZTd0RWtEWmJQeHhxTmRraWxLWGR6TEVSXC9lMzZ6bEJIVWNKQUdMZUVnPT0iLCJtYWMiOiJjYmUzYWQ1YTZkY2NmYmMzZTBmMmU2ZWVhMjAzOTA2OGRiYWUwYTRjZGU0NjQwZTIyYTc3MzcyMmQ3NmRmNmEwIn0%3D; expires=Mon, 24-Aug-2020 17:27:53 GMT; Max-Age=7200; path=/
+Set-Cookie: laravel_session=eyJpdiI6IkJyUFVBS0tCbGJZQThCR0V2NDBTdlE9PSIsInZhbHVlIjoiY0lQbVNMNEN0Z00rMlIwVVwvem9meGZZRms0VTkrNHJ4N1FNXC9obHBSNjV5dWtpMUVHUzNqSDgxWXU4TXhQekMxcE9ZQ3ZnRVBDdWdWRUJsWTBISXp5Zz09IiwibWFjIjoiMzUxZTVjNDhhNmZjNGJjZTdkYzU5OGFhNzI3MzA4MDNmODMyNDk2YmUyYzg3NmE5NWEyNDU1YmZmZGEyYjY2NyJ9; expires=Mon, 24-Aug-2020 17:27:53 GMT; Max-Age=7200; path=/; HttpOnly
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+| - 80/tcp
+HTTP/1.1 200 OK
+Date: Wed, 19 Aug 2020 13:40:29 GMT
+Server: Apache/2.4.37 (centos) OpenSSL/1.1.1c
+X-Powered-By: PHP/7.2.11
+Cache-Control: no-cache
+Set-Cookie: XSRF-TOKEN=eyJpdiI6ImhmSndsUkNQOGw0U08zaHV0K2g2cFE9PSIsInZhbHVlIjoiY1FXRVloUlZ6Y25STzhZaEFYQXA2ZGdrZDJpXC9TRllwVXYrWmNJSzF1cFQyYzRnQ0h1blNkSFJaVFo4cUFja2lZYkxGVGhLV1NxdEp5dFcyWGMxYVpRPT0iLCJtYWMiOiI2ZTFjNmIxNTU4YjE0MmMxY2M3YzMxODAwNTJhNjM1ODkwNjZkYTA4N2Y5OWE3MDMzZjg0YTJhNGE5MWFmOThhIn0%3D; expires=Wed, 19-Aug-2020 15:40:29 GMT; Max-Age=7200; path=/
+Set-Cookie: laravel_session=eyJpdiI6IkZZaHVXK0NOTlYrZXRMVnNSZnYyclE9PSIsInZhbHVlIjoiQjhmdDl1QWdHWGVaQUthcFBYXC9Eb3MrTUtWMEJPSlRvOUltVGtCaG5tUmhqSVMzUFJMbDFnVFBOY05KbHJjTGZjSFdtaDNmczJtVTJwTHduTlRNbFB3PT0iLCJtYWMiOiJiNzQ4YjNlZmRkNDZkOTFkZDhkNjQ1ZGUxNDhiOTIzZWE5MjBiMjRiODRhZmU1NWMwZmEyZGJmYTcyMjk3YWM0In0%3D; expires=Wed, 19-Aug-2020 15:40:29 GMT; Max-Age=7200; path=/; HttpOnly
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+-----------------
+Vulnerabilities
+-----------------
+| - [5.0/10.0] CVE-2019-0196	| - [5.0/10.0] CVE-2018-17189
+| - [7.5/10.0] CVE-2019-9641	| - [5.0/10.0] CVE-2018-19935
+| - [4.9/10.0] CVE-2019-0197	| - [6.0/10.0] CVE-2019-0215
+| - [5.0/10.0] CVE-2019-0190	| - [7.2/10.0] CVE-2019-0211
+| - [5.0/10.0] CVE-2019-9639	| - [5.0/10.0] CVE-2019-9638
+| - [5.0/10.0] CVE-2019-9637	| - [6.4/10.0] CVE-2019-11040
+| - [5.0/10.0] CVE-2018-17199	| - [5.0/10.0] CVE-2018-20783
+| - [6.4/10.0] CVE-2019-11039	| - [5.0/10.0] CVE-2019-11038
+| - [5.0/10.0] CVE-2019-0220	| - [6.4/10.0] CVE-2019-11036
+| - [6.4/10.0] CVE-2019-11035	| - [6.4/10.0] CVE-2019-11034
+| - [5.0/10.0] CVE-2019-9022	| - [7.5/10.0] CVE-2019-9023
+| - [7.5/10.0] CVE-2019-9020	| - [7.5/10.0] CVE-2019-9021
+| - [5.0/10.0] CVE-2019-9024	| - [5.0/10.0] CVE-2019-9640
+
+| - [5.0/10.0] CVE-2019-0196	| - [5.0/10.0] CVE-2018-17189
+| - [7.5/10.0] CVE-2019-9641	| - [5.0/10.0] CVE-2018-19935
+| - [4.9/10.0] CVE-2019-0197	| - [6.0/10.0] CVE-2019-0215
+| - [5.0/10.0] CVE-2019-0190	| - [7.2/10.0] CVE-2019-0211
+| - [5.0/10.0] CVE-2019-9639	| - [5.0/10.0] CVE-2019-9638
+| - [5.0/10.0] CVE-2019-9637	| - [6.4/10.0] CVE-2019-11040
+| - [5.0/10.0] CVE-2018-17199	| - [5.0/10.0] CVE-2018-20783
+| - [6.4/10.0] CVE-2019-11039	| - [5.0/10.0] CVE-2019-11038
+| - [5.0/10.0] CVE-2019-0220	| - [6.4/10.0] CVE-2019-11036
+| - [6.4/10.0] CVE-2019-11035	| - [6.4/10.0] CVE-2019-11034
+| - [5.0/10.0] CVE-2019-9022	| - [7.5/10.0] CVE-2019-9023
+| - [7.5/10.0] CVE-2019-9020	| - [7.5/10.0] CVE-2019-9021
+| - [5.0/10.0] CVE-2019-9024	| - [5.0/10.0] CVE-2019-9640
+
