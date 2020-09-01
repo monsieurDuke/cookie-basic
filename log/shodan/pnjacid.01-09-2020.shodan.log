@@ -1,0 +1,92 @@
+______________________
+01-09-2020 09:30:20 AM
+----------------------
+Target domain   : pnj.ac.id
+-----------------
+Domain Profile
+-----------------
+Profile hash    : [-1305022214]
+IP address      : 103.36.14.58
+AS number       : AS133364
+Domain regist   : []
+Organization    : Politeknik Negeri Jakarta
+IS provider     : Politeknik Negeri Jakarta
+Origin domain   : Jawa Barat, Indonesia (ID)
+Origin coordnt  : 106.8286° x -6.175°
+| - Timestamp   : 2020-08-30T17:02:28.774438 (8080)
+| - Timestamp   : 2020-08-28T22:14:18.801826 (443)
+| - Timestamp   : 2020-08-28T04:02:49.871309 (80)
+| - Timestamp   : 2020-08-08T23:33:25.532104 (8848)
+-----------------
+Technologies
+-----------------
+Backend Infras  : (CentOS) OpenSSL/1.0.2k-fips PHP/7.2.33
+| - jQuery ([])
+| - Bootstrap ([])
+| - Font Awesome ([])
+| - Lightbox ([])
+| - Modernizr ([])
+| - OWL Carousel ([])
+| - jQuery Migrate ([])
+| - animate.css ([])
+-----------------
+Open Services
+-----------------
+Open Port	: 8080/TCP (Apache httpd 2.4.6)
+Open Port	: 443/TCP (Node.js)
+| - SSL Vers	: TLSv1 / -SSLv2 / -SSLv3 / TLSv1.1 / TLSv1.2 / -TLSv1.3 / 
+| - Cipher-Algo	: ECDHE-RSA-AES128-GCM-SHA256 in 128 bit
+| - Signtr-Algo	: sha256WithRSAEncryption ver 2 modulus 2048 bit
+| - Subj-Issuer	: Pusat Data dan Teknologi Informasi, Politeknik Negeri Jakarta (ID)
+| - Cert-Issuer	: DigiCert Inc, GeoTrust RSA CA 2018 (US)
+Open Port	: 80/TCP
+Open Port	: 8848/TCP
+-----------------
+Banner Services
+-----------------
+| - 8080/tcp
+HTTP/1.1 301 Moved Permanently
+Date: Sun, 30 Aug 2020 16:59:00 GMT
+Server: Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/7.2.33
+Location: https://pnj.ac.id:8848/
+Content-Length: 231
+Content-Type: text/html; charset=iso-8859-1
+| - 443/tcp
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/html; charset=utf-8
+Content-Length: 33445
+ETag: W/"82a5-L1kWK90O1VqxfwK9ATdA8UoYX6M"
+Date: Fri, 28 Aug 2020 22:10:51 GMT
+Connection: keep-alive
+| - 80/tcp
+HTTP/1.1 302 Found
+X-Powered-By: Express
+Location: https:103.36.14.58/
+Vary: Accept
+Content-Type: text/html; charset=utf-8
+Content-Length: 82
+Date: Fri, 28 Aug 2020 03:59:22 GMT
+Connection: keep-alive
+-----------------
+Vulnerabilities
+-----------------
+| - [5.0/10.0] CVE-2019-0220	| - [4.3/10.0] CVE-2014-0117
+| - [4.3/10.0] CVE-2014-0118	| - [5.0/10.0] CVE-2016-0736
+| - [4.3/10.0] CVE-2015-3185	| - [5.0/10.0] CVE-2015-3184
+| - [6.8/10.0] CVE-2018-1312	| - [5.0/10.0] CVE-2014-0098
+| - [1.9/10.0] CVE-2018-5407	| - [4.0/10.0] CVE-2017-3736
+| - [4.3/10.0] CVE-2017-3737	| - [6.8/10.0] CVE-2014-0226
+| - [5.0/10.0] CVE-2017-3735	| - [4.3/10.0] CVE-2017-3738
+| - [5.0/10.0] CVE-2014-3523	| - [5.0/10.0] CVE-2017-15710
+| - [6.8/10.0] CVE-2017-15715	| - [5.0/10.0] CVE-2013-6438
+| - [7.5/10.0] CVE-2017-7679	| - [4.3/10.0] CVE-2018-0737
+| - [4.3/10.0] CVE-2018-0734	| - [5.0/10.0] CVE-2018-0732
+| - [5.0/10.0] CVE-2018-17199	| - [6.4/10.0] CVE-2017-9788
+| - [4.3/10.0] CVE-2018-0739	| - [4.3/10.0] CVE-2014-8109
+| - [5.0/10.0] CVE-2017-9798	| - [5.0/10.0] CVE-2016-2161
+| - [3.3/10.0] CVE-2016-8612	| - [1.9/10.0] CVE-2019-1552
+| - [5.0/10.0] CVE-2014-0231	| - [4.3/10.0] CVE-2013-4352
+| - [4.3/10.0] CVE-2019-1559	| - [4.3/10.0] CVE-2016-4975
+| - [3.5/10.0] CVE-2018-1283	| - [5.0/10.0] CVE-2016-8743
+
