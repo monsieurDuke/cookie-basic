@@ -1,0 +1,55 @@
+______________________
+02-09-2020 09:09:42 PM
+----------------------
+Target domain   : roadmap.sh
+-----------------
+Domain Profile
+-----------------
+Profile hash    : [1203494767]
+IP address      : 185.199.111.153
+AS number       : AS54113
+Domain regist   : []
+Organization    : Fastly
+IS provider     : Fastly
+Origin domain   : United States (US)
+Origin coordnt  : -118.244° x 34.0544°
+| - Timestamp   : 2020-09-02T14:09:13.177453 (80)
+| - Timestamp   : 2020-09-02T13:53:31.683789 (443)
+-----------------
+Technologies
+-----------------
+| - jQuery ([])
+-----------------
+Open Services
+-----------------
+Open Port	: 80/TCP
+Open Port	: 443/TCP
+-----------------
+Banner Services
+-----------------
+| - 80/tcp
+HTTP/1.1 200 OK
+Server: GitHub.com
+Content-Type: text/html; charset=utf-8
+Last-Modified: Tue, 27 Nov 2018 13:13:12 GMT
+ETag: "5bfd42e8-1aec"
+Access-Control-Allow-Origin: *
+Expires: Wed, 02 Sep 2020 08:04:57 GMT
+Cache-Control: max-age=600
+X-Proxy-Cache: MISS
+X-GitHub-Request-Id: 660E:48B1:39D952:41C30B:5F4F4FD1
+Content-Length: 6892
+Accept-Ranges: bytes
+Date: Wed, 02 Sep 2020 14:09:09 GMT
+Via: 1.1 varnish
+Age: 0
+Connection: keep-alive
+X-Served-By: cache-lax8649-LAX
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1599055750.715352,VS0,VE114
+Vary: Accept-Encoding
+X-Fastly-Request-ID: fae936ab74b23df876bddf2f88b71ba05606914a
+-----------------
+Vulnerabilities
+-----------------
