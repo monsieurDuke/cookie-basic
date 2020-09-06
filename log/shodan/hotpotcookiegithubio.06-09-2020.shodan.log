@@ -1,0 +1,50 @@
+______________________
+06-09-2020 11:43:21 AM
+----------------------
+Target domain   : hotpotcookie.github.io
+-----------------
+Domain Profile
+-----------------
+Profile hash    : [1920503104]
+IP address      : 185.199.111.153
+AS number       : AS54113
+Domain regist   : []
+Organization    : Fastly
+IS provider     : Fastly
+Origin domain   : United States (US)
+Origin coordnt  : -118.244° x 34.0544°
+| - Timestamp   : 2020-09-06T04:08:55.969106 (443)
+| - Timestamp   : 2020-09-05T18:47:01.708861 (80)
+-----------------
+Technologies
+-----------------
+-----------------
+Open Services
+-----------------
+Open Port	: 443/TCP
+Open Port	: 80/TCP
+-----------------
+Banner Services
+-----------------
+| - 80/tcp
+HTTP/1.1 404 Not Found
+Server: GitHub.com
+Content-Type: text/html; charset=utf-8
+ETag: "5c1d1070-239b"
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'
+X-GitHub-Request-Id: 57FE:3B40:12602:1C0D9:5F53D691
+Content-Length: 9115
+Accept-Ranges: bytes
+Date: Sat, 05 Sep 2020 18:47:01 GMT
+Via: 1.1 varnish
+Age: 1684
+Connection: keep-alive
+X-Served-By: cache-lax8633-LAX
+X-Cache: HIT
+X-Cache-Hits: 1
+X-Timer: S1599331622.666328,VS0,VE1
+Vary: Accept-Encoding
+X-Fastly-Request-ID: eae1f758a09d469e57685d7d668982563709d45f
+-----------------
+Vulnerabilities
+-----------------
