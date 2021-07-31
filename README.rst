@@ -1,10 +1,3 @@
-*Cookie Basic* is a Python package that generates fake data for you. Whether
-you need to bootstrap your database, create good-looking XML documents,
-fill-in your persistence to stress test it, or anonymize data taken from
-a production service, Faker is for you.
-
-Faker is heavily inspired by `PHP Faker`_, `Perl Faker`_, and by `Ruby Faker`_.
-
 ----
 
 ::
